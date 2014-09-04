@@ -1,0 +1,11 @@
+tmp/
+*.tmp
+*.bak
+*.swp
+*.log
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+/common/libs/auth.php
