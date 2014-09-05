@@ -1,0 +1,34 @@
+a,a:visited{color:#109f08}
+h1,h2,h3,h4{color:#000}
+html,body{background-color:#F1F1EC}
+#content,header,footer{background-color:transparent;color:#333}
+body{background-color:#f8f8f6;color:#333}
+header{border-bottom:1px solid #109f08}
+a.button,nav a,a#button_menu,.buttons a,ul.account-select li a{color:#fff}
+ul.account-select li a,ul.themes li a{color:#000;background-color:transparent;border:1px solid #dbdbcf}
+ul.account-select li a:hover,ul.account-select li a:focus,ul.account-select li a:active,ul.themes li a:hover,ul.themes li a:focus,ul.themes li a:active{border:1px solid #c5c5b2}
+ul.task-multiple li{border-top:1px solid #e2e2d9}
+ul.task li span.task-name{color:#000}
+ul.project-single ul.task li span.task-name{color:#666}
+ul.task li span.task-due{color:#999}
+ul.task li span.task-location{color:#999}
+ul.task li.overdue .task-due{color:#f5130d}
+ul.task li.today .task-due{color:#ea4101}
+ul.task li.tomorrow .task-due{color:#cbb205}
+ul.task li.thisweek .task-due{color:#5e5e5e}
+ul.comments > li{background-color:#e2e2d9}
+ul.comments li .comment-author{color:#888}
+ul.comments li .comment-content,ul.comments li .comment-content div,ul.comments li .comment-content p,ul.comments li .comment-content li{color:#333}
+ul.screenshots li{border:4px solid #fff;box-shadow:0 0 10px #999;-moz-box-shadow:0 0 10px #999;-webkit-box-shadow:0 0 10px #999;-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')"}
+ul.screenshots li:hover,ul.screenshots li:focus{border-color:#ccc}
+form p.buttons input,a.button{color:#fff;background-color:#0d7f07;border-color:#0a5f05}
+form p.buttons input:hover,form p.buttons input:active,form p.buttons input:focus,a.button:focus,a.button:hover{text-decoration:none;background-color:#0a5e05}
+form p.buttons a.remove{color:#0F8F07}
+form .text{color:#333;border:1px solid #999}
+.stats-value{color:#0D7F07}
+footer a,footer a:visited{color:#000}
+form p.buttons input,a.button{border:1px solid #0d7f07 !important;color:#109f08;background-color:transparent}
+#container header nav h1 a,#container header nav ul li a,#container header nav.empty h1{color:#109f08 !important}
+#container header h1 a:active,#container header h1 a:focus,#container header h1 a:hover,#container header nav ul li a:active,#container header nav ul li a:focus,#container header nav ul li a:hover,form p.buttons input:active,form p.buttons input:hover,form p.buttons input:focus,a.button:active,a.button:focus,a.button:hover{background-color:transparent !important;color:#0b6e06 !important}
+ul.task-multiple li,form .text,form select{border-color:#dbdbcf}
+ul.comments > li{background-color:transparent;border:1px solid #dbdbcf}
