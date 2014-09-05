@@ -1,4 +1,5 @@
 # Allow URL rewrites
+Options +FollowSymLinks
 RewriteEngine on
 
 # Remove "www."
@@ -16,8 +17,8 @@ Redirect 301 /apple-touch-icon.png http://upcomingtasks.com/images/logo-114.png
 Redirect 301 /apple-touch-icon-precomposed.png http://upcomingtasks.com/images/logo-114.png
 Redirect 301 /pages/help.php http://upcomingtasks.com/pages/more.php
 Redirect 301 /pages/stats.php http://upcomingtasks.com/pages/more.php
-Redirect 301 /readme.md https://github.com/brendanmurty/upcomingtasks/blob/master/readme.md
-Redirect 301 /license.md https://github.com/brendanmurty/upcomingtasks/blob/master/license.md
+RewriteRule ^readme.md https://github.com/brendanmurty/upcomingtasks/blob/master/readme.md [R=301,L]
+RewriteRule ^license.md https://github.com/brendanmurty/upcomingtasks/blob/master/license.md [R=301,L]
 
 # Error pages
 ErrorDocument 403 /common/403.php
