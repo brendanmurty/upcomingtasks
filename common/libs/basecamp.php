@@ -253,7 +253,7 @@ function bc_results_main($api_url='',$token='',$account=''){
 			CURLOPT_URL => $api_url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HTTPHEADER => array('Content-type: application/json','Authorization: Bearer '.$token),
-			CURLOPT_USERAGENT => 'UpcomingTasks (brendan@brendanmurty.com)'
+			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent']
 		);
 		curl_setopt_array($ch,$options);
 		$results=curl_exec($ch);		
@@ -412,8 +412,6 @@ function bc_task_format($project_id,$list_id,$task_id,$task_name,$task_location=
 				$date.='tomorrow';
 			}elseif($date_data>1&&$date_data<8){
 				$date.='on '.date('l',strtotime($task_due));
-			/*}elseif($date_data>=8&&$date_data<15){
-				$date.='next '.date('l',strtotime($task_due));*/
 			}elseif($date_data>=8&&$date_data<22){
 				$date.='in '.$date_diff.' day';
 				if($date_diff!=1){ $date.='s'; }
@@ -441,8 +439,7 @@ function bc_task_format($project_id,$list_id,$task_id,$task_name,$task_location=
 		$class.='noduedate';
 	}
 	
-	$task_name=htmlspecialchars_decode($task_name);// Transform '&amp;' to '&'
-
+	$task_name=htmlspecialchars_decode($task_name);
 	if($mode=='page'){$r.='<ul class="task task-single">';}
 	$r.='<li';
 	if($class!=''){$r.=' class="'.$class.'"';}
@@ -544,7 +541,6 @@ function bc_tasks_progress(){
 	for($i=0;$i<$count;$i++){
 		if(is_array($results)){
 			if(array_key_exists($i,$results)){
-				//print_r($results[$i]);
 				$location=$results[$i]['bucket']['name'];
 				$summary=ucfirst($results[$i]['summary']);
 				$url=($results[$i]['url'])?$results[$i]['url']:'';
@@ -625,7 +621,7 @@ function bc_user_id($bc_token,$bc_account){
 			CURLOPT_URL => $url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HTTPHEADER => array('Content-type: application/json','Authorization: Bearer '.$bc_token),
-			CURLOPT_USERAGENT => 'UpcomingTasks (brendan@brendanmurty.com)'
+			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent']
 		);
 		curl_setopt_array($ch,$options);
 		$result=json_decode(curl_exec($ch),'true');

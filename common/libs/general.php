@@ -78,29 +78,10 @@ function input_clean($input_string,$option=''){
 function is_dev(){
 	$isdev=false;
 	$ip=$_SERVER['REMOTE_ADDR'];
-	if($ip=='110.175.3.31'){
-		$isdev=true;
-	}elseif(isset($_GET['dev'])){
+	if(isset($_GET['dev'])){
 		if($_GET['dev']=='1'){ $isdev=true; }
 	}
 	return $isdev;
-}
-
-// is_brendan - Check if a user ID is Brendan Murty's
-function is_brendan($bc_id=''){
-	$isbrendan=false;
-	if($bc_id!=''){
-		if($bc_id=='5837729' || $bc_id=='2367352'){
-			$isbrendan=true;
-		}
-	}else{
-		if(user_exists()){
-			if($_COOKIE['bc_id']=='5837729' || $_COOKIE['bc_id']=='2367352'){
-				$isbrendan=true;
-			}
-		}
-	}
-	return $isbrendan;
 }
 
 // is_mobile - Check if this device is a mobile
@@ -148,7 +129,6 @@ function loading_temp(){
 function navigation($current_page,$option=''){
 	$hm='<li id="action-home"><a href="/pages/home.php">'.icon('home','Home').'</a></li>';
 	$def='<li id="action-newtask"><a id="button_new" href="/pages/newtask.php">'.icon('plus','New Task').'</a></li>';
-	//$def.='<li id="action-alltasks"><a href="/pages/tasks.php">'.icon('list-ul','All Tasks').'</a></li>';
 	$def.='<li id="action-projects"><a href="/pages/projects.php">'.icon('folder-close','Projects').'</a></li>';
 	$def.='<li id="action-progress"><a href="/pages/progress.php">'.icon('tasks','Progress').'</a></li>';
 	$def.='<li id="action-account"><a href="/pages/account.php?mode=options">'.icon('cog','Settings').'</a></li>';
