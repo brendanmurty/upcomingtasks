@@ -3,7 +3,9 @@ UpcomingTasks
 
 ## About ##
 
-[UpcomingTasks](http://upcomingtasks.com) is a free responsive web client for [Basecamp](http://basecamp.com), coded in [Sublime Text](http://www.sublimetext.com) using the [Basecamp API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
+[UpcomingTasks](http://upcomingtasks.com) is a free web-based [Basecamp](https://basecamp.com/) client I created in some [spare time](http://www.solutionsoutsourced.com.au/blog/n/tinker-time-produces-a-new-app-upcomingtasks-121017) to easily manage tasks on smaller devices.
+
+It was created in [Sublime Text](http://www.sublimetext.com) using the [Basecamp API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
 
 ## Why ##
 
