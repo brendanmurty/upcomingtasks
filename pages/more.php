@@ -8,8 +8,8 @@ include_once $root_path.'/common/layout-header.php';
 <h2>Tools</h2>
 <ul class="tools">
 	<li><a href="/pages/addtohome.php">Add to home screen</a></li>
-	<li><a href="mailto:hello@upcomingtasks.com?subject=UpcomingTasks%20Help">Ask for help</a></li>
-	<li><a href="mailto:hello@upcomingtasks.com?subject=UpcomingTasks%20Feedback">Send feedback</a></li>
+	<li><a href="https://twitter.com/upcomingtasks">Ask for help</a></li>
+	<li><a href="https://github.com/brendanmurty/upcomingtasks/issues/new?assignee=brendanmurty">Send feedback</a></li>
 	<li><a href="https://twitter.com/share?text=Check out @UpcomingTasks, the simplified way to manage your Basecamp tasks when you're away from your computer -&amp;url=https://upcomingtasks.com">Share on Twitter</a></li>
 	<li><a href="/pages/donate.php">Donate to support development</a></li>
 </ul>
