@@ -32,6 +32,7 @@ if(isset($_GET['theme']) && $_GET['theme']!=''){// Overwrite if requested in qst
 		$theme_selected=$theme_requested;
 	}
 }
+$page_class+=' theme_'.$theme_selected;
 
 // Create the robots meta content
 $meta_robots='index,follow';
@@ -66,7 +67,7 @@ if(!isset($app_info)){
 <meta name="handheldfriendly" content="true">
 <meta name="mobileoptimized" content="480">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<meta name="application-name" content="UpcomingTasks"/> 
+<meta name="application-name" content="UpcomingTasks"/>
 <meta name="msapplication-TileColor" content="#12AF09"/>
 <meta name="msapplication-TileImage" content="/images/logo-144-clear.png"/>
 <meta name="msapplication-starturl" content="/pages/home.php" />
