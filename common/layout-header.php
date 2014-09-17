@@ -32,7 +32,7 @@ if(isset($_GET['theme']) && $_GET['theme']!=''){// Overwrite if requested in qst
 		$theme_selected=$theme_requested;
 	}
 }
-$page_class+=' theme_'.$theme_selected;
+$page_class.=' theme_'.$theme_selected;
 
 // Create the robots meta content
 $meta_robots='index,follow';
