@@ -93,11 +93,11 @@ div.share,div.donate{margin:15px 0 0;clear:both}
 .page_home div.share,.page_home div.donate{font-size:15px}
 .page_extras div.share{margin:0;clear:none;display:inline}
 nav{padding:0;margin:0;float:left;width:100%}
+nav .icon{margin:0;text-align:center;width:auto;float:left}
 nav ul{width:100%;margin:0 0 0 5px;padding:0;clear:both;float:left}
 nav ul li{list-style:none outside none;margin:0 30px 0 0;padding:0;clear:none;float:left}
 nav ul li:last-child{margin-right:0}
 nav ul li a{text-align:center;padding:12px 7px 13px;float:left}
-nav ul li a .icon{margin:0;text-align:center;width:auto}
 nav ul li:first-child a{padding-left:0}
 .page_home header nav li#action-home,.page_projects header nav li#action-projects,.page_newtask header nav li#action-newtask,.page_home header nav li#action-home,.page_progress header nav li#action-progress,.page_account header nav li#action-account,.page_more header nav li#action-more{display:none}
 header nav ul li a{color:#fff !important;font-size:40px}
