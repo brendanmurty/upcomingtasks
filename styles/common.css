@@ -211,7 +211,8 @@ body.page_image{background-color:#1f1f1f !important}
 body.page_image h1{color:#fff !important}
 body.page_image a{text-decoration:underline !important}
 ul.screenshots{margin:20px 0 5px;padding:0;float:left;clear:both;width:100%}
-ul.screenshots li{list-style:none outside none;float:left;margin:0 15px 15px 0;padding:0;width:80px;height:80px;overflow:hidden}
+ul.screenshots li{list-style:none outside none;float:left;margin:0 5px 5px 0;padding:0;width:100px;height:100px;overflow:hidden;border:2px solid #fff;box-shadow:0 0 5px #999;-moz-box-shadow:0 0 5px #999;-webkit-box-shadow:0 0 5px #999;-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')"}
+ul.screenshots li:hover,ul.screenshots li:focus{border-color:#ccc}
 ul.screenshots li img{margin:0 0 0 -5px}
 ul.screenshots li a{border:none}
 #container header{padding:0;width:100%}
@@ -249,8 +250,6 @@ body.page_addtohome_wp #instructions strong{color:#fff}
 header nav ul li a{font-size:40px}
 #content{padding:3% 4% 0;width:92%}
 nav ul{margin:0}
-ul.screenshots{margin:20px 0}
-ul.screenshots li{margin:0 15px 15px 0 !important}
 ul.task li a,ul.project > li a{padding:3% 0}
 ul.comments > li{width:96%;padding:2%}
 ul.account-select li a,ul.themes li a{padding:3% 4%;width:92%}
@@ -272,8 +271,6 @@ form select#date_day{clear:none}
 body{background-color:#fff !important}
 #content{padding:3% 3% 0;width:94%}
 nav ul{margin:0}
-ul.screenshots{margin:20px 0}
-ul.screenshots li{margin:0 15px 15px 0 !important}
 ul.task li .task-details p{width:520px}
 ul.task li a,ul.project > li a{padding:3% 0}
 ul.comments > li{width:96%;padding:2%}

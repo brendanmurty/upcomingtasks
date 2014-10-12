@@ -22,8 +22,6 @@ ul.task li.thisweek .task-due{color:#5e5e5e}
 ul.comments > li{background-color:#e2e2d9}
 ul.comments li .comment-author{color:#000}
 ul.comments li .comment-content,ul.comments li .comment-content div,ul.comments li .comment-content p,ul.comments li .comment-content li{color:#333}
-ul.screenshots li{border:4px solid #fff;box-shadow:0 0 10px #999;-moz-box-shadow:0 0 10px #999;-webkit-box-shadow:0 0 10px #999;-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')"}
-ul.screenshots li:hover,ul.screenshots li:focus{border-color:#ccc}
 form p.buttons input,a.button{color:#fff;background-color:#a20025;border-color:#80001d}
 form p.buttons input:hover,form p.buttons input:active,form p.buttons input:focus,a.button:focus,a.button:hover{text-decoration:none;background-color:#80001d}
 form p.buttons a.remove{color:#a20025}
