@@ -100,8 +100,8 @@ function list_screenshots(){
 	$top = dirname(dirname(dirname(__FILE__)));
 	$folder = '/images/screenshots/';
 	$return = '';
-	if($folder = opendir($top.$folder)){
-		while(($file = readdir($top.$folder)) !== false){
+	if($path = opendir($top.$folder)){
+		while(($file = readdir($path)) !== false){
 			if($file != '.' && $file != '..'){
 				$return .= '<li><a href="/pages/image.php?path='.$folder.$file.'"><img src="'.$folder.'thumbnails/'.$file.'" alt="'.$file.'" title="View image: '.$file.'" /></a></li>';
 			}
