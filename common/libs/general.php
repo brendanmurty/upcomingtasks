@@ -137,14 +137,12 @@ function navigation($current_page,$option=''){
 	}
 	if($current_page=='home'){
 		$current_page='UpcomingTasks';
-	}elseif($current_page=='stats'){
-		$current_page='UpcomingTasks Stats';
 	}elseif($current_page=='account'){
-		$current_page='UpcomingTasks Settings';
+		$current_page='Settings';
 	}elseif($current_page=='newtask'){
 		$current_page='New Task';
 	}elseif($current_page=='donate'){
-		$current_page='Donate to UpcomingTasks';
+		$current_page='Donate';
 	}elseif($current_page=='donated'){
 		$current_page='Thanks!';
 	}elseif($current_page=='addtohome'){
