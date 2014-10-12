@@ -13,7 +13,7 @@ include_once 'libs/database.php';
 // Setup common variables
 $app_name='UpcomingTasks';
 $app_info='UpcomingTasks is the simplified way to manage your Basecamp tasks when you\'re away from your computer.';
-$app_welcome='Quickly manage your projects and tasks, view progress and select a theme that suits your mood. <em>Free for all</em> Basecamp and Basecamp Personal accounts.';
+$app_welcome='Quickly manage your projects and tasks, view progress and select a theme that suits your mood. Free for all Basecamp and Basecamp Personal accounts.';
 $link_share='';
 $link_donate='';
 
