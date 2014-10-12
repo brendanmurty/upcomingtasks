@@ -212,7 +212,6 @@ body.page_image h1{color:#fff !important}
 body.page_image a{text-decoration:underline !important}
 ul.screenshots{margin:20px 0 5px;padding:0;float:left;clear:both;width:100%}
 ul.screenshots li{list-style:none outside none;float:left;margin:0 15px 15px 0;padding:0;width:80px;height:80px;overflow:hidden}
-ul.screenshots li:nth-child(3n+3){margin-right:0}
 ul.screenshots li img{margin:0 0 0 -5px}
 ul.screenshots li a{border:none}
 #container header{padding:0;width:100%}

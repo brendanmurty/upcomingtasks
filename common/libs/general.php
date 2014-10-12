@@ -99,12 +99,9 @@ function is_mobile(){
 function list_screenshots(){
 	$return = '';
 	$folder = dirname(dirname(dirname(__FILE__))).'/images/screenshots/';
-	if($folder = opendir($folder)){
-    	while(($file = readdir($folder)) !== false){
-			if($file != '.' && $file != '..' && $file != 'thumbnails'){
-				$return .= '<li><a href="/pages/image.php?path=/images/screenshots/'.$file.'"><img src="/images/screenshots/thumbnails/'.$file.'" alt="'.$file.'" title="View image: '.$file.'" /></a></li>';
-			}
-		}
+	$files = array_diff(scandir($folder), array('.', '..', 'thumbnails'));
+	foreach($files as $num => $file){
+		$return .= '<li><a href="/pages/image.php?path=/images/screenshots/'.$file.'"><img src="/images/screenshots/thumbnails/'.$file.'" alt="'.$file.'" title="View image: '.$file.'" /></a></li>';
 	}
 	if($return){
 		return '<ul class="screenshots">'.$return.'</ul>';
