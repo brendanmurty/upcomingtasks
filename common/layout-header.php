@@ -4,7 +4,7 @@ $root_path = dirname(dirname(__FILE__));
 include_once $root_path.'/common/initialise.php';
 
 // Import update dates (added as a query string on the inserts)
-$date_update_css = "20141012g";
+$date_update_css = "20141012h";
 $date_update_js  = "20130903a";
 
 // Extract the current page's name
