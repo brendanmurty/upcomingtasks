@@ -84,17 +84,6 @@ function is_dev(){
 	return $isdev;
 }
 
-// is_mobile - Check if this device is a mobile
-function is_mobile(){
-	$mobiles='mobile,android,blackberry,iemobile,kindle,midp,opera m,palm,wap,xda,symbian,windows ce,windows phone';
-	$agent=strtolower($_SERVER['HTTP_USER_AGENT']);
-	foreach(explode(',',$mobiles) as $mobile){
-		if(strpos($agent,$mobile)!==false){
-			return true;
-		}
-	}
-}
-
 // list_screenshots - List the app screenshots (thumbnails should be 150px square and stored in a "thumbnails" subfolder)
 function list_screenshots(){
 	$return = '';
