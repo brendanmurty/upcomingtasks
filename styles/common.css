@@ -94,8 +94,6 @@ div.share,div.donate{margin:15px 0 0;clear:both}
 .page_extras div.share{margin:0;clear:none;display:inline}
 nav{padding:0;margin:0;float:left;width:100%}
 nav .icon{margin:0;text-align:center;width:auto;float:left}
-nav.empty h1{height:50px;line-height:50px}
-nav.empty .icon{line-height:50px;margin-right:10px}
 nav ul{width:100%;margin:0 0 0 5px;padding:0;clear:both;float:left}
 nav ul li{list-style:none outside none;margin:0 30px 0 0;padding:0;clear:none;float:left}
 nav ul li:last-child{margin-right:0}
@@ -221,7 +219,8 @@ ul.screenshots li a{border:none}
 #container header nav{display:block}
 #container header nav ul,#container header nav li,#container header nav a{width:100%}
 #container header nav a,#container header nav.empty h1{width:92%;padding:2.5% 4%;text-align:left;font:400 25px/30px "Source Sans Pro","Segoe WP",Arial,sans-serif}
-#container header nav.empty h1{padding-bottom:4%}
+#container header nav.empty h1{height:50px;line-height:50px}
+#container header nav.empty .icon{line-height:50px;margin-right:10px}
 #container header nav a{color:#eee !important}
 #container header nav .user a{margin-top:10px}
 #container header nav h1{color:#fff !important;margin:0;line-height:30px}
