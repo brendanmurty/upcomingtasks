@@ -6,6 +6,7 @@ $screenshots=list_screenshots();
 ?>
 <div id="welcome">
 	<p><?= $app_info ?></p>
+	<p><?= $app_welcome ?></p>
 	<?= $screenshots ?>
 	<a class="button login" href="/pages/login.php">Login via basecamp.com</a>
 </div>

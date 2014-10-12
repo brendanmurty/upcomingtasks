@@ -95,18 +95,19 @@ function is_mobile(){
 	}
 }
 
-// list_screenshots - List the app screenshots
+// list_screenshots - List the app screenshots (thumbnails should be 150px square and stored in a "thumbnails" subfolder)
 function list_screenshots(){
-	$folder=dirname(dirname(dirname(__FILE__))).'/images/screenshots/';
-	$return='';
-	if($folder=opendir($folder)){
-		while(($file=readdir($folder))!==false){
-			if($file!='.' && $file!='..'){
-				$return.='<li><a href="/pages/image.php?path=/images/screenshots/'.$file.'"><img src="/common/thumb.php?img=/images/screenshots/'.$file.'&amp;mw=150&amp;mh=150" alt="Image: '.$file.'" /></a></li>';
+	$root_path = dirname(dirname(dirname(__FILE__)));
+	$folder = '/images/screenshots/';
+	$return = '';
+	if($folder = opendir($root_path.$folder)){
+		while(($file = readdir($root_path.$folder)) !== false){
+			if($file != '.' && $file != '..'){
+				$return .= '<li><a href="/pages/image.php?path='.$folder.$file.'"><img src="'.$folder.'thumbnails/'.$file.'" alt="'.$file.'" title="View image: '.$file.'" /></a></li>';
 			}
 		}
 	}
-	if($return!=''){ return '<ul class="screenshots">'.$return.'</ul>'; }
+	if($return != ''){ return '<ul class="screenshots">'.$return.'</ul>'; }
 }
 
 // loading_start - Show a loading image

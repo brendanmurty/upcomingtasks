@@ -11,7 +11,6 @@ $date_update_js  = "20130903a";
 $req=ltrim($_SERVER["REQUEST_URI"],'/');
 if(!isset($page)){
 	$req_parts=explode('?',$req);
-	//$page=str_replace('.php','',str_replace('pages/','',$req_parts[0]));
 	$page_parts=pathinfo($req_parts[0]);
 	$page=$page_parts['filename'];
 }
@@ -19,7 +18,6 @@ if(!isset($page)){
 // Setup the page class
 $page_class='page_'.$page;
 $page_class.=(user_exists() ? ' user_yes':' user_no');
-//$page_class.=(is_mobile() ? ' mobile':' desktop');
 
 // Create the navigation
 $nav=navigation($page,'');

@@ -550,7 +550,6 @@ function bc_tasks_progress(){
 					$summary_d=str_replace(' for a task','',$summary_d);
 					$summary_d=str_replace(' a task','',$summary_d);
 					$summary_t=$summary_p['1'];
-					$r.='<!-- '.$url.' -->';
 					$r.='<li><a';
 					if($url!=''){
 						$r.=' href="task.php?project='.bc_project_id_from_url($url).'&task='.bc_task_id_from_url($url).'"';

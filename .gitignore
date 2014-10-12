@@ -8,4 +8,5 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 .DS_Store
+web.config
 /common/libs/auth.php
