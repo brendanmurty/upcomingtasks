@@ -272,7 +272,7 @@ form select#date_day{clear:none}
 body{background-color:#fff !important}
 #content{padding:3% 3% 0;width:94%}
 nav ul{margin:0}
-ul.screenshots{height:88px;margin:20px 0}
+ul.screenshots{margin:20px 0}
 ul.screenshots li{margin:0 15px 15px 0 !important}
 ul.task li .task-details p{width:520px}
 ul.task li a,ul.project > li a{padding:3% 0}

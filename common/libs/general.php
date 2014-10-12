@@ -102,7 +102,7 @@ function list_screenshots(){
 	$return = '';
 	if($path = opendir($top.$folder)){
 		while(($file = readdir($path)) !== false){
-			if($file != '.' && $file != '..'){
+			if($file != '.' && $file != '..' && $file != 'thumbnails'){
 				$return .= '<li><a href="/pages/image.php?path='.$folder.$file.'"><img src="'.$folder.'thumbnails/'.$file.'" alt="'.$file.'" title="View image: '.$file.'" /></a></li>';
 			}
 		}
