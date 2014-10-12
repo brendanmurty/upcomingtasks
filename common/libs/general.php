@@ -97,11 +97,11 @@ function is_mobile(){
 
 // list_screenshots - List the app screenshots (thumbnails should be 150px square and stored in a "thumbnails" subfolder)
 function list_screenshots(){
-	$root_path = dirname(dirname(dirname(__FILE__)));
+	$top = dirname(dirname(dirname(__FILE__)));
 	$folder = '/images/screenshots/';
 	$return = '';
-	if($folder = opendir($root_path.$folder)){
-		while(($file = readdir($root_path.$folder)) !== false){
+	if($folder = opendir($top.$folder)){
+		while(($file = readdir($top.$folder)) !== false){
 			if($file != '.' && $file != '..'){
 				$return .= '<li><a href="/pages/image.php?path='.$folder.$file.'"><img src="'.$folder.'thumbnails/'.$file.'" alt="'.$file.'" title="View image: '.$file.'" /></a></li>';
 			}
