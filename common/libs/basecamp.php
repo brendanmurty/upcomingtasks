@@ -231,6 +231,26 @@ function bc_projects(){
 	}
 }
 
+// bc_projects_count - Returns the number of projects in the current Basecamp account
+function bc_projects_count(){
+	$results=bc_results('/projects.json');
+	if(is_array($results)){
+		if(array_key_exists(0,$results)){
+			return count($results);
+		}
+	}
+}
+
+// bc_projects_first - Returns the ID of the first project in the account
+function bc_projects_first(){
+	$results=bc_results('/projects.json');
+	if(is_array($results)){
+		if(array_key_exists(0,$results)){
+			return $results[0]['id'];
+		}
+	}
+}
+
 // bc_results - Simple query to the Basecamp API
 function bc_results($api_url=''){
 	session_start();
@@ -573,13 +593,18 @@ function bc_tasklists($selected_project='',$selected_list=''){
 			if(array_key_exists($i,$results)){
 				$project_id=$results[$i]['id'];
 				$project_name=$results[$i]['name'];
+				$number_projects=bc_projects_count();
 				
 				$results2=bc_results('/projects/'.$project_id.'/todolists.json');
 				$count2=count($results2);
 				for($j=0;$j<$count2;$j++){
 					$list_id=$results2[$j]['id'];
 					$list_name=$results2[$j]['name'];
-					$o='<option label="'.$project_name.' - '.$list_name.'" value="'.$project_id.'-'.$list_id.'"';
+					if($number_projects==1){
+						$o='<option label="'.$list_name.'" value="'.$project_id.'-'.$list_id.'"';
+					}else{
+						$o='<option label="'.$project_name.' - '.$list_name.'" value="'.$project_id.'-'.$list_id.'"';
+					}
 					if($project_id.'-'.$list_id==$selected_project.'-'.$selected_list){ $o.=' selected'; }
 					$o.='>'.$project_name.' - '.$list_name.'</option>';
 					$l[]=$o;
@@ -591,7 +616,11 @@ function bc_tasklists($selected_project='',$selected_list=''){
 				for($k=0;$k<$count3;$k++){
 					$list_id=$results3[$k]['id'];
 					$list_name=$results3[$k]['name'];
-					$o='<option label="'.$project_name.' - '.$list_name.'" value="'.$project_id.'-'.$list_id.'"';
+					if($number_projects==1){
+						$o='<option label="'.$list_name.'" value="'.$project_id.'-'.$list_id.'"';
+					}else{
+						$o='<option label="'.$project_name.' - '.$list_name.'" value="'.$project_id.'-'.$list_id.'"';
+					}
 					if($project_id.'-'.$list_id==$selected_project.'-'.$selected_list){ $o.=' selected'; }
 					$o.='>'.$project_name.' - '.$list_name.'</option>';
 					$l[]=$o;

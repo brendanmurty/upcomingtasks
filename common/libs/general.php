@@ -117,7 +117,15 @@ function loading_temp(){
 function navigation($current_page,$option=''){
 	$hm='<li id="action-home"><a href="/pages/home.php">'.icon('home','Home').'</a></li>';
 	$def='<li id="action-newtask"><a id="button_new" href="/pages/newtask.php">'.icon('plus','New Task').'</a></li>';
-	$def.='<li id="action-projects"><a href="/pages/projects.php">'.icon('folder-close','Projects').'</a></li>';
+
+	if(bc_projects_count() == 1){
+		// The account only has one project, include a link to view that project directly
+		$def.='<li id="action-projects"><a href="/pages/project.php?id='.bc_projects_first().'">'.icon('folder-close','Project').'</a></li>';
+	}else{
+		// The account has more than one project, include a link to view a list of all projects
+		$def.='<li id="action-projects"><a href="/pages/projects.php">'.icon('folder-close','Projects').'</a></li>';
+	}
+
 	$def.='<li id="action-progress"><a href="/pages/progress.php">'.icon('tasks','Progress').'</a></li>';
 	$def.='<li id="action-account"><a href="/pages/account.php?mode=options">'.icon('cog','Settings').'</a></li>';
 	$def.='<li id="action-more"><a href="/pages/more.php">'.icon('info','More').'</a></li>';
