@@ -12,7 +12,7 @@ if(isset($_GET['mode'])){// Special page mode
 		if(isset($result['id'])){
 			if($result['id']!='0'){
 				// Update the relevant database field and the browser cookie
-				$sql="UPDATE users SET bc_id = '".$result['id']."', bc_account='".$bc_account."' WHERE bc_id='".$_COOKIE['bc_id']."' ";
+				$sql="UPDATE IGNORE users SET bc_id = '".$result['id']."', bc_account='".$bc_account."' WHERE bc_id='".$_COOKIE['bc_id']."' ";
 				db_query($sql);
 				session_start();
 				setcookie("bc_id",$result['id'],time()+60*60*24*14);
