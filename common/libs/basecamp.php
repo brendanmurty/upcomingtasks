@@ -290,7 +290,12 @@ function bc_task($project_id,$task_id){
 	$result=bc_results('/projects/'.$project_id.'/todos/'.$task_id.'.json');
 	$r='';
 	if($result!=''){
-		$r.=bc_task_format($project_id,$result['todolist_id'],$result['id'],$result['content'],bc_project_name($project_id).' - '.bc_list_name($project_id,$result['todolist_id']),'',$result['due_at'],$result['completed'],'page');
+		if(bc_projects_count()==1){
+			$task_location=bc_list_name($project_id,$result['todolist_id']);
+		}else{
+			$task_location=bc_project_name($project_id).' - '.bc_list_name($project_id,$result['todolist_id']);
+		}
+		$r.=bc_task_format($project_id,$result['todolist_id'],$result['id'],$result['content'],$task_location,'',$result['due_at'],$result['completed'],'page');
 		return $r;
 	}
 }
@@ -535,7 +540,12 @@ function bc_tasks_all(){
 				for($i=0;$i<$count;$i++){
 					$count2=count($results[$i]['assigned_todos']);
 					for($j=0;$j<$count2;$j++){
-						$r .= bc_task_format($results[$i]['bucket']['id'], $results[$i]['id'], $results[$i]['assigned_todos'][$j]['id'], $results[$i]['assigned_todos'][$j]['content'], $results[$i]['bucket']['name'].' - '.$results[$i]['name'], '', $results[$i]['assigned_todos'][$j]['due_on'], '', 'list');
+						if(bc_projects_count()==1){
+							$task_location=$results[$i]['name'];
+						}else{
+							$task_location=$results[$i]['bucket']['name'].' - '.$results[$i]['name'];
+						}
+						$r .= bc_task_format($results[$i]['bucket']['id'], $results[$i]['id'], $results[$i]['assigned_todos'][$j]['id'], $results[$i]['assigned_todos'][$j]['content'], $task_location, '', $results[$i]['assigned_todos'][$j]['due_on'], '', 'list');
 					}
 				}
 				$o='<ul class="task task-multiple">'."\r\n".$r."\r\n".'</ul>'."\r\n";
