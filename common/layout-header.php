@@ -67,7 +67,7 @@ if(!isset($app_info)){
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <meta name="application-name" content="UpcomingTasks"/>
 <meta name="msapplication-TileColor" content="#12AF09"/>
-<meta name="msapplication-TileImage" content="/images/logo-144-clear.png"/>
+<meta name="msapplication-TileImage" content="/images/logo-144-tile.png"/>
 <meta name="msapplication-starturl" content="/pages/home.php" />
 <meta name="google-site-verification" content="7nvJtlVAcDOSBaTnKAYOh1JtBt9t-0vvj3TJhggy0II" />
 <link rel="shortcut icon" href="/images/logo-16-clear.png">
