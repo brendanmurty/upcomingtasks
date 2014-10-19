@@ -531,6 +531,7 @@ function bc_task_new($task_name,$task_due='',$project_id,$list_id){
 // bc_tasks_all - Get all tasks assigned to the authenticated user
 function bc_tasks_all(){
 	$results=bc_results('/people/'.$_COOKIE['bc_id'].'/assigned_todos.json');
+	$project_count=bc_projects_count();
 	$o='';
 	$r='';
 	if(is_array($results)){
@@ -540,7 +541,7 @@ function bc_tasks_all(){
 				for($i=0;$i<$count;$i++){
 					$count2=count($results[$i]['assigned_todos']);
 					for($j=0;$j<$count2;$j++){
-						if(bc_projects_count()==1){
+						if($project_count==1){
 							$task_location=$results[$i]['name'];
 						}else{
 							$task_location=$results[$i]['bucket']['name'].' - '.$results[$i]['name'];
