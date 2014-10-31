@@ -17,8 +17,8 @@ I hope a budding web developer can learn something new from what I've done here 
 
 ## Contribute ##
 
-If you have an idea for an update or have found a bug, please [submit a new issue](https://github.com/brendanmurty/upcomingtasks/issues/new?assignee=brendanmurty). I'm also tracking my work on the website in the [issues section](https://github.com/brendanmurty/upcomingtasks/issues).
+If you have an idea for an update or have found a bug, please [submit a new issue](https://bitbucket.org/brendanmurty/upcomingtasks/issues/new). I'm also tracking my work on UpcomingTasks in the [issues section](https://bitbucket.org/brendanmurty/upcomingtasks/issues).
 
 ## License ##
 
-All files in this repository are licensed under the [CSS-Tricks License](https://github.com/brendanmurty/upcomingtasks/tree/master/license.md). This was created by [Chris Coyier](https://github.com/chriscoyier/) and his attitude on the open web should be an inspiration for us all.
+All files in this repository are licensed under the [CSS-Tricks License](https://bitbucket.org/brendanmurty/upcomingtasks/src/master/license.md). This was created by [Chris Coyier](https://github.com/chriscoyier/) and his attitude on the open web should be an inspiration for us all.
