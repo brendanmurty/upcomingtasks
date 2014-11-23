@@ -17,8 +17,8 @@ Redirect 301 /apple-touch-icon.png http://upcomingtasks.com/images/logo-114.png
 Redirect 301 /apple-touch-icon-precomposed.png http://upcomingtasks.com/images/logo-114.png
 Redirect 301 /pages/help.php http://upcomingtasks.com/pages/more.php
 Redirect 301 /pages/stats.php http://upcomingtasks.com/pages/more.php
-RewriteRule ^readme.md https://bitbucket.org/brendanmurty/upcomingtasks/src/master/readme.md [R=301,L]
-RewriteRule ^license.md https://bitbucket.org/brendanmurty/upcomingtasks/src/master/license.md [R=301,L]
+RewriteRule ^readme.md https://github.com/brendanmurty/upcomingtasks/blob/master/readme.md [R=301,L]
+RewriteRule ^license.md https://github.com/brendanmurty/upcomingtasks/blob/master/license.md [R=301,L]
 
 # Error pages
 ErrorDocument 403 /common/403.php
