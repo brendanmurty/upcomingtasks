@@ -34,7 +34,7 @@ function error_handle($errno,$errstr,$errfile,$errline){
 			$current_url='http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 		}
 		$mail_text.='URL: '.$current_url."\r\n";
-		if(user_exists()){ $mail_text.='Basecamp ID: '.$_COOKIE['bc_id']."\r\n"; }
+		$mail_text.='Basecamp ID: '.user_id()."\r\n";
 		$mail_text.='IP: '.$_SERVER['REMOTE_ADDR']."\r\n";
 		$mail_headers='From: '.$GLOBALS['auth_error_email_from']."\r\n".'X-Mailer: PHP/'.phpversion();
 		$mail_result=@mail($GLOBALS['auth_error_email_to'],'UpcomingTasks Error',$mail_text,$mail_headers);

@@ -63,8 +63,8 @@ function user_authenticate($auth_code=''){
 
 // user_email - Get the email of the logged in user
 function user_email(){
-	if(isset($_COOKIE['bc_id'])){
-		$sql='SELECT email FROM users WHERE bc_id='.$_COOKIE['bc_id'];
+	if(user_id() > 0){
+		$sql='SELECT email FROM users WHERE bc_id='.user_id();
 		$result=db_query($sql);
 		if(is_array($result)){
 			if(array_key_exists('email',$result)){
@@ -76,11 +76,20 @@ function user_email(){
 
 // user_exists - Check if a user is logged in
 function user_exists(){
-	session_start();
-	if(isset($_COOKIE['bc_id'])){
+	if(user_id() > 0){
 		return true;
 	}else{
 		return false;
+	}
+}
+
+// user_id - Get the Basecamp ID of the logged in user
+function user_id(){
+	session_start();
+	if(isset($_COOKIE['bc_id'])){
+		return input_clean($_COOKIE['bc_id'], 'numeric');
+	}else{
+		return 0;
 	}
 }
 
@@ -91,7 +100,7 @@ function user_is_pro($bc_id=''){
 		$user_id = $bc_id;
 	}else{
 		if(user_exists()){
-			$user_id = $_COOKIE['bc_id'];
+			$user_id = user_id();
 		}else{
 			return false;
 		}

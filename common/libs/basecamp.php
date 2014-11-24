@@ -128,7 +128,7 @@ function bc_user_box(){
 // bc_post - Post data to Basecamp
 function bc_post($api_url,$data_array,$method='new'){
 	if($api_url && $data_array){
-		$db_result=db_query("SELECT bc_account, bc_token FROM users WHERE bc_id='".$_COOKIE['bc_id']."' LIMIT 1");
+		$db_result=db_query("SELECT bc_account, bc_token FROM users WHERE bc_id='".user_id()."' LIMIT 1");
 		$api_url='https://basecamp.com/'.$db_result['bc_account'].'/api/v1'.$api_url;
 		$ch=curl_init();
 		$options=array(
@@ -254,8 +254,8 @@ function bc_projects_first(){
 // bc_results - Simple query to the Basecamp API
 function bc_results($api_url=''){
 	session_start();
-	if($api_url!='' && isset($_COOKIE['bc_id'])){
-		$db_result=db_query("SELECT bc_account, bc_token FROM users WHERE bc_id='".$_COOKIE['bc_id']."' LIMIT 1");
+	if($api_url!='' && user_id() > 0){
+		$db_result=db_query("SELECT bc_account, bc_token FROM users WHERE bc_id='".user_id()."' LIMIT 1");
 		return bc_results_main($api_url,$db_result['bc_token'],$db_result['bc_account']);
 	}else{
 		return '';
@@ -402,9 +402,9 @@ function bc_task_edit($task_name,$task_due='',$project_id,$task_id,$list_id=''){
 	$api_url='/projects/'.$project_id.'/todos/'.$task_id.'.json';
 	if($list_id!=''){
 		$list_id=input_clean($list_id,'numeric');
-		$data_array=array('content'=>$task_name,'todolist_id'=>$list_id,'due_at'=>$task_due,'assignee'=>array('id'=>$_COOKIE['bc_id'],'type'=>'Person'));
+		$data_array=array('content'=>$task_name,'todolist_id'=>$list_id,'due_at'=>$task_due,'assignee'=>array('id'=>user_id(),'type'=>'Person'));
 	}else{
-		$data_array=array('content'=>$task_name,'due_at'=>$task_due,'assignee'=>array('id'=>$_COOKIE['bc_id'],'type'=>'Person'));
+		$data_array=array('content'=>$task_name,'due_at'=>$task_due,'assignee'=>array('id'=>user_id(),'type'=>'Person'));
 	}
 	$result=bc_post($api_url,$data_array,'update');
 	redirect('/pages/task.php?project='.$project_id.'&task='.$task_id);
@@ -520,7 +520,7 @@ function bc_task_new($task_name,$task_due='',$project_id,$list_id){
 	$project_id=input_clean($project_id,'numeric');
 	$list_id=input_clean($list_id,'numeric');
 	$api_url='/projects/'.$project_id.'/todolists/'.$list_id.'/todos.json';
-	$data_array=array('content'=>$task_name,'due_at'=>$task_due,'assignee'=>array('id'=>$_COOKIE['bc_id'],'type'=>'Person'));
+	$data_array=array('content'=>$task_name,'due_at'=>$task_due,'assignee'=>array('id'=>user_id(),'type'=>'Person'));
 	$result=bc_post($api_url,$data_array,'new');
 	if(isset($result['id'])){
 		$task_id=$result['id'];
@@ -530,7 +530,7 @@ function bc_task_new($task_name,$task_due='',$project_id,$list_id){
 
 // bc_tasks_all - Get all tasks assigned to the authenticated user
 function bc_tasks_all(){
-	$results=bc_results('/people/'.$_COOKIE['bc_id'].'/assigned_todos.json');
+	$results=bc_results('/people/'.user_id().'/assigned_todos.json');
 	$project_count=bc_projects_count();
 	$o='';
 	$r='';
@@ -566,7 +566,7 @@ function bc_tasks_all(){
 function bc_tasks_progress(){
 	$today_date=date('Y-m-d');
 	$oldest_date=date('Y-m-d',strtotime('-30 days'.$today_date));
-	$results=bc_results('/people/'.$_COOKIE['bc_id'].'/events.json?since='.$oldest_date);
+	$results=bc_results('/people/'.user_id().'/events.json?since='.$oldest_date);
 	$r='';
 	$count=count($results);
 	for($i=0;$i<$count;$i++){

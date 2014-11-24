@@ -199,7 +199,7 @@ function stat_global_tasks(){
 // stat_projects - Count the number of projects for the current user
 function stat_projects(){
 	session_start();
-	$result=db_query("SELECT number_projects FROM users WHERE bc_id='".$_COOKIE['bc_id']."' LIMIT 1");
+	$result=db_query("SELECT number_projects FROM users WHERE bc_id='".user_id()."' LIMIT 1");
 	$p='';
 	if($result['number_projects']>1){ $p='s'; }
 	return '<div class="stats stats-this stats-projects"><span class="stats-value">'.vague_count($result['number_projects']).'</span><span class="stats-title">Project'.$p.'</span></div>';
@@ -208,7 +208,7 @@ function stat_projects(){
 // stat_tasks - Count the number of tasks for the current user
 function stat_tasks(){
 	session_start();
-	$result=db_query("SELECT number_tasks FROM users WHERE bc_id='".$_COOKIE['bc_id']."' LIMIT 1");
+	$result=db_query("SELECT number_tasks FROM users WHERE bc_id='".user_id()."' LIMIT 1");
 	$p='';
 	if($result['number_tasks']>1){ $p='s'; }
 	return '<div class="stats stats-this stats-tasks"><span class="stats-value">'.vague_count($result['number_tasks']).'</span><span class="stats-title">Task'.$p.'</span></div>';
