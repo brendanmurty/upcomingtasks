@@ -54,6 +54,7 @@ function user_authenticate($auth_code=''){
 				$sql_values .= "email=" . db_clean($db, $bc_email) . ", bc_token=" . db_clean($db, $bc_token);
 				$sql = "INSERT INTO users SET bc_id = " . db_clean($db, $bc_id) . ", $sql_values ON DUPLICATE KEY UPDATE $sql_values";
 				db_query($db, $sql);
+				db_disconnect($db);
 
 				// Redirect to account selection page
 				redirect('/pages/account.php');
@@ -65,8 +66,10 @@ function user_authenticate($auth_code=''){
 // user_email - Get the email of the logged in user
 function user_email(){
 	if(user_id() > 0){
-		$sql='SELECT email FROM users WHERE bc_id='.user_id();
-		$result=db_query($sql);
+	    $db = db_connect();
+		$sql = "SELECT email FROM users WHERE bc_id=" . db_clean($db, user_id());
+		$result = db_query($db, $sql);
+		db_disconnect($db);
 		if(is_array($result)){
 			if(array_key_exists('email',$result)){
 				return $result['email'];
@@ -107,8 +110,10 @@ function user_is_pro($bc_id=''){
 		}
 	}
 	if($user_id != ''){
-		$sql='SELECT pro FROM users WHERE bc_id='.$user_id;
-		$result=db_query($sql);
+	    $db = db_connect();
+		$sql = "SELECT pro FROM users WHERE bc_id=" . db_clean($db, $user_id);
+		$result = db_query($db, $sql);
+		db_disconnect($db);
 		if(is_array($result)){
 			if($result['pro']==1){
 				return true;

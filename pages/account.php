@@ -15,8 +15,9 @@ if(isset($_GET['mode'])){// Special page mode
 				$db = db_connect();
 				$sql = "UPDATE IGNORE users SET bc_id = " . db_clean($db, $result['id']) . ", bc_account="  . db_clean($db, $bc_account) . " WHERE bc_id=" . db_clean($db, user_id());
 				db_query($db, $sql);
+				db_disconnect($db);
 				session_start();
-				setcookie("bc_id",$result['id'],time()+60*60*24*14);
+				setcookie("bc_id", $result['id'], time()+60*60*24*14);
 			}
 			redirect('/pages/home.php');
 		}

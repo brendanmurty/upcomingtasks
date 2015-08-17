@@ -131,6 +131,7 @@ function bc_post($api_url,$data_array,$method='new'){
 	    $db = db_connect();
 	    $sql = "SELECT bc_account, bc_token FROM users WHERE bc_id=" . db_clean($db, user_id()) . " LIMIT 1";
 		$db_result = db_query($db, $sql);
+		db_disconnect($db);
 		$api_url='https://basecamp.com/'.$db_result['bc_account'].'/api/v1'.$api_url;
 		$ch=curl_init();
 		$options=array(
@@ -260,6 +261,7 @@ function bc_results($api_url=''){
 	    $db = db_connect();
 	    $sql = "SELECT bc_account, bc_token FROM users WHERE bc_id=" . db_clean($db, user_id()) . " LIMIT 1";
 		$result = db_query($db, $sql);
+		db_disconnect($db);
 		return bc_results_main($api_url, $result['bc_token'], $result['bc_account']);
 	}else{
 		return '';
