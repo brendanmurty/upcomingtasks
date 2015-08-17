@@ -179,27 +179,28 @@ function redirect($url){
 
 // stat_global_users - Count the number of users
 function stat_global_users(){
-	$sql="SELECT COUNT(*) as count_users FROM users WHERE (number_projects>0) AND (number_tasks>0)";
-	$result=db_query($sql);
+	$result = db_query(db_connect(), "SELECT COUNT(*) as count_users FROM users WHERE (number_projects>0) AND (number_tasks>0)");
 	return '<div class="stats stats-users"><span class="stats-value">'.vague_count($result['count_users']).'</span><span class="stats-title">Active Users</span></div>';
 }
 
 // stat_global_projects - Count the number of global projects
 function stat_global_projects(){
-	$result=db_query("SELECT SUM(number_projects) as count_projects FROM users");
+	$result = db_query(db_connect(), "SELECT SUM(number_projects) as count_projects FROM users");
 	return '<div class="stats stats-global stats-projects"><span class="stats-value">'.vague_count($result['count_projects']).'</span><span class="stats-title">Projects</span></div>';
 }
 
 // stat_global_tasks - Count the number of global tasks
 function stat_global_tasks(){
-	$result=db_query("SELECT SUM(number_tasks) as count_tasks FROM users");
+	$result = db_query(db_connect(), "SELECT SUM(number_tasks) as count_tasks FROM users");
 	return '<div class="stats stats-global stats-tasks"><span class="stats-value">'.vague_count($result['count_tasks']).'</span><span class="stats-title">Tasks</span></div>';
 }
 
 // stat_projects - Count the number of projects for the current user
 function stat_projects(){
 	session_start();
-	$result=db_query("SELECT number_projects FROM users WHERE bc_id='".user_id()."' LIMIT 1");
+	$db = db_connect();
+	$sql = "SELECT number_projects FROM users WHERE bc_id=" . db_clean($db, user_id()) . " LIMIT 1";
+	$result = db_query($db, $sql);
 	$p='';
 	if($result['number_projects']>1){ $p='s'; }
 	return '<div class="stats stats-this stats-projects"><span class="stats-value">'.vague_count($result['number_projects']).'</span><span class="stats-title">Project'.$p.'</span></div>';
@@ -208,10 +209,14 @@ function stat_projects(){
 // stat_tasks - Count the number of tasks for the current user
 function stat_tasks(){
 	session_start();
-	$result=db_query("SELECT number_tasks FROM users WHERE bc_id='".user_id()."' LIMIT 1");
-	$p='';
-	if($result['number_tasks']>1){ $p='s'; }
-	return '<div class="stats stats-this stats-tasks"><span class="stats-value">'.vague_count($result['number_tasks']).'</span><span class="stats-title">Task'.$p.'</span></div>';
+	$db = db_connect();
+	$sql = "SELECT number_tasks FROM users WHERE bc_id=" . db_clean($db, user_id()). " LIMIT 1";
+	$result = db_query($db, $sql);
+	$plural = '';
+	if ($result['number_tasks'] > 1) {
+	    $plural = 's';
+	}
+	return '<div class="stats stats-this stats-tasks"><span class="stats-value">'.vague_count($result['number_tasks']).'</span><span class="stats-title">Task'.$plural.'</span></div>';
 }
 
 // test - Print a test string

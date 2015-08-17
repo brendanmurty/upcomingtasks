@@ -128,7 +128,9 @@ function bc_user_box(){
 // bc_post - Post data to Basecamp
 function bc_post($api_url,$data_array,$method='new'){
 	if($api_url && $data_array){
-		$db_result=db_query("SELECT bc_account, bc_token FROM users WHERE bc_id='".user_id()."' LIMIT 1");
+	    $db = db_connect();
+	    $sql = "SELECT bc_account, bc_token FROM users WHERE bc_id=" . db_clean($db, user_id()) . " LIMIT 1";
+		$db_result = db_query($db, $sql);
 		$api_url='https://basecamp.com/'.$db_result['bc_account'].'/api/v1'.$api_url;
 		$ch=curl_init();
 		$options=array(
@@ -255,8 +257,10 @@ function bc_projects_first(){
 function bc_results($api_url=''){
 	session_start();
 	if($api_url!='' && user_id() > 0){
-		$db_result=db_query("SELECT bc_account, bc_token FROM users WHERE bc_id='".user_id()."' LIMIT 1");
-		return bc_results_main($api_url,$db_result['bc_token'],$db_result['bc_account']);
+	    $db = db_connect();
+	    $sql = "SELECT bc_account, bc_token FROM users WHERE bc_id=" . db_clean($db, user_id()) . " LIMIT 1";
+		$result = db_query($db, $sql);
+		return bc_results_main($api_url, $result['bc_token'], $result['bc_account']);
 	}else{
 		return '';
 	}
@@ -276,7 +280,7 @@ function bc_results_main($api_url='',$token='',$account=''){
 			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent']
 		);
 		curl_setopt_array($ch,$options);
-		$results=curl_exec($ch);		
+		$results=curl_exec($ch);
 		return json_decode($results,'true');
 	}else{
 		return '';
@@ -447,7 +451,7 @@ function bc_task_format($project_id,$list_id,$task_id,$task_name,$task_location=
 				$class.='tomorrow';
 			}elseif($date_diff>=2 && $date_diff<=7){
 				$class.='thisweek';
-			}else{							
+			}else{
 				$class.='upcoming';
 			}
 		}else{
@@ -664,7 +668,7 @@ function bc_user_id($bc_token,$bc_account){
 		);
 		curl_setopt_array($ch,$options);
 		$result=json_decode(curl_exec($ch),'true');
-		$user_id=$result['id'];		
+		$user_id=$result['id'];
 		return $user_id;
 	}
 }

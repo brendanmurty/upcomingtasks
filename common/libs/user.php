@@ -49,10 +49,11 @@ function user_authenticate($auth_code=''){
 				}
 				
 				// Save the details to the database
-				$sql_values="bc_account='$bc_account', first_name='$bc_name_first', last_name='$bc_name_last', ";
-				$sql_values.="email='$bc_email', bc_token='$bc_token'";
-				$sql = "INSERT INTO users SET bc_id = '$bc_id', $sql_values ON DUPLICATE KEY UPDATE $sql_values";
-				db_query($sql);
+				$db = db_connect();
+				$sql_values = "bc_account=" . db_clean($db, $bc_account). ", first_name=" . db_clean($db, $bc_name_first) . ", last_name=" . db_clean($db, $bc_name_last);
+				$sql_values .= "email=" . db_clean($db, $bc_email) . ", bc_token=" . db_clean($db, $bc_token);
+				$sql = "INSERT INTO users SET bc_id = " . db_clean($db, $bc_id) . ", $sql_values ON DUPLICATE KEY UPDATE $sql_values";
+				db_query($db, $sql);
 
 				// Redirect to account selection page
 				redirect('/pages/account.php');
