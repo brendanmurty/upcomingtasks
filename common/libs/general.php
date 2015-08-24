@@ -149,10 +149,6 @@ function navigation($current_page,$option=''){
 		$current_page='Settings';
 	}elseif($current_page=='newtask'){
 		$current_page='New Task';
-	}elseif($current_page=='donate'){
-		$current_page='Donate';
-	}elseif($current_page=='donated'){
-		$current_page='Thanks!';
 	}elseif($current_page=='addtohome'){
 		$current_page='Add to Home';
 	}
