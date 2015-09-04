@@ -64,7 +64,7 @@ function input_clean($input_string,$option=''){
 		$input_string=htmlspecialchars($input_string,ENT_IGNORE,'utf-8');
 		$input_string=strip_tags($input_string);
 		$input_string=stripslashes($input_string);
-		
+
 		if($option=='numeric'){// Return only numeric characters
 			$input_string=preg_replace('/[^0-9]+/','',$input_string);
 		}elseif($option=='alpha'){// Return only alpha characters
@@ -76,12 +76,26 @@ function input_clean($input_string,$option=''){
 
 // is_dev - Check if this user is a developer of this app
 function is_dev(){
-	$isdev=false;
-	$ip=$_SERVER['REMOTE_ADDR'];
-	if(isset($_GET['dev'])){
-		if($_GET['dev']=='1'){ $isdev=true; }
+	$isdev = false;
+
+	if (isset($_GET['dev'])) {
+		if($_GET['dev']=='1'){
+			$isdev = true;
+		}
 	}
+
 	return $isdev;
+}
+
+// is_local - Check if this is a local domain
+function is_local(){
+	$islocal = false;
+
+	if ($_SERVER['HTTP_HOST'] == 'upcomingtasks.dev') {
+		$islocal = true;
+	}
+
+	return $islocal;
 }
 
 // list_screenshots - List the app screenshots (thumbnails should be 150px square and stored in a "thumbnails" subfolder)
@@ -199,7 +213,10 @@ function stat_global_tasks() {
 
 // stat_projects - Count the number of projects for the current user
 function stat_projects(){
-	session_start();
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+
 	$db = db_connect();
 	$sql = "SELECT number_projects FROM users WHERE bc_id=" . db_clean($db, user_id()) . " LIMIT 1";
 	$result = db_query($db, $sql);
@@ -211,7 +228,10 @@ function stat_projects(){
 
 // stat_tasks - Count the number of tasks for the current user
 function stat_tasks(){
-	session_start();
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+
 	$db = db_connect();
 	$sql = "SELECT number_tasks FROM users WHERE bc_id=" . db_clean($db, user_id()). " LIMIT 1";
 	$result = db_query($db, $sql);
@@ -231,7 +251,11 @@ function test($string){
 // theme_get - Return the currently selected theme name
 function theme_get(){
 	$theme_selected='light';// Set the default theme
-	session_start();
+
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+
 	if(isset($_COOKIE['bc_theme']) && $_COOKIE['bc_theme']!=''){
 		$theme_requested=input_clean($_COOKIE['bc_theme'],'');
 		if(file_exists(dirname(dirname(dirname(__FILE__))).'/styles/'.$theme_requested.'.css')){
@@ -244,14 +268,14 @@ function theme_get(){
 // theme_list - Return a list of the available themes
 function theme_list(){
 	$folder=dirname(dirname(dirname(__FILE__))).'/styles/';
-	
+
 	// Extract a list of files in the folder and sort them
 	$dir=opendir($folder);
 	$files=array();
 	while($files[]=readdir($dir));
 	sort($files);
 	closedir($dir);
-	
+
 	// Create the theme selector list
 	$return='';
 	foreach($files as $file){

@@ -36,8 +36,12 @@ function user_authenticate($auth_code = ''){
 				error_handle('auth', 'bc_id is 0', $_SERVER['SCRIPT_FILENAME'], '8');
 				redirect('/pages/home.php');
 			} else {
-				// Setup the user session and the cookie (14 day expiry)
-				session_start();
+				// Setup the user session
+				if (!isset($_SESSION)) {
+					session_start();
+				}
+
+				// Add a cookie to store the current Basecamp ID with a 14 day expiry
 				setcookie("bc_id", $bc_id, time()+60*60*24*14);
 
 				// Get extra user details
@@ -91,7 +95,10 @@ function user_exists(){
 
 // user_id - Get the Basecamp ID of the logged in user
 function user_id(){
-	session_start();
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+
 	if(isset($_COOKIE['bc_id'])){
 		return input_clean($_COOKIE['bc_id'], 'numeric');
 	}else{
@@ -135,8 +142,11 @@ function user_login_url(){
 
 // user_logout - Logout user
 function user_logout(){
-	session_start();
-	setcookie("bc_id","",time()-3600);
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+
+	setcookie("bc_id", "", time()-3600);
 	session_destroy();
 	redirect('/pages/home.php');
 }

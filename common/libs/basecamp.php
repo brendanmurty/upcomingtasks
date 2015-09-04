@@ -257,7 +257,10 @@ function bc_projects_first(){
 
 // bc_results - Simple query to the Basecamp API
 function bc_results($api_url=''){
-	session_start();
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+
 	if($api_url!='' && user_id() > 0){
 	    $db = db_connect();
 	    $sql = "SELECT bc_account, bc_token FROM users WHERE bc_id=" . db_clean($db, user_id()) . " LIMIT 1";

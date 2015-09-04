@@ -1,5 +1,8 @@
 <?
-session_start();
+if (!isset($_SESSION)) {
+	session_start();
+}
+
 $root_path=dirname(dirname(__FILE__));
 include_once $root_path.'/common/layout-header.php';
 loading_start();

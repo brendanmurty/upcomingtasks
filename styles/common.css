@@ -53,8 +53,8 @@ textarea[contenteditable]{-webkit-appearance:none}
 html,body{height:100%;padding:0;margin:0;color:#000;background-color:#fff;overflow-x:hidden}
 #container{min-height:100%;height:auto !important;height:100%;margin:0 auto -80px}
 header{width:92%;padding:2% 4%;float:left;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
-#ancient-browser{background-color:#80001d;color:#fff;padding:2% 3%;float:left;width:94%}
-#ancient-browser p{margin:0}
+.error-message{background-color:#80001d;color:#fff;padding:2% 3%;float:left;width:94%}
+.error-message p{margin:0}
 #content{width:92%;padding:18px 4% 0;height:100%;float:left}
 footer{width:52%;padding:0 0 40px;margin:0 auto;background-color:transparent !important}
 footer,#down{height:50px;clear:both}

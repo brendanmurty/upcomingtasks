@@ -1,7 +1,9 @@
 <?
 set_error_handler('error_handle');
 date_default_timezone_set('Australia/Sydney');
-session_start();
+if (!isset($_SESSION)) {
+	session_start();
+}
 
 // Include the required libs files
 include_once 'libs/auth.php';
@@ -20,28 +22,36 @@ $root_path = dirname(dirname(__FILE__));
 
 // error_handle - Custom error handler
 function error_handle($errno, $errstr, $errfile, $errline) {
-	$errfile = str_replace('/var/www/html/upcomingtasks.com', '', $errfile);
-	if($errstr != 'A session had already been started - ignoring session_start()' &&
-	    strstr($_SERVER['REQUEST_URI'], 'favicon.ico') == false &&
-	    strstr($errstr, '404') == false) {
-		$mail_text = date('Y-m-d g:i:sa') . "\r\n" . 'Error ' . $errno;
-		if($errfile != '') {
-		    $mail_text .= ' in '.$errfile;
-		}
-		if($errline != '') {
-		    $mail_text .= ' (line '.$errline.')';
-		}
-		$mail_text .= ': ' . $errstr . "\r\n";
-		if(isset($_SERVER['HTTPS'])) {
-			$current_url = 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-		}else{
-			$current_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-		}
-		$mail_text .= 'URL: ' . $current_url . "\r\n";
-		$mail_text .= 'Basecamp ID: ' . user_id() . "\r\n";
-		$mail_text .= 'IP: ' . $_SERVER['REMOTE_ADDR'] . "\r\n";
-		$mail_headers = 'From: ' . $GLOBALS['auth_error_email_from'] . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-		$mail_result = @mail($GLOBALS['auth_error_email_to'], 'UpcomingTasks Error', $mail_text, $mail_headers);
+	$errtext = date('Y-m-d g:i:sa') . "\r\n" . 'Error ' . $errno;
+
+	if($errfile != '') {
+		$errfile = str_replace('/var/www/html/upcomingtasks.com', '', $errfile);
+	    $errtext .= ' in '.$errfile;
+	}
+
+	if($errline != '') {
+	    $errtext .= ' (line '.$errline.')';
+	}
+
+	$errtext .= ': ' . $errstr . "\r\n";
+
+	if(isset($_SERVER['HTTPS'])) {
+		$current_url = 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+	}else{
+		$current_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+	}
+
+	$errtext .= 'URL: ' . $current_url . "\r\n";
+	$errtext .= 'Basecamp ID: ' . user_id() . "\r\n";
+	$errtext .= 'IP: ' . $_SERVER['REMOTE_ADDR'] . "\r\n";
+
+	if (is_local()) {
+		// Local
+		echo '<div class="error-message">' . nl2br($errtext) . '</div>';
+	} else {
+		// Production
+		$headers = 'From: ' . $GLOBALS['auth_error_email_from'] . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+		$mail = @mail($GLOBALS['auth_error_email_to'], 'UpcomingTasks Error', $errtext, $headers);
 	}
 }
 ?>

@@ -4,7 +4,7 @@ $root_path = dirname(dirname(__FILE__));
 include_once $root_path.'/common/initialise.php';
 
 // Import update dates (added as a query string on the inserts)
-$date_update_css = "20141012i";
+$date_update_css = "20150905";
 $date_update_js  = "20130903a";
 
 // Extract the current page's name
@@ -111,8 +111,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 			<? if($nav!=''){ print $nav; } ?>
 		</header>
 		<!--[if lt IE 9]>
-		<div id="ancient-browser">
-			<p>UpcomingTasks requires a modern browser. Some features might not work in this browser.</p>
+		<div class="error-message">
+			<p>UpcomingTasks requires a modern browser, please upgrade your browser to enjoy the full experience.</p>
 		</div>
 		<![endif]-->
 		<div id="content">
