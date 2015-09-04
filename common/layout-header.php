@@ -71,6 +71,7 @@ if(!isset($app_info)){
 <meta name="msapplication-TileImage" content="/images/logo-144-app.png"/>
 <meta name="msapplication-starturl" content="/pages/home.php" />
 <meta name="google-site-verification" content="7nvJtlVAcDOSBaTnKAYOh1JtBt9t-0vvj3TJhggy0II" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/images/logo-16-clear.png">
 <link rel="apple-touch-icon-precomposed" href="/images/logo-114.png">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro">
