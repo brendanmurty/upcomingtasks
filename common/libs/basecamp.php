@@ -8,7 +8,8 @@ function bc_account($bc_token){
 			CURLOPT_URL => $url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HTTPHEADER => array('Content-type: application/json','Authorization: Bearer '.$bc_token),
-			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent']
+			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent'],
+			CURLOPT_SSL_VERIFYPEER => false
 		);
 		curl_setopt_array($ch,$options);
 		$result=json_decode(curl_exec($ch),'true');
@@ -78,11 +79,11 @@ function bc_comment_attachment($project_id,$comment_id){
 				$att_link=$result[$i]['url'];
 				$att_parts=pathinfo($att_link);
 				$att_ext=strtolower($att_parts['extension']);
-				
+
 				if($att_ext=='gif' || $att_ext=='jpg' || $att_ext=='jpeg' || $att_ext=='png'){// Image attachment
 					$att_link='/pages/image.php?path='.$result[$i]['url'];
 				}
-				
+
 				return '<p class="attachment"><em>Attachment:</em><a tabindex="-1" href="'.$att_link.'">'.$att_name.'</a></p>';
 			}
 		}
@@ -95,7 +96,7 @@ function bc_comment_new($project_id,$task_id,$comment=''){
 	$task_id=input_clean($task_id,'numeric');
 	$comment=input_clean($comment);
 	$api_url='/projects/'.$project_id.'/todos/'.$task_id.'/comments.json';
-	
+
 	if($comment!=''){
 		$data_array=array('content'=>$comment);
 		bc_post($api_url,$data_array,'new');
@@ -199,7 +200,7 @@ function bc_project($id){
 	$id=input_clean($id,'numeric');
 	$r1=bc_results('/projects/'.$id.'.json');
 	$r2=bc_results('/projects/'.$id.'/todolists.json');
-	
+
 	$h='<li><span class="project-name">'.$r1['name'].'</span><span class="project-description">'.$r1['description'].'</span><ul class="list">';
 	for($i=0;$i<count($r2);$i++){
 		if($r2[$i]['name']!=''){
@@ -335,7 +336,7 @@ function bc_task_comments($project_id,$task_id){
 				$comment=str_replace('</li><br />','</li>',$comment);
 				$comment=str_replace('</ul><br />','</ul>',$comment);
 				$comment=str_replace('</ol><br />','</ol>',$comment);
-				
+
 				// Construct the elements
 				$r.='<li>';
 				$r.='<div class="comment-content">'.$comment.'</div>';
@@ -353,13 +354,13 @@ function bc_task_complete($project_id,$task_id,$mode='complete'){
 	$project_id=input_clean($project_id,'numeric');
 	$task_id=input_clean($task_id,'numeric');
 	$api_url='/projects/'.$project_id.'/todos/'.$task_id.'.json';
-	
+
 	if($mode=='incomplete'){
 		$data_array=array('completed'=>false);
 	}else{
 		$data_array=array('completed'=>true);
 	}
-	
+
 	bc_post($api_url,$data_array,'update');
 	redirect('/pages/task.php?project='.$project_id.'&task='.$task_id);
 }
@@ -460,7 +461,7 @@ function bc_task_format($project_id,$list_id,$task_id,$task_name,$task_location=
 			$date.='today';
 			$class.='today';
 		}
-		
+
 		if($date_data<10){
 			$date_data='00'.$date_data;
 		}elseif($date_data<100){
@@ -469,7 +470,7 @@ function bc_task_format($project_id,$list_id,$task_id,$task_name,$task_location=
 	}else{
 		$class.='noduedate';
 	}
-	
+
 	$task_name=htmlspecialchars_decode($task_name);
 	if($mode=='page'){$r.='<ul class="task task-single">';}
 	$r.='<li';
@@ -611,7 +612,7 @@ function bc_tasklists($selected_project='',$selected_list=''){
 				$project_id=$results[$i]['id'];
 				$project_name=$results[$i]['name'];
 				$number_projects=bc_projects_count();
-				
+
 				$results2=bc_results('/projects/'.$project_id.'/todolists.json');
 				$count2=count($results2);
 				for($j=0;$j<$count2;$j++){
@@ -627,7 +628,7 @@ function bc_tasklists($selected_project='',$selected_list=''){
 					$l[]=$o;
 					$o='';
 				}
-				
+
 				$results3=bc_results('/projects/'.$project_id.'/todolists/completed.json');
 				$count3=count($results3);
 				for($k=0;$k<$count3;$k++){

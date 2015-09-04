@@ -1,24 +1,26 @@
 <?
 // user_authenticate - Handle response from Basecamp authentication
-function user_authenticate($auth_code=''){
-	if($auth_code!=''){
-		$oauth_authenticate_url=$GLOBALS['auth_api_confirm_url'].'&code='.$auth_code;
-		$cu=curl_init();
-		$options=array(
+function user_authenticate($auth_code = ''){
+	if($auth_code != ''){
+		$oauth_authenticate_url = $GLOBALS['auth_api_confirm_url'] . '&code=' . $auth_code;
+		$cu = curl_init();
+		$options = array(
 			CURLOPT_URL => $oauth_authenticate_url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_POST => 1,
-			CURLOPT_POSTFIELDS => $oauth_authenticate_url
+			CURLOPT_POSTFIELDS => $oauth_authenticate_url,
+			CURLOPT_SSL_VERIFYPEER => false
 		);
-		curl_setopt_array($cu,$options);
-		$result=json_decode(curl_exec($cu),'true') or exit("Authentication issue");
-		
+		curl_setopt_array($cu, $options);
+
+		$result = json_decode(curl_exec($cu), 'true') or exit("Authentication issue");
+
 		// Extract the relevant details from the Basecamp response
-		if(isset($result['access_token'])){
-			$bc_token=$result['access_token'];
-			$bc_account=bc_account($bc_token);
-			
-			if($bc_account==''){
+		if (isset($result['access_token'])) {
+			$bc_token = $result['access_token'];
+			$bc_account = bc_account($bc_token);
+
+			if($bc_account == ''){
 				// Can't find a suitable Basecamp account
 				$root_path=dirname(dirname(dirname(__FILE__)));
 				include_once $root_path.'/common/layout-header.php';
@@ -26,28 +28,28 @@ function user_authenticate($auth_code=''){
 				include_once $root_path.'/common/layout-footer.php';
 				exit();
 			}
-			
-			$bc_id=bc_user_id($bc_token,$bc_account);
 
-			if($bc_id=='0'){
+			$bc_id = bc_user_id($bc_token, $bc_account);
+
+			if ($bc_id == '0') {
 				// Authentication issue, redirect to home page
 				error_handle('auth', 'bc_id is 0', $_SERVER['SCRIPT_FILENAME'], '8');
 				redirect('/pages/home.php');
-			}else{
+			} else {
 				// Setup the user session and the cookie (14 day expiry)
 				session_start();
-				setcookie("bc_id",$bc_id,time()+60*60*24*14);
-				
+				setcookie("bc_id", $bc_id, time()+60*60*24*14);
+
 				// Get extra user details
-				$bc_email='';
-				$bc_name='';
-				$result2=bc_results_main('https://launchpad.37signals.com/authorization.json',$bc_token,$bc_account);
-				if($result2){
-					$bc_email=$result2['identity']['email_address'];
-					$bc_name_first=$result2['identity']['first_name'];
-					$bc_name_last=$result2['identity']['last_name'];
+				$bc_email = '';
+				$bc_name = '';
+				$result2 = bc_results_main('https://launchpad.37signals.com/authorization.json',$bc_token,$bc_account);
+				if ($result2) {
+					$bc_email = $result2['identity']['email_address'];
+					$bc_name_first = $result2['identity']['first_name'];
+					$bc_name_last = $result2['identity']['last_name'];
 				}
-				
+
 				// Save the details to the database
 				$db = db_connect();
 				$sql_values = "bc_account=" . db_clean($db, $bc_account). ", first_name=" . db_clean($db, $bc_name_first) . ", last_name=" . db_clean($db, $bc_name_last) . ", ";
