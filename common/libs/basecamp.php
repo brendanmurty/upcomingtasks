@@ -139,7 +139,8 @@ function bc_post($api_url,$data_array,$method='new'){
 			CURLOPT_URL => $api_url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HTTPHEADER => array('Content-type: application/json','Authorization: Bearer '.$db_result['bc_token']),
-			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent']
+			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent'],
+			CURLOPT_SSL_VERIFYPEER => false
 		);
 		if($method=='new'){
 			$options[CURLOPT_POST]=count($data_array);
@@ -283,7 +284,8 @@ function bc_results_main($api_url='',$token='',$account=''){
 			CURLOPT_URL => $api_url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HTTPHEADER => array('Content-type: application/json','Authorization: Bearer '.$token),
-			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent']
+			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent'],
+			CURLOPT_SSL_VERIFYPEER => false
 		);
 		curl_setopt_array($ch,$options);
 		$results=curl_exec($ch);
@@ -670,7 +672,8 @@ function bc_user_id($bc_token,$bc_account){
 			CURLOPT_URL => $url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HTTPHEADER => array('Content-type: application/json','Authorization: Bearer '.$bc_token),
-			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent']
+			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent'],
+			CURLOPT_SSL_VERIFYPEER => false
 		);
 		curl_setopt_array($ch,$options);
 		$result=json_decode(curl_exec($ch),'true');
