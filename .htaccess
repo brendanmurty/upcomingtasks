@@ -4,11 +4,7 @@ RewriteEngine on
 
 # Remove "www."
 RewriteCond %{HTTP_HOST} ^www.upcomingtasks.com$ [NC]
-RewriteRule ^(.*)$ http://upcomingtasks.com/$1 [R=301,L]
-
-# Redirect "https" requests to the "http" version
-RewriteCond %{HTTPS} on
-RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+RewriteRule ^(.*)$ https://upcomingtasks.com/$1 [R=301,L]
 
 # Redirects
 RewriteRule ^readme.md https://github.com/brendanmurty/upcomingtasks/blob/master/readme.md [R=301,L]
