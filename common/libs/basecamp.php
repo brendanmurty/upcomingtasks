@@ -115,14 +115,22 @@ function bc_list_name($project_id,$list_id){
 
 // bc_user_box - Return information about the authenticated user
 function bc_user_box(){
-	$result=bc_results('/people/me.json');
-	$u='<a id="button_logout" href="#">Logout</a>';
-	if(is_array($result)){
-		if(array_key_exists('avatar_url',$result) && array_key_exists('name',$result)){
-			$u='<a id="button_logout" href="#"><span class="image"><img src="'.$result['avatar_url'].'" /></span>';
-			$u.='<span class="name">'.$result['name'].'<em>Logout</em></span></a>';
+	$result = bc_results('/people/me.json');
+	$u = '<a id="button_logout" href="#">Logout</a>';
+
+	if (is_array($result)) {
+		if (array_key_exists('avatar_url', $result) && array_key_exists('name', $result)) {
+			if (is_local()) {
+				$avatar_url =  $result['avatar_url']
+			} else {
+				$avatar_url = str_replace('http://', 'https://', $result['avatar_url']);
+			}
+
+			$u = '<a id="button_logout" href="#"><span class="image"><img src="' . $avatar_url . '" /></span>';
+			$u .= '<span class="name">' . $result['name'] . '<em>Logout</em></span></a>';
 		}
 	}
+
 	return $u;
 }
 
