@@ -121,7 +121,7 @@ function bc_user_box(){
 	if (is_array($result)) {
 		if (array_key_exists('avatar_url', $result) && array_key_exists('name', $result)) {
 			if (is_local()) {
-				$avatar_url =  $result['avatar_url']
+				$avatar_url =  $result['avatar_url'];
 			} else {
 				$avatar_url = str_replace('http://', 'https://', $result['avatar_url']);
 			}
