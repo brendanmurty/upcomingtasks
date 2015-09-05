@@ -66,7 +66,7 @@ if(!isset($app_info)){
 <meta name="mobileoptimized" content="480">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <meta name="application-name" content="UpcomingTasks"/>
-<meta name="theme-color" content="#12AF09">
+<meta name="theme-color" content="#0D7F07">
 <meta name="msapplication-TileColor" content="#12AF09"/>
 <meta name="msapplication-TileImage" content="/images/logo-144-app.png"/>
 <meta name="msapplication-starturl" content="/pages/home.php" />
