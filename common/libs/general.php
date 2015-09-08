@@ -296,7 +296,10 @@ function theme_set($theme){
 		$theme=input_clean($theme,'');
 		$root_path=dirname(dirname(dirname(__FILE__)));
 		if(file_exists($root_path.'/styles/'.$theme.'.css')){
-			session_start();
+		    if (!isset($_SESSION)) {
+			    session_start();
+		    }
+
 			setcookie("bc_theme",$theme,time()+60*60*24*14);
 		}
 	}
