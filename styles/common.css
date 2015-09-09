@@ -93,7 +93,7 @@ div.share,div.donate{margin:15px 0 0;clear:both}
 .page_home div.share,.page_home div.donate{font-size:15px}
 .page_extras div.share{margin:0;clear:none;display:inline}
 nav{padding:0;margin:0;float:left;width:100%}
-nav .icon{margin:0;text-align:center;width:auto;float:left}
+nav .icon{margin:0;text-align:center;width:auto}
 nav ul{width:100%;margin:0 0 0 5px;padding:0;clear:both;float:left}
 nav ul li{list-style:none outside none;margin:0 30px 0 0;padding:0;clear:none;float:left}
 nav ul li:last-child{margin-right:0}
@@ -201,7 +201,7 @@ form#form_comment{margin:15px 0 0}
 footer,footer nav{width:100%}
 footer nav ul{width:120px;margin:0 auto;float:none}
 footer nav ul li{margin:15px 0 0 20px;width:auto}
-footer nav li:first-child{margin-left:0}
+footer nav li:first-child{margin-left:0}}
 footer p,footer li,footer a{font-size:15px;margin:0}
 footer nav li a,footer nav li a:visited{text-decoration:none;text-align:center;color:#777;float:left;display:block;margin:0;padding:0;font-size:25px;width:50px;height:50px;line-height:44px}
 footer a:hover,footer a:active,footer a:focus{text-decoration:none;color:#999}
