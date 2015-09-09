@@ -75,7 +75,7 @@ header h1{margin:8px 0 12px}
 header a{color:#fff !important}
 header a:hover{text-decoration:none}
 .nospacing{margin:0;padding:0;clear:both}
-/styles/fonts/{margin-right:6px;border:0}
+.icon{margin-right:6px;border:0}
 .hidden{display:none !important}
 .left{float:left !important;margin-right:4px}
 .right{float:right !important;margin-left:4px}
@@ -83,7 +83,7 @@ header a:hover{text-decoration:none}
 body.loading #content{background-color:transparent;text-indent:-999em;height:100px}
 #loading-icon{display:none;font-size:50px;text-align:center;margin:50px 0 0;color:#333}
 body.loading header,body.loading #content div,body.loading #content ul,body.loading #content form,body.loading footer{display:none !important}
-body.loading #loading-icon /styles/fonts/-spinner{display:inline-block;-moz-animation:spin 2s infinite linear;-o-animation:spin 2s infinite linear;-webkit-animation:spin 2s infinite linear;animation:spin 2s infinite linear}
+body.loading #loading-icon .icon-spinner{display:inline-block;-moz-animation:spin 2s infinite linear;-o-animation:spin 2s infinite linear;-webkit-animation:spin 2s infinite linear;animation:spin 2s infinite linear}
 p.message.empty{margin:20px 0}
 a.button,nav a,a#button_menu,.buttons a,ul.account-select li a,ul.themes li a{font-size:16px;text-decoration:none;padding:12px 20px 14px;position:relative;display:inline-block;border-radius:2px}
 a.button:hover,a.button:active,a.button:focus,nav a:hover,nav a:active,nav a:focus,.buttons a:hover,.buttons a:active,.buttons a:focus,ul.account-select li a:hover,ul.account-select li a:active,ul.account-select li a:focus,ul.themes li a:hover,ul.themes li a:focus,ul.themes li a:active{text-decoration:none}
@@ -93,7 +93,7 @@ div.share,div.donate{margin:15px 0 0;clear:both}
 .page_home div.share,.page_home div.donate{font-size:15px}
 .page_extras div.share{margin:0;clear:none;display:inline}
 nav{padding:0;margin:0;float:left;width:100%}
-nav /styles/fonts/{margin:0;text-align:center;width:auto}
+nav .icon{margin:0;text-align:center;width:auto}
 nav ul{width:100%;margin:0 0 0 5px;padding:0;clear:both;float:left}
 nav ul li{list-style:none outside none;margin:0 30px 0 0;padding:0;clear:none;float:left}
 nav ul li:last-child{margin-right:0}
@@ -144,7 +144,7 @@ ul.project-single ul li .list-description{margin:0 0 15px}
 ul.project-single ul.list li{margin:0 0 20px;border:0 none;float:left;clear:both;width:100%}
 ul.project-single ul.list li a.add-task{float:right;width:auto;font-size:25px;line-height:25px;padding:0;margin:0}
 ul.project-single ul.list li a.add-task span{display:none}
-ul.project-single ul.list li a.add-task /styles/fonts/{margin:0;padding:0}
+ul.project-single ul.list li a.add-task .icon{margin:0;padding:0}
 ul.project-single ul.list li ul{margin:0 0 20px}
 ul.project-single ul.list li ul li{margin:0 0 25px;padding:0}
 ul.project-single ul.list li ul.task li{width:auto}
@@ -201,7 +201,7 @@ form#form_comment{margin:15px 0 0}
 footer,footer nav{width:100%}
 footer nav ul{width:120px;margin:0 auto;float:none}
 footer nav ul li{margin:15px 0 0 20px;width:auto}
-footer nav li:first-child{margin-left:0}}
+footer nav li:first-child{margin-left:0}
 footer p,footer li,footer a{font-size:15px;margin:0}
 footer nav li a,footer nav li a:visited{text-decoration:none;text-align:center;color:#777;float:left;display:block;margin:0;padding:0;font-size:25px;width:50px;height:50px;line-height:44px}
 footer a:hover,footer a:active,footer a:focus{text-decoration:none;color:#999}
@@ -220,13 +220,13 @@ ul.screenshots li a{border:none}
 #container header nav ul,#container header nav li,#container header nav a{width:100%}
 #container header nav a,#container header nav.empty h1{width:92%;padding:2.5% 4%;text-align:left;font:400 25px/30px "Source Sans Pro","Segoe WP",Arial,sans-serif}
 #container header nav.empty h1{height:50px;line-height:50px}
-#container header nav.empty /styles/fonts/{line-height:50px;margin-right:10px}
+#container header nav.empty .icon{line-height:50px;margin-right:10px}
 #container header nav a{color:#eee !important}
 #container header nav .user a{margin-top:10px}
 #container header nav h1{color:#fff !important;margin:0;line-height:30px}
 #container header nav h1 a{color:#fff !important;margin:0;padding:0 4% 5px;line-height:60px}
-#container header nav a /styles/fonts/{float:left;display:block;width:21px;height:30px;line-height:30px;margin-right:15px;text-align:center}
-#container header nav h1 a /styles/fonts/{height:60px;line-height:60px}
+#container header nav a .icon{float:left;display:block;width:21px;height:30px;line-height:30px;margin-right:15px;text-align:center}
+#container header nav h1 a .icon{height:60px;line-height:60px}
 #container header nav ul{display:block;float:left;margin:-2% 0 2%;padding:0}
 #container header nav.closed ul{display:none}
 #container header nav ul li{float:none;clear:both}
@@ -240,7 +240,7 @@ ul.screenshots li a{border:none}
 .page_task #container nav.task_actions a,form p.buttons a.cancel-edit{font-size:20px;color:#999 !important;padding:15px 0;margin:0}
 .page_task #container nav.task_actions a{width:60%}
 .page_task #container nav.task_actions a:active,.page_task #container nav.task_actions a:focus,.page_task #container nav.task_actions a:hover,form p.buttons a.cancel-edit:active,form p.buttons a.cancel-edit:focus,form p.buttons a.cancel-edit:hover{color:#777 !important}
-.page_task #container nav.task_actions a /styles/fonts/,form p.buttons a.cancel-edit /styles/fonts/{float:left;display:block;font-size:25px;line-height:25px;width:25px;margin-right:10px}
+.page_task #container nav.task_actions a .icon,form p.buttons a.cancel-edit .icon{float:left;display:block;font-size:25px;line-height:25px;width:25px;margin-right:10px}
 .page_task #container nav.task_actions a span,form p.buttons a.cancel-edit span{float:left;display:block;font:20px/24px "Source Sans Pro","Segoe WP",Arial,sans-serif}
 body.page_addtohome_wp{margin:0;position:relative;background-color:#12af09;color:#fff;height:100%;width:100%;padding:0}
 body.page_addtohome_wp #icon{font-size:160px;line-height:320px;text-align:center}
