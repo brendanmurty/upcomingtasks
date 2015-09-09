@@ -52,8 +52,8 @@ function form_date_picker($custom_date='',$mode=''){
 
 // icon - Create an element for a Font Awesome icon
 function icon($icon_name,$icon_title=''){
-	$h='<i class="icon icon-'.$icon_name.'"></i>';
-	if($icon_title!=''){ $h.='<span>'.$icon_title.'</span>'; }
+	$h='<span class="icon icon-'.$icon_name.'"></span>';
+	if($icon_title!=''){ $h.='<span class="icon-text-label">'.$icon_title.'</span>'; }
 	return $h;
 }
 
@@ -134,7 +134,7 @@ function navigation($current_page,$option=''){
 
 	if(bc_projects_count() == 1){
 		// The account only has one project, include a link to view that project directly
-		$def.='<li id="action-projects"><a href="/pages/project.php?id='.bc_projects_first().'">'.icon('folder-close','Project').'</a></li>';
+		$def.='<li id="action-projects"><a href="/pages/project.php?id='.bc_projects_first().'">'.icon('folder','Project').'</a></li>';
 	}else{
 		// The account has more than one project, include a link to view a list of all projects
 		$def.='<li id="action-projects"><a href="/pages/projects.php">'.icon('folder-close','Projects').'</a></li>';

@@ -499,9 +499,9 @@ function bc_task_format($project_id,$list_id,$task_id,$task_name,$task_location=
 		$r.='</li></ul>';
 		$r.='<nav class="task_actions"><ul>';
 		if($completed=='yes'){
-			$r.='<li><a id="button_task_complete" href="/pages/task.php?project='.$project_id.'&task='.$task_id.'&mode=incomplete">'.icon('check-empty','Re-open').'</a></li>';
+			$r.='<li><a id="button_task_complete" href="/pages/task.php?project='.$project_id.'&task='.$task_id.'&mode=incomplete">'.icon('check-square','Re-open').'</a></li>';
 		}else{
-			$r.='<li><a id="button_task_complete" href="/pages/task.php?project='.$project_id.'&task='.$task_id.'&mode=complete">'.icon('check','Complete').'</a></li>';
+			$r.='<li><a id="button_task_complete" href="/pages/task.php?project='.$project_id.'&task='.$task_id.'&mode=complete">'.icon('check-square-o','Complete').'</a></li>';
 			$r.='<li><a id="button_task_edit" href="#">'.icon('edit','Edit').'</a></li>';
 			$r.='<li><a id="button_task_delete" href="#">'.icon('trash','Delete').'</a></li>';
 		}
@@ -514,7 +514,7 @@ function bc_task_format($project_id,$list_id,$task_id,$task_name,$task_location=
 		}else{
 			$r.=form_date_picker($task_due,'');
 		}
-		$r.='<p class="buttons"><input type="hidden" name="due_mode" id="due_mode" value="date" /><input type="button" value="Update task" class="submit" id="button_update_task" /><a class="cancel-edit" id="button_task_canceledit" href="#">'.icon('remove-circle','Cancel').'</a></p></form>';
+		$r.='<p class="buttons"><input type="hidden" name="due_mode" id="due_mode" value="date" /><input type="button" value="Update task" class="submit" id="button_update_task" /><a class="cancel-edit" id="button_task_canceledit" href="#">'.icon('times','Cancel').'</a></p></form>';
 		$r.=bc_task_comments($project_id,$task_id).'<form id="form_comment" name="form_comment" method="post" action="/pages/newcomment.php?project='.$project_id.'&task='.$task_id.'">';
 		$r.='<p><textarea class="text" name="comment" id="comment"></textarea></p>';
 		$r.='<p class="buttons"><input type="submit" value="Add comment" name="submit" class="submit" /></p></form>';

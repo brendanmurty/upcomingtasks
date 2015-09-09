@@ -105,7 +105,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <? } ?>
 </head>
 <body class="<?= $page_class ?>">
-	<div id="loading-icon" style="display:none"><span class="icon icon-spinner"></span></div>
+	<div id="loading-icon" style="display:none"><span class="icon icon-spinner icon-spin"></span></div>
 	<div id="container">
 		<a id="top"></a>
 		<header>

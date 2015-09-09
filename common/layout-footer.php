@@ -5,8 +5,8 @@
 <footer>
 	<nav>
 		<ul>
-			<li><a href="#top" id="button_top"><?= icon('double-angle-up','Top') ?></a></li>
-			<li><a href="https://twitter.com/upcomingtasks"><?= icon('question-sign','Help') ?></a></li>
+			<li><a href="#top" id="button_top"><?= icon('angle-double-up','Top') ?></a></li>
+			<li><a href="https://twitter.com/upcomingtasks"><?= icon('question-circle','Help') ?></a></li>
 		</ul>
 	</nav>
 </footer>
