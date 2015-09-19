@@ -58,18 +58,19 @@ function icon($icon_name,$icon_title=''){
 }
 
 // input_clean - Cleans input strings and protects from code injections
-function input_clean($input_string,$option=''){
-	if($input_string!=''){
+function input_clean($input_string, $option = ''){
+	if($input_string != '') {
 		//$input_string=mysql_real_escape_string($input_string);
-		$input_string=htmlspecialchars($input_string,ENT_IGNORE,'utf-8');
-		$input_string=strip_tags($input_string);
-		$input_string=stripslashes($input_string);
+		$input_string = htmlspecialchars($input_string,ENT_IGNORE,'utf-8');
+		$input_string = strip_tags($input_string);
+		$input_string = stripslashes($input_string);
 
-		if($option=='numeric'){// Return only numeric characters
-			$input_string=preg_replace('/[^0-9]+/','',$input_string);
-		}elseif($option=='alpha'){// Return only alpha characters
-			$input_string=preg_replace('/[^a-zA-Z]+/','',$input_string);
+		if ($option == 'numeric') {// Return only numeric characters
+			$input_string = preg_replace('/[^0-9]+/', '', $input_string);
+		} elseif ($option == 'alpha') {// Return only alpha characters
+			$input_string = preg_replace('/[^a-zA-Z]+/', '', $input_string);
 		}
+
 		return $input_string;
 	}
 }
@@ -346,4 +347,37 @@ function vague_count($number){
 		return $number;
 	}
 }
+
+// form_get - Extract the value of a URL parameter
+function form_get($url_section, $clean_type = 'alpha') {
+	if (isset($_GET[$url_section])) {
+		if ($clean_type) {
+			$cleaned = input_clean($_GET[$url_section], $clean_type);
+			if ($cleaned) {
+				return $cleaned;
+			}
+		} else {
+			return $_GET[$url_section];
+		}
+	}
+
+	return false;
+}
+
+// form_post - Extract the value of a form post parameter
+function form_post($post_section, $clean_type = 'alpha') {
+	if (isset($_POST[$post_section])) {
+		if ($clean_type) {
+			$cleaned = input_clean($_POST[$post_section], $clean_type);
+			if ($cleaned) {
+				return $cleaned;
+			}
+		} else {
+			return $_POST[$post_section];
+		}
+	}
+
+	return false;
+}
+
 ?>
