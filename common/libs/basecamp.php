@@ -284,20 +284,25 @@ function bc_results($api_url=''){
 // bc_results_main - Query the Basecamp API and return the result
 function bc_results_main($api_url='',$token='',$account=''){
 	if($api_url!='' && $token!='' && $account!=''){
-		if(substr($api_url,0,1)=='/'){
+		set_time_limit(60);
+
+		if(substr($api_url,0,1) == '/') {
 			$api_url='https://basecamp.com/'.$account.'/api/v1'.$api_url;
 		}
-		$ch=curl_init();
-		$options=array(
+
+		$ch = curl_init();
+		$options = array(
 			CURLOPT_URL => $api_url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HTTPHEADER => array('Content-type: application/json','Authorization: Bearer '.$token),
 			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent'],
 			CURLOPT_SSL_VERIFYPEER => false
 		);
-		curl_setopt_array($ch,$options);
-		$results=curl_exec($ch);
-		return json_decode($results,'true');
+
+		curl_setopt_array($ch, $options);
+		$results = curl_exec($ch);
+
+		return json_decode($results, 'true');
 	}else{
 		return '';
 	}
