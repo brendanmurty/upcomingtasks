@@ -1,4 +1,5 @@
 <?
+
 // bc_account - Select the first bcx account found in the users account list
 function bc_account($bc_token){
 	if($bc_token){
@@ -203,12 +204,22 @@ function bc_project_name_from_url($api_url){
 	}
 }
 
+// bc_project_description - Return the name of the specificied project (given the id)
+function bc_project_description($id) {
+	$id = input_clean($id, 'numeric');
+	$r = bc_results('/projects/' . $id . '.json');
+	if(count($r) > 0) {
+		return $r['description'];
+	}
+}
+
 // bc_project_name - Return the name of the specificied project (given the id)
-function bc_project_name($id){
-	$id=input_clean($id,'numeric');
-	$r=bc_results('/projects/'.$id.'.json');
-	$c=count($r);
-	if($c>0){ return $r['name']; }
+function bc_project_name($id) {
+	$id = input_clean($id, 'numeric');
+	$r = bc_results('/projects/' . $id . '.json');
+	if(count($r) > 0) {
+		return $r['name'];
+	}
 }
 
 // bc_project - Return a list of all tasks assigned to the project
@@ -217,10 +228,16 @@ function bc_project($id){
 	$r1=bc_results('/projects/'.$id.'.json');
 	$r2=bc_results('/projects/'.$id.'/todolists.json');
 
-	$h='<li><span class="project-name">'.$r1['name'].'</span><span class="project-description">'.$r1['description'].'</span><ul class="list">';
+	$h='<li><span class="project-name">'.$r1['name'].'</span><span class="project-description">'.$r1['description'].'</span>';
+
+	if (pro_user()) {
+		$h .= '<a class="action" href="/pages/project.php?id=' . $id . '&action=edit" title="Edit project details">' . icon('pencil', 'Edit') . '</a>';
+	}
+
+	$h.='<ul class="list">';
 	for($i=0;$i<count($r2);$i++){
 		if($r2[$i]['name']!=''){
-			$h.='<li><a class="add-task" href="/pages/newtask.php?project='.$id.'&list='.$r2[$i]['id'].'" title="Add a task to the \''.$r2[$i]['name'].'\' project">'.icon('plus','New').'</a><span class="list-name">'.$r2[$i]['name'].'</span><span class="list-description">'.$r2[$i]['description'].'</span><ul class="task task-multiple">';
+			$h.='<li><a class="action" href="/pages/newtask.php?project='.$id.'&list='.$r2[$i]['id'].'" title="Add a task to the \''.$r2[$i]['name'].'\' project">'.icon('plus','New').'</a><span class="list-name">'.$r2[$i]['name'].'</span><span class="list-description">'.$r2[$i]['description'].'</span><ul class="task task-multiple">';
 			$r3=bc_results('/projects/'.$id.'/todolists/'.$r2[$i]['id'].'.json');
 			for($j=0;$j<count($r3['todos']['remaining']);$j++){
 				$h.='<li><a href="/pages/task.php?project='.$id.'&task='.$r3['todos']['remaining'][$j]['id'].'"><span class="task-name">'.$r3['todos']['remaining'][$j]['content'].'</span></a></li>';
@@ -230,10 +247,21 @@ function bc_project($id){
 	}
 	$r4=bc_results('/projects/'.$id.'/todolists/completed.json');
 	for($k=0;$k<count($r4);$k++){
-		$h.='<li class="completed"><a class="add-task" href="/pages/newtask.php?project='.$id.'&list='.$r4[$k]['id'].'" title="Add a task to the \''.$r4[$k]['name'].'\' project">'.icon('plus','New').'</a><span class="list-name">'.$r4[$k]['name'].'</span>';
+		$h.='<li class="completed"><a class="action" href="/pages/newtask.php?project='.$id.'&list='.$r4[$k]['id'].'" title="Add a task to the \''.$r4[$k]['name'].'\' project">'.icon('plus','New').'</a><span class="list-name">'.$r4[$k]['name'].'</span>';
 	}
 	$h.='</ul></li>';
 	return '<ul class="project project-single">'."\r\n".$h.'</ul>';
+}
+
+// bc_project_edit - Edit a project
+function bc_project_edit($project_name, $project_description, $project_id) {
+	$project_name = input_clean($project_name);
+	$project_description = input_clean($project_description);
+	$project_id = input_clean($project_id, 'numeric');
+	$api_url = '/projects/' . $project_id . '.json';
+	$data_array = array('name' => $project_name, 'description' => $project_description);
+	$result = bc_post($api_url, $data_array, 'update');
+	redirect('/pages/project.php?id=' . $project_id);
 }
 
 // bc_projects - Return a list of all projects in an account

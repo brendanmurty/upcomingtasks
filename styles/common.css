@@ -140,10 +140,10 @@ ul.project-single ul{margin:20px 0 0 0;padding:0}
 ul.project-single ul li{margin:0;padding:0}
 ul.project-single ul li a{padding:0}
 ul.project-single ul li .list-description{margin:0 0 15px}
+ul.project-single .action{float:right;width:auto;font-size:25px;line-height:25px;padding:0;margin:0}
+ul.project-single .action .icon-text-label{display:none}
+ul.project-single .action .icon{margin:0;padding:0}
 ul.project-single ul.list li{margin:0 0 20px;border:0 none;float:left;clear:both;width:100%}
-ul.project-single ul.list li a.add-task{float:right;width:auto;font-size:25px;line-height:25px;padding:0;margin:0}
-ul.project-single ul.list li a.add-task .icon-text-label{display:none}
-ul.project-single ul.list li a.add-task .icon{margin:0;padding:0}
 ul.project-single ul.list li ul{margin:0 0 20px}
 ul.project-single ul.list li ul li{margin:0 0 25px;padding:0}
 ul.project-single ul.list li ul.task li{width:auto}
@@ -167,7 +167,7 @@ form p.buttons input,a.button{font:700 20px/50px "Source Sans Pro","Segoe WP",Ar
 form p.buttons input:hover,form p.buttons input:active,form p.buttons input:focus{text-decoration:none}
 form p.buttons a.remove,form p.buttons a.cancel-edit{float:right;background:none;border:0 none}
 form p.task-name{margin-top:1%}
-form .text{width:93%;padding:10px;margin:0}
+form .text{width:100%;padding:10px;margin:0;box-sizing:border-box}
 form textarea{width:100% !important;height:80px;min-height:80px}
 form select{width:90px;display:block}
 form select#date_day{width:90px;clear:left}

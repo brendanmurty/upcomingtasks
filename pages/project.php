@@ -1,14 +1,49 @@
 <?
 $root_path=dirname(dirname(__FILE__));
 include_once $root_path.'/common/initialise.php';
-if(isset($_GET['id'])||isset($project_id)){
-	if(!isset($project_id)){ $project_id=input_clean($_GET['id'],'numeric'); }
-	if($project_id==''){
+
+if(form_get('id', 'numeric')){
+	if (!isset($project_id)) {
+		$project_id = form_get('id', 'numeric');
+	}
+
+	if ($project_id == '') {
 		redirect('/pages/projects.php');
-	}else{
+	} else {
 		include_once $root_path.'/common/layout-header.php';
-		loading_temp();
-		print bc_project($project_id);
+
+		if (pro_user() && form_get('action', 'alpha') == 'edit') {
+			// Edit a project form (Pro only)
+			$project_description = bc_project_description($project_id);
+			$project_name = bc_project_name($project_id);
+			$cancel_icon = icon('times', 'Cancel');
+?>
+		<form id="form_project_edit" name="form_project_edit" method="post" action="/pages/project.php?id=<?= $project_id ?>&amp;action=save">
+			<p>
+				<input type="text" class="text" name="project-name" value="<?= $project_name ?>" />
+			</p>
+			<p>
+				<input type="text" class="text" name="project-description" value="<?= $project_description ?>" />
+			</p>
+			<p class="buttons">
+				<input type="submit" value="Save" name="submit" class="submit" />
+				<a class="cancel-edit" href="/project?id=<?= $project_id ?>"><?= $cancel_icon ?></a>
+			</p>
+		</form>
+<?
+		} elseif (pro_user() && form_get('action', 'alpha') == 'save') {
+			// Save project details (Pro only)
+			bc_project_edit(
+				form_post('project-name', 'none'),
+				form_post('project-description', 'none'),
+				form_get('id', 'numeric')
+			);
+		} else {
+			// View a project
+			loading_temp();
+			echo bc_project($project_id);
+		}
+
 		include_once $root_path.'/common/layout-footer.php';
 	}
 }else{
