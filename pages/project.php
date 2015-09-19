@@ -27,7 +27,7 @@ if(form_get('id', 'numeric')){
 			</p>
 			<p class="buttons">
 				<input type="submit" value="Save" name="submit" class="submit" />
-				<a class="cancel-edit" href="/project?id=<?= $project_id ?>"><?= $cancel_icon ?></a>
+				<a class="cancel-edit" href="/pages/project.php?id=<?= $project_id ?>"><?= $cancel_icon ?></a>
 			</p>
 		</form>
 <?
