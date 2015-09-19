@@ -171,7 +171,11 @@ function navigation($current_page,$option=''){
 		$a='<nav id="actions" class="empty"><h1>'.icon('ok',$current_page).'</h1></nav>';
 	}else{
 		$a='<nav id="actions" class="closed"><h1><a id="toggle_nav" href="#">'.icon('chevron-down',$current_page).'</a></h1><ul>'.$a;
-		if(user_exists()) $a.='<li class="user">'.bc_user_box().'</li>';
+
+		if (user_exists()) {
+			$a.='<li class="user">'.bc_user_box().'</li>';
+		}
+
 		$a.='</ul></nav>';
 	}
 	return $a;

@@ -116,7 +116,7 @@ function bc_list_name($project_id,$list_id){
 // bc_user_box - Return information about the authenticated user
 function bc_user_box(){
 	$result = bc_results('/people/me.json');
-	$u = '<a id="button_logout" href="#">Logout</a>';
+	$u = '';
 
 	if (is_array($result)) {
 		if (array_key_exists('avatar_url', $result) && array_key_exists('name', $result)) {
@@ -126,8 +126,15 @@ function bc_user_box(){
 				$avatar_url = str_replace('http://', 'https://', $result['avatar_url']);
 			}
 
-			$u = '<a id="button_logout" href="#"><span class="image"><img src="' . $avatar_url . '" /></span>';
-			$u .= '<span class="name">' . $result['name'] . '<em>Logout</em></span></a>';
+			$u = '<img src="' . $avatar_url . '" /></span>';
+			$u .= '<strong>' . $result['name'] . '</strong>';
+			$u .= '<a id="button_logout" href="#">Logout</a>';
+
+			if (pro_user()) {
+				$u .= '<a class="pro" href="/pages/pro.php">Pro</a>';
+			} else {
+				$u .= '<a class="upgrade" href="/pages/pro.php">Upgrade</a>';
+			}
 		}
 	}
 

@@ -106,8 +106,8 @@ function user_id(){
 	}
 }
 
-// user_is_pro - Check if the current user is a pro user
-function user_is_pro($bc_id=''){
+// pro_user - Check if the current user or a specific user has subscribed to the Pro account
+function pro_user($bc_id = '') {
 	$user_id = '';
 	if($bc_id != ''){
 		$user_id = $bc_id;
@@ -118,21 +118,19 @@ function user_is_pro($bc_id=''){
 			return false;
 		}
 	}
-	if($user_id != ''){
+	if ($user_id != '') {
 	    $db = db_connect();
-		$sql = "SELECT pro FROM users WHERE bc_id=" . db_clean($db, $user_id);
+		$sql = 'SELECT pro FROM users WHERE bc_id=' . db_clean($db, $user_id);
 		$result = db_query($db, $sql);
 		db_disconnect($db);
-		if(is_array($result)){
-			if($result['pro']==1){
+		if(is_array($result)) {
+			if($result['pro'] == 1) {
 				return true;
-			}else{
-				return false;
 			}
 		}
-	}else{
-		return false;
 	}
+
+	return false;
 }
 
 // user_login_url - Return the oAuth login URL

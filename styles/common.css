@@ -51,7 +51,7 @@ td{vertical-align:top}
 textarea[contenteditable]{-webkit-appearance:none}
 *{margin:0}
 html,body{height:100%;padding:0;margin:0;color:#000;background-color:#fff;overflow-x:hidden}
-#container{min-height:100%;height:auto !important;height:100%;margin:0 auto -80px}
+#container{min-height:100%;height:auto !important;height:100%;margin:0 auto -80px;min-width:300px}
 header{width:92%;padding:2% 4%;float:left;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
 .error-message{background-color:#80001d;color:#fff;padding:2% 3%;float:left;width:94%}
 .error-message p{margin:0}
@@ -217,11 +217,10 @@ ul.screenshots li a{border:none}
 #container header{padding:0;width:100%}
 #container header nav{display:block}
 #container header nav ul,#container header nav li,#container header nav a{width:100%}
-#container header nav a,#container header nav.empty h1{width:92%;padding:2.5% 4%;text-align:left;font:400 25px/30px "Source Sans Pro","Segoe WP",Arial,sans-serif}
+#container header nav a,#container header nav.empty h1,#container header nav .user{width:92%;padding:2.5% 4%;text-align:left;font:400 25px/30px "Source Sans Pro","Segoe WP",Arial,sans-serif}
 #container header nav.empty h1{height:50px;line-height:50px}
 #container header nav.empty .icon{line-height:50px;margin-right:10px}
-#container header nav a{color:#eee !important}
-#container header nav .user a{margin-top:10px}
+#container header nav a{color:#eee}
 #container header nav h1{color:#fff !important;margin:0;line-height:30px}
 #container header nav h1 a{color:#fff !important;margin:0;padding:0 4% 5px;line-height:60px}
 #container header nav a .icon{float:left;display:block;width:21px;height:30px;line-height:30px;margin-right:15px;text-align:center}
@@ -229,11 +228,12 @@ ul.screenshots li a{border:none}
 #container header nav ul{display:block;float:left;margin:-2% 0 2%;padding:0}
 #container header nav.closed ul{display:none}
 #container header nav ul li{float:none;clear:both}
-#container header nav ul li a:active,#container header nav ul li a:focus,#container header nav ul li a:hover{color:#fff !important}
-#container header nav ul li a:active,#container header nav ul li a:focus,#container header nav ul li a:hover{color:#fff !important}
+#container header nav a:active,#container header nav a:focus,#container header nav a:hover{color:#fff}
+#container header nav a:active,#container header nav a:focus,#container header nav a:hover{color:#fff}
 #container header span{display:block;float:left;max-width:80%}
-#container header nav ul li.user span.image{margin-right:10px}
-#container header nav ul li.user span.name em{clear:both;display:block;font-size:14px;line-height:16px;font-style:normal}
+#container header nav .user img{margin-right:10px}
+#container header nav .user a{font-size:14px;line-height:55px;display:inline-block;text-transform:uppercase;margin-right:10px;padding:0 20px;text-align:center;float:right;width:auto;background-color:#0d7f06;color:#333;border:1px solid #0d7f06;border-radius:4px;color:#fff}
+#container header nav #button_logout{margin-right:0}
 .page_task #container nav.task_actions{display:block}
 .page_task #container nav.task_actions li{clear:both;float:none}
 .page_task #container nav.task_actions a,form p.buttons a.cancel-edit{font-size:20px;color:#999 !important;padding:15px 0;margin:0}
@@ -246,48 +246,53 @@ body.page_addtohome_wp #icon{font-size:160px;line-height:320px;text-align:center
 body.page_addtohome_wp #instructions{margin-top:60px;text-align:center;position:relative;color:#eee}
 body.page_addtohome_wp #instructions strong{color:#fff}
 ul.features li{list-style:disc inside none}
+
 @media only screen and (max-width:500px){
 	ul.screenshots li{width:80px;height:80px}
+	#container header nav .user strong{display:none}
 }
+
 @media only screen and (min-width:500px) and (max-width:1366px){
-header nav ul li a{font-size:40px}
-#content{padding:3% 4% 0;width:92%}
-nav ul{margin:0}
-ul.task li a,ul.project > li a{padding:3% 0}
-ul.comments > li{width:96%;padding:2%}
-ul.account-select li a,ul.themes li a{padding:3% 4%;width:92%}
-#form_task p.task_list,#form_task_edit p.task_list,#form_task p.due_toggle,#form_task p.date,#form_task_edit p.task-location,#form_task_edit p.date{clear:none;width:auto}
-#form_task p.task_list,#form_task_edit p.task_list,#form_task_edit p.task-location{width:40%}
-form select#task_lists{width:100%}
-#form_task p.date,#form_task_edit p.date{float:right}
-#form_task p.date #due_mode_select,#form_task_edit p.date #due_mode_select{float:left;margin:5px 4px 0 0}
-#form_task p.date label,#form_task_edit p.date label{float:left;margin:0 15px 0 0}
-form select#date_day{clear:none}
-.page_task #container nav.task_actions li{clear:none;float:left;width:auto;padding:10px 0;margin:0 20px 0 0}
-.page_task #container nav.task_actions li a{width:auto}
-#container header nav ul{margin:-1% 0 2%}
-#container header h1 a,#container header nav ul li a,#container header nav.empty h1{width:92%;padding:1% 4%}
-#container header nav.empty h1{padding-bottom:2%}
+	header nav ul li a{font-size:40px}
+	#content{padding:3% 4% 0;width:92%}
+	nav ul{margin:0}
+	ul.task li a,ul.project > li a{padding:3% 0}
+	ul.comments > li{width:96%;padding:2%}
+	ul.account-select li a,ul.themes li a{padding:3% 4%;width:92%}
+	#form_task p.task_list,#form_task_edit p.task_list,#form_task p.due_toggle,#form_task p.date,#form_task_edit p.task-location,#form_task_edit p.date{clear:none;width:auto}
+	#form_task p.task_list,#form_task_edit p.task_list,#form_task_edit p.task-location{width:40%}
+	form select#task_lists{width:100%}
+	#form_task p.date,#form_task_edit p.date{float:right}
+	#form_task p.date #due_mode_select,#form_task_edit p.date #due_mode_select{float:left;margin:5px 4px 0 0}
+	#form_task p.date label,#form_task_edit p.date label{float:left;margin:0 15px 0 0}
+	form select#date_day{clear:none}
+	.page_task #container nav.task_actions li{clear:none;float:left;width:auto;padding:10px 0;margin:0 20px 0 0}
+	.page_task #container nav.task_actions li a{width:auto}
+	#container header nav ul{margin:-1% 0 2%}
+	#container header h1 a,#container header nav a,#container header nav.empty h1{width:92%;padding:1% 4%}
+	#container header nav .user a{padding:0 20px}
+	#container header nav.empty h1{padding-bottom:2%}
 }
+
 @media only screen and (min-width:1367px){
-#container,header,#content{max-width:750px}
-body{background-color:#fff !important}
-#content{padding:3% 3% 0;width:94%}
-nav ul{margin:0}
-ul.task li .task-details p{width:520px}
-ul.task li a,ul.project > li a{padding:3% 0}
-ul.comments > li{width:96%;padding:2%}
-ul.account-select li a,ul.themes li a{padding:3%;width:94%}
-#form_task p.task_list,#form_task_edit p.task_list,#form_task p.due_toggle,#form_task p.date,#form_task_edit p.task-location,#form_task_edit p.date{clear:none;width:auto}
-#form_task p.task_list,#form_task_edit p.task_list,#form_task_edit p.task-location{width:40%}
-form select#task_lists{width:100%}
-#form_task p.date,#form_task_edit p.date{float:right}
-#form_task p.date #due_mode_select,#form_task_edit p.date #due_mode_select{float:left;margin:5px 4px 0 0}
-#form_task p.date label,#form_task_edit p.date label{float:left;margin:0 15px 0 0}
-form select#date_day{clear:none}
-.page_task #container nav.task_actions li{clear:none;float:left;width:auto;padding:10px 0;margin:0 20px 0 0}
-.page_task #container nav.task_actions li a{width:auto}
-#container header nav ul{margin-top:-1%}
+	#container,header,#content{max-width:750px}
+	body{background-color:#fff !important}
+	#content{padding:3% 3% 0;width:94%}
+	nav ul{margin:0}
+	ul.task li .task-details p{width:520px}
+	ul.task li a,ul.project > li a{padding:3% 0}
+	ul.comments > li{width:96%;padding:2%}
+	ul.account-select li a,ul.themes li a{padding:3%;width:94%}
+	#form_task p.task_list,#form_task_edit p.task_list,#form_task p.due_toggle,#form_task p.date,#form_task_edit p.task-location,#form_task_edit p.date{clear:none;width:auto}
+	#form_task p.task_list,#form_task_edit p.task_list,#form_task_edit p.task-location{width:40%}
+	form select#task_lists{width:100%}
+	#form_task p.date,#form_task_edit p.date{float:right}
+	#form_task p.date #due_mode_select,#form_task_edit p.date #due_mode_select{float:left;margin:5px 4px 0 0}
+	#form_task p.date label,#form_task_edit p.date label{float:left;margin:0 15px 0 0}
+	form select#date_day{clear:none}
+	.page_task #container nav.task_actions li{clear:none;float:left;width:auto;padding:10px 0;margin:0 20px 0 0}
+	.page_task #container nav.task_actions li a{width:auto}
+	#container header nav ul{margin-top:-1%}
 }
 
 /*!
