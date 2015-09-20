@@ -32,7 +32,16 @@ if ($project_id && $task_id) {
 					$task_due = $date_year . '-' . $date_month . '-' . $date_day;
 				}
 
-		    	bc_task_edit($task_name, $task_due, $project_id, $task_id, '');
+				$person_id = user_id();
+				if (pro_user()) {
+					// Allow the user to assign this task to another person (Pro feature)
+					$person_selected = form_post('people_list', 'numeric');
+					if ($person_selected) {
+						$person_id = $person_selected;
+					}
+				}
+
+		    	bc_task_edit($task_name, $task_due, $project_id, $task_id, '', $person_id);
 		    	break;
 		    case 'dueremove':
 		    	bc_task_due_set($project_id, $task_id, '');

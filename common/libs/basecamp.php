@@ -142,6 +142,35 @@ function bc_user_box(){
 	return $u;
 }
 
+// bc_peoplelist - Return a dropdown list of todo lists
+function bc_peoplelist(){
+	$results = bc_results('/people.json');
+	$list = false;
+
+	if (is_array($results)) {
+		for ($i = 0; $i < count($results); $i++) {
+			if (array_key_exists($i, $results)) {
+				$person_id = $results[$i]['id'];
+				$person_name = $results[$i]['name'];
+
+				$list .= '<option label="' . $person_name . '" value="' . $person_id . '"';
+
+				if ($person_id == user_id()) {
+					// Select the current user by default
+					$list .= ' selected';
+				}
+
+				$list .= '>' . $person_name . '</option>';
+			}
+		}
+	}
+	if ($list) {
+		return '<p class="people_list select"><select id="people_list" name="people_list">' . $list . '</select></p>';
+	}else{
+		return '';
+	}
+}
+
 // bc_post - Post data to Basecamp
 function bc_post($api_url,$data_array,$method='new'){
 	if($api_url && $data_array){
@@ -348,15 +377,32 @@ function bc_task($project_id,$task_id){
 	$project_id=input_clean($project_id,'numeric');
 	$task_id=input_clean($task_id,'numeric');
 	$result=bc_results('/projects/'.$project_id.'/todos/'.$task_id.'.json');
-	$r='';
+
 	if($result!=''){
 		if(bc_projects_count()==1){
 			$task_location=bc_list_name($project_id,$result['todolist_id']);
 		}else{
 			$task_location=bc_project_name($project_id).' - '.bc_list_name($project_id,$result['todolist_id']);
 		}
-		$r.=bc_task_format($project_id,$result['todolist_id'],$result['id'],$result['content'],$task_location,'',$result['due_at'],$result['completed'],'page');
-		return $r;
+
+		$assigned_to = 'Me';
+		if ($result['assignee']['id'] != user_id()) {
+			// This task is assigned to someone else
+			$assigned_to = $result['assignee']['name'];
+		}
+
+		return bc_task_format(
+			$project_id,
+			$result['todolist_id'],
+			$result['id'],
+			$result['content'],
+			$task_location,
+			'',
+			$result['due_at'],
+			$result['completed'],
+			$assigned_to,
+			'page'
+		);
 	}
 }
 
@@ -454,24 +500,42 @@ function bc_task_due_set($project_id,$task_id,$task_due){
 }
 
 // bc_task_edit - Edit a task
-function bc_task_edit($task_name,$task_due='',$project_id,$task_id,$list_id=''){
-	$task_name=input_clean($task_name,'');
-	$task_due=input_clean($task_due,'');
-	$project_id=input_clean($project_id,'numeric');
-	$task_id=input_clean($task_id,'numeric');
-	$api_url='/projects/'.$project_id.'/todos/'.$task_id.'.json';
-	if($list_id!=''){
-		$list_id=input_clean($list_id,'numeric');
-		$data_array=array('content'=>$task_name,'todolist_id'=>$list_id,'due_at'=>$task_due,'assignee'=>array('id'=>user_id(),'type'=>'Person'));
-	}else{
-		$data_array=array('content'=>$task_name,'due_at'=>$task_due,'assignee'=>array('id'=>user_id(),'type'=>'Person'));
+function bc_task_edit($task_name, $task_due = '', $project_id, $task_id, $list_id = '', $person_id){
+	$task_name = input_clean($task_name, '');
+	$task_due = input_clean($task_due, '');
+	$project_id = input_clean($project_id, 'numeric');
+	$task_id = input_clean($task_id, 'numeric');
+	$api_url = '/projects/' . $project_id . '/todos/' . $task_id . '.json';
+
+	if ($list_id) {
+		$list_id = input_clean($list_id, 'numeric');
+		$data_array = array(
+			'content' => $task_name,
+			'todolist_id' => $list_id,
+			'due_at' => $task_due,
+			'assignee' => array(
+				'id' => $person_id,
+				'type' => 'Person'
+			)
+		);
+	} else {
+		$data_array = array(
+			'content' => $task_name,
+			'due_at' => $task_due,
+			'assignee' => array(
+				'id' => $person_id,
+				'type' => 'Person'
+			)
+		);
 	}
-	$result=bc_post($api_url,$data_array,'update');
-	redirect('/pages/task.php?project='.$project_id.'&task='.$task_id);
+
+	$result = bc_post($api_url, $data_array, 'update');
+
+	redirect('/pages/task.php?project=' . $project_id . '&task=' . $task_id);
 }
 
 // bc_task_format - Turn entered task data into generic HTML
-function bc_task_format($project_id,$list_id,$task_id,$task_name,$task_location='',$task_comments='',$task_due='',$completed='no',$mode='list'){
+function bc_task_format($project_id, $list_id, $task_id, $task_name, $task_location = '', $task_comments = '', $task_due = '', $completed = 'no', $assigned_to_name = 'Me', $mode = 'list'){
 	$r='';
 	$date='';
 	$class='';
@@ -532,6 +596,11 @@ function bc_task_format($project_id,$list_id,$task_id,$task_name,$task_location=
 	if($mode=='list'){ $r.='<a tabindex="-1" href="/pages/task.php?project='.$project_id.'&task='.$task_id.'" class="task-info">'; }
 	$r.='<span class="task-name">'.$task_name.'</span>';
 	if($task_location!=''){ $r.='<span class="task-location">'.$task_location.'</span>'; }
+
+	if ($mode == 'page') {
+		$r .= '<span class="task-assigned-to">Assigned to ' . $assigned_to_name . '</span>';
+	}
+
 	if($date!=''){ $r.='<span class="task-due">'.$date.'</span>'; }
 	if($mode=='list'){
 		$r.='</a></li>';
@@ -549,16 +618,24 @@ function bc_task_format($project_id,$list_id,$task_id,$task_name,$task_location=
 
 		$r.='<form id="form_task_edit" name="form_task_edit" class="hidden" method="post" action="/pages/task.php?project='.$project_id.'&task='.$task_id.'&mode=edit">';
 		$r.='<p class="task-name"><textarea class="text" name="task_name" id="task_name" autofocus="autofocus"></textarea></p>';
-		if($task_due==''){
-			$r.=form_date_picker($task_due,'nodate');
-		}else{
-			$r.=form_date_picker($task_due,'');
+
+		if (pro_user()) {
+			// Allow the user to assign this task to another person (Pro feature)
+			$r .= bc_peoplelist();
 		}
+
+		if($task_due == ''){
+			$r .= form_date_picker($task_due, 'nodate');
+		}else{
+			$r .= form_date_picker($task_due, '');
+		}
+
 		$r.='<p class="buttons"><input type="hidden" name="due_mode" id="due_mode" value="date" /><input type="button" value="Update task" class="submit" id="button_update_task" /><a class="cancel-edit" id="button_task_canceledit" href="#">'.icon('times','Cancel').'</a></p></form>';
 		$r.=bc_task_comments($project_id,$task_id).'<form id="form_comment" name="form_comment" method="post" action="/pages/newcomment.php?project='.$project_id.'&task='.$task_id.'">';
 		$r.='<p><textarea class="text" name="comment" id="comment"></textarea></p>';
 		$r.='<p class="buttons"><input type="submit" value="Add comment" name="submit" class="submit" /></p></form>';
 	}
+
 	return $r;
 }
 
@@ -574,17 +651,27 @@ function bc_task_id_from_url($api_url){
 }
 
 // bc_task_new - Create a task
-function bc_task_new($task_name,$task_due='',$project_id,$list_id){
-	$task_name=input_clean($task_name,'');
-	$task_due=input_clean($task_due,'');
-	$project_id=input_clean($project_id,'numeric');
-	$list_id=input_clean($list_id,'numeric');
-	$api_url='/projects/'.$project_id.'/todolists/'.$list_id.'/todos.json';
-	$data_array=array('content'=>$task_name,'due_at'=>$task_due,'assignee'=>array('id'=>user_id(),'type'=>'Person'));
-	$result=bc_post($api_url,$data_array,'new');
-	if(isset($result['id'])){
-		$task_id=$result['id'];
-		redirect('/pages/task.php?project='.$project_id.'&task='.$task_id);
+function bc_task_new($task_name, $task_due = '', $project_id, $list_id, $person_id){
+	$task_name = input_clean($task_name, '');
+	$task_due = input_clean($task_due, '');
+	$project_id = input_clean($project_id, 'numeric');
+	$list_id = input_clean($list_id, 'numeric');
+	$api_url = '/projects/' . $project_id . '/todolists/' . $list_id . '/todos.json';
+
+	$data_array = array(
+		'content' => $task_name,
+		'due_at' => $task_due,
+		'assignee' => array(
+			'id' => $person_id,
+			'type' => 'Person'
+		)
+	);
+
+	$result = bc_post($api_url, $data_array, 'new');
+
+	if (isset($result['id'])) {
+		$task_id = $result['id'];
+		redirect('/pages/task.php?project=' . $project_id . '&task=' . $task_id);
 	}
 }
 
@@ -606,7 +693,19 @@ function bc_tasks_all(){
 						}else{
 							$task_location=$results[$i]['bucket']['name'].' - '.$results[$i]['name'];
 						}
-						$r .= bc_task_format($results[$i]['bucket']['id'], $results[$i]['id'], $results[$i]['assigned_todos'][$j]['id'], $results[$i]['assigned_todos'][$j]['content'], $task_location, '', $results[$i]['assigned_todos'][$j]['due_on'], '', 'list');
+
+						$r .= bc_task_format(
+							$results[$i]['bucket']['id'],
+							$results[$i]['id'],
+							$results[$i]['assigned_todos'][$j]['id'],
+							$results[$i]['assigned_todos'][$j]['content'],
+							$task_location,
+							'',
+							$results[$i]['assigned_todos'][$j]['due_on'],
+							'',
+							'Me',
+							'list'
+						);
 					}
 				}
 				$o='<ul class="task task-multiple">'."\r\n".$r."\r\n".'</ul>'."\r\n";
@@ -654,8 +753,8 @@ function bc_tasks_progress(){
 	return '<ul class="task task-multiple progress">'."\r\n".$r."\r\n".'</ul>'."\r\n";
 }
 
-// bc_tasklists - Return a dropdown list of todo lists
-function bc_tasklists($selected_project='',$selected_list=''){
+// bc_tasklist - Return a dropdown list of todo lists
+function bc_tasklist($selected_project = '', $selected_list = '') {
 	$results=bc_results('/projects.json');
 	$l=(array)'';
 	if(is_array($results)){
@@ -705,7 +804,7 @@ function bc_tasklists($selected_project='',$selected_list=''){
 		foreach($l as $key=>$val){
 			$output.=$val;
 		}
-		return '<p class="task_list select"><select id="task_lists" name="task_lists">'.$output.'</select></p>';
+		return '<p class="task_list select"><select id="task_list" name="task_list">'.$output.'</select></p>';
 	}else{
 		return '';
 	}

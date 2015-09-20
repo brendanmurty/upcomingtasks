@@ -123,8 +123,8 @@ ul.task-completed li a:hover .task-name,ul.task-completed li a:active .task-name
 ul.task li span.task-due{clear:none;float:left;margin-top:5px;font-size:16px;text-transform:uppercase}
 ul.task li span.task-comments{display:none}
 ul.task.progress li span.update-details{margin-bottom:10px}
-ul.task li span.task-location,ul.project li span.project-description,ul.project li .list-description{clear:both;color:#999;font-size:14px;line-height:18px}
-ul.task li span.task-location{text-transform:uppercase}
+ul.task li span.task-location,ul.task li span.task-assigned-to,ul.project li span.project-description,ul.project li .list-description{clear:both;color:#999;font-size:14px;line-height:18px}
+ul.task li span.task-location,ul.task li span.task-assigned-to{text-transform:uppercase}
 ul.task li.completed .task-name,ul.task-completed li .task-name{text-decoration:line-through}
 ul.task li.completed .task-due{display:none}
 ul.task.task-single > li span{margin:0 0 8px}
@@ -171,7 +171,7 @@ form .text{width:100%;padding:10px;margin:0;box-sizing:border-box}
 form textarea{width:100% !important;height:80px;min-height:80px}
 form select{width:90px;display:block}
 form select#date_day{width:90px;clear:left}
-form select#task_lists{width:296px}
+form select#people_list,form select#task_list{width:296px}
 form#form_comment{margin:15px 0 0}
 #form_donate{margin:15px 0 0}
 .page_newtask #form_task{margin:0}
@@ -271,8 +271,8 @@ ul.features li.released::before{content:'released';border-color:#109f08;color:#1
 	ul.comments > li{width:96%;padding:2%}
 	ul.account-select li a,ul.themes li a{padding:3% 4%;width:92%}
 	#form_task p.task_list,#form_task_edit p.task_list,#form_task p.due_toggle,#form_task p.date,#form_task_edit p.task-location,#form_task_edit p.date{clear:none;width:auto}
-	#form_task p.task_list,#form_task_edit p.task_list,#form_task_edit p.task-location{width:40%}
-	form select#task_lists{width:100%}
+	#form_task p.task_list,#form_task_edit p.task_list,#form_task_edit p.task-location,form p.people_list{width:40%}
+	form select#people_list,form select#task_list{width:100%}
 	#form_task p.date,#form_task_edit p.date{float:right}
 	#form_task p.date #due_mode_select,#form_task_edit p.date #due_mode_select{float:left;margin:5px 4px 0 0}
 	#form_task p.date label,#form_task_edit p.date label{float:left;margin:0 15px 0 0}
@@ -296,7 +296,7 @@ ul.features li.released::before{content:'released';border-color:#109f08;color:#1
 	ul.account-select li a,ul.themes li a{padding:3%;width:94%}
 	#form_task p.task_list,#form_task_edit p.task_list,#form_task p.due_toggle,#form_task p.date,#form_task_edit p.task-location,#form_task_edit p.date{clear:none;width:auto}
 	#form_task p.task_list,#form_task_edit p.task_list,#form_task_edit p.task-location{width:40%}
-	form select#task_lists{width:100%}
+	form select#people_list,form select#task_list{width:100%}
 	#form_task p.date,#form_task_edit p.date{float:right}
 	#form_task p.date #due_mode_select,#form_task_edit p.date #due_mode_select{float:left;margin:5px 4px 0 0}
 	#form_task p.date label,#form_task_edit p.date label{float:left;margin:0 15px 0 0}
