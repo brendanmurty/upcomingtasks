@@ -1,27 +1,32 @@
 <?
-include_once dirname(dirname(__FILE__)).'/common/initialise.php';
 
-$error_denied='<p class="error denied">A Basecamp account is required to login.</p>';
-$error_authentication='<p class="error">There was an error authenticating, please <a href="/pages/login.php">try again</a>.</p>';
+$root_path = dirname(dirname(__FILE__));
+include_once $root_path . '/common/initialise.php';
 
-$message=$error_authentication;
-if(isset($_GET['code'])){// User accepted authentication, setup in database
-	if($_GET['code']==''){
-		$message=$error_authentication;
-	}else{
-		user_authenticate($_GET['code']);
+$error_denied = '<p class="error denied">A Basecamp account is required to login.</p>';
+$error_authentication = '<p class="error">There was an error authenticating, please <a href="/pages/login.php">try again</a>.</p>';
+
+$message = $error_authentication;
+$auth_code = form_get('code', 'none');
+$auth_error = form_get('error', 'none');
+
+if ($auth_code) {
+	// User accepted authentication, save account information to database
+	user_authenticate($auth_code);
+} elseif ($auth_error) {
+	// There was an error authenticating
+	if ($auth_error == 'access_denied') {
+		$message = $error_denied;
+	} else {
+		$message = $error_authentication;
 	}
-}elseif(isset($_GET['error'])){// There was an error authenticating
-	if($_GET['error']=='access_denied'){
-		$message=$error_denied;
-	}else{
-		$message=$error_authentication;
-	}
-}else{
-	$message=$error_authentication;
+} else {
+	// General authentication error
+	$message = $error_authentication;
 }
 
-include_once dirname(dirname(__FILE__)).'/common/layout-header.php';
+include_once $root_path . '/common/layout-header.php';
 print $message;
-include_once dirname(dirname(__FILE__)).'/common/layout-footer.php';
+include_once $root_path . '/common/layout-footer.php';
+
 ?>

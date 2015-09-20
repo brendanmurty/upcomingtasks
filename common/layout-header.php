@@ -4,7 +4,7 @@ $root_path = dirname(dirname(__FILE__));
 include_once $root_path.'/common/initialise.php';
 
 // Import update dates (added as a query string on the inserts)
-$date_update_css = "20150919";
+$date_update_css = "20150920";
 $date_update_js  = "20130903";
 
 // Extract the current page's name
@@ -23,13 +23,16 @@ $page_class.=(user_exists() ? ' user_yes':' user_no');
 $nav=navigation($page,'');
 
 // Extract the current theme
-$theme_selected=theme_get();
-if(isset($_GET['theme']) && $_GET['theme']!=''){// Overwrite if requested in qstring
-	$theme_requested=input_clean($_GET['theme'],'');
-	if(file_exists($root_path.'/styles/'.$theme_requested.'.css')){
-		$theme_selected=$theme_requested;
+$theme_selected = theme_get();
+$theme_requested = form_get('theme', 'alpha');
+
+// Overwrite selected theme if requested via query string
+if ($theme_requested) {
+	if (file_exists($root_path . '/styles/' . $theme_requested . '.css')) {
+		$theme_selected = $theme_requested;
 	}
 }
+
 $page_class.=' theme_'.$theme_selected;
 
 // Create the robots meta content
@@ -41,10 +44,10 @@ if(user_exists() && $page!='extras' && $page!='stats'){
 }
 
 // Check for dev mode
-$is_dev=false;
-if(isset($_GET['dev']) && $_GET['dev']=='1'){
-	$is_dev=true;
-	$page_class.=' dev';
+$is_dev = false;
+if(is_dev() || is_local()){
+	$is_dev = true;
+	$page_class .= ' dev';
 }
 
 // Apply default app values if not set

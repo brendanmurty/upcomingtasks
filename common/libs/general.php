@@ -1,4 +1,5 @@
 <?
+
 // form_date_picker - Create a date picker
 function form_date_picker($custom_date='',$mode=''){
 	$this_year=date('Y');
@@ -50,6 +51,38 @@ function form_date_picker($custom_date='',$mode=''){
 	return $f;
 }
 
+// form_get - Extract the value of a URL parameter
+function form_get($url_section, $clean_type = 'alpha') {
+	if (isset($_GET[$url_section])) {
+		if ($clean_type) {
+			$cleaned = input_clean($_GET[$url_section], $clean_type);
+			if ($cleaned) {
+				return $cleaned;
+			}
+		} else {
+			return $_GET[$url_section];
+		}
+	}
+
+	return false;
+}
+
+// form_post - Extract the value of a form post parameter
+function form_post($post_section, $clean_type = 'alpha') {
+	if (isset($_POST[$post_section])) {
+		if ($clean_type) {
+			$cleaned = input_clean($_POST[$post_section], $clean_type);
+			if ($cleaned) {
+				return $cleaned;
+			}
+		} else {
+			return $_POST[$post_section];
+		}
+	}
+
+	return false;
+}
+
 // icon - Create an element for a Font Awesome icon
 function icon($icon_name,$icon_title=''){
 	$h='<span class="icon icon-'.$icon_name.'"></span>';
@@ -76,27 +109,21 @@ function input_clean($input_string, $option = ''){
 }
 
 // is_dev - Check if this user is a developer of this app
-function is_dev(){
-	$isdev = false;
-
-	if (isset($_GET['dev'])) {
-		if($_GET['dev']=='1'){
-			$isdev = true;
-		}
+function is_dev() {
+	if (form_get('dev', 'numeric') == '1') {
+		return true;
 	}
 
-	return $isdev;
+	return false;
 }
 
 // is_local - Check if this is a local domain
-function is_local(){
-	$islocal = false;
-
+function is_local() {
 	if ($_SERVER['HTTP_HOST'] == 'upcomingtasks.dev') {
-		$islocal = true;
+		return true;
 	}
 
-	return $islocal;
+	return false;
 }
 
 // list_screenshots - List the app screenshots (thumbnails should be 150px square and stored in a "thumbnails" subfolder)
@@ -184,12 +211,13 @@ function navigation($current_page,$option=''){
 
 // redirect - Redirect to a certain URL
 function redirect($url){
-	if(headers_sent()){
-		print "<script>window.location='".$url."';</script>";
+	if (headers_sent()) {
+		print '<script>window.location=\'' . $url . '\';</script>';
 	}else{
 		header('Location: '.$url);
 	}
-	exit();
+
+	exit;
 }
 
 // stat_global_users - Count the number of users
@@ -346,38 +374,6 @@ function vague_count($number){
 	}else{
 		return $number;
 	}
-}
-
-// form_get - Extract the value of a URL parameter
-function form_get($url_section, $clean_type = 'alpha') {
-	if (isset($_GET[$url_section])) {
-		if ($clean_type) {
-			$cleaned = input_clean($_GET[$url_section], $clean_type);
-			if ($cleaned) {
-				return $cleaned;
-			}
-		} else {
-			return $_GET[$url_section];
-		}
-	}
-
-	return false;
-}
-
-// form_post - Extract the value of a form post parameter
-function form_post($post_section, $clean_type = 'alpha') {
-	if (isset($_POST[$post_section])) {
-		if ($clean_type) {
-			$cleaned = input_clean($_POST[$post_section], $clean_type);
-			if ($cleaned) {
-				return $cleaned;
-			}
-		} else {
-			return $_POST[$post_section];
-		}
-	}
-
-	return false;
 }
 
 ?>
