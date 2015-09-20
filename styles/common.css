@@ -232,7 +232,8 @@ ul.screenshots li a{border:none}
 #container header nav a:active,#container header nav a:focus,#container header nav a:hover{color:#fff}
 #container header span{display:block;float:left;max-width:80%}
 #container header nav .user img{margin-right:10px}
-#container header nav .user a{font-size:14px;line-height:55px;display:inline-block;text-transform:uppercase;margin-right:10px;padding:0 20px;text-align:center;float:right;width:auto;background-color:#0d7f06;color:#333;border:1px solid #0d7f06;border-radius:4px;color:#fff}
+#container header nav .user a{font-size:14px;line-height:53px;display:inline-block;text-transform:uppercase;margin-right:10px;padding:0 20px;text-align:center;float:right;width:auto;background-color:rgba(0, 0, 0, 0.3);color:#333;border:1px solid rgba(0, 0, 0, 0.1);border-radius:4px;color:#fff}
+#container header nav .user a:active,#container header nav .user a:hover{background-color:rgba(0, 0, 0, 0.2);color:#fff}
 #container header nav #button_logout{margin-right:0}
 .page_task #container nav.task_actions{display:block}
 .page_task #container nav.task_actions li{clear:both;float:none}
