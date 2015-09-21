@@ -439,7 +439,16 @@ function bc_task_comments($project_id,$task_id){
 				// Construct the elements
 				$r.='<li>';
 				$r.='<div class="comment-content">'.$comment.'</div>';
-				$r.='<div class="comment-author">'.$result['comments'][$i]['creator']['name'].'</div>';
+				
+				$r .= '<div class="comment-author">';
+
+				if ($result['comments'][$i]['creator']['id'] == user_id()) {
+				    $r .= 'Me';
+				} else {
+				    $r .= $result['comments'][$i]['creator']['name'];
+				}
+				
+				$r.='</div>';
 				$r.='</li>';
 			}
 			$r.='</ul>';
