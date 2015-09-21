@@ -150,7 +150,9 @@ ul.project-single ul.list li ul.task li{width:auto}
 ul.project-single ul.list li.completed .list-name{text-decoration:line-through;width:85%}
 ul.comments{margin:20px 0 0;float:left;width:100%}
 ul.comments > li{word-wrap:break-word;border:none;width:92%;padding:4%;border-radius:2px}
-ul.comments li .comment-author{margin:10px 0 -5px 0;float:right;font-size:13px}
+ul.comments li .comment-author{margin:20px 0 -5px 0;float:right;font-size:13px;line-height:50px}
+ul.comments li .comment-avatar{margin-top:20px;float:left}
+ul.comments li .comment-avatar img{height:50px;width:50px}
 ul.comments li .comment-content{margin:0;padding:0;width:100%}
 ul.comments li .comment-content li,#content ol li{margin:5px 0 5px 30px}
 ul.comments li .comment-content ul li{list-style:disc outside none}
