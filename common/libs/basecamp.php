@@ -439,21 +439,21 @@ function bc_task_comments($project_id,$task_id){
 				// Construct the elements
 				$r.='<li>';
 				$r.='<div class="comment-content">'.$comment.'</div>';
-				
+
 				$creator = $result['comments'][$i]['creator'];
 
-                if (pro_user() && isset($creator['avatar_url'])) {
-                    // User profile images in comments (Pro feature)
-                    if (is_local()) {
-        				$avatar_url =  $creator['avatar_url'];
-        			} else {
-        				$avatar_url = str_replace('http://', 'https://', $creator['avatar_url']);
-        			}
-                    
-                    $r .= '<div class="comment-avatar">';
-                    $r .= '<img src="' . $avatar_url . '" height="50" width="50" />';
-                    $r .= '</div>'
-                }
+				if (pro_user() && isset($creator['avatar_url'])) {
+					// User profile images in comments (Pro feature)
+					if (is_local()) {
+						$avatar_url =  $creator['avatar_url'];
+					} else {
+						$avatar_url = str_replace('http://', 'https://', $creator['avatar_url']);
+					}
+
+					$r .= '<div class="comment-avatar">';
+					$r .= '<img src="' . $avatar_url . '" height="50" width="50" />';
+					$r .= '</div>'
+				}
 
 				$r .= '<div class="comment-author">';
 
@@ -462,7 +462,7 @@ function bc_task_comments($project_id,$task_id){
 				} else {
 				    $r .= $creator['name'];
 				}
-				
+
 				$r.='</div>';
 				$r.='</li>';
 			}
