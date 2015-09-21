@@ -452,7 +452,7 @@ function bc_task_comments($project_id,$task_id){
 
 					$r .= '<div class="comment-avatar">';
 					$r .= '<img src="' . $avatar_url . '" height="50" width="50" />';
-					$r .= '</div>'
+					$r .= '</div>';
 				}
 
 				$r .= '<div class="comment-author">';
