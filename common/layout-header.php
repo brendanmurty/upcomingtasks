@@ -84,9 +84,9 @@ if(!isset($app_info)){
 <link rel="stylesheet" href="/styles/<?=$theme_selected?>.css?v=<?=$date_update_css?>">
 <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
 <? if($is_dev){// Dev JS ?>
-<script src="/scripts/upcomingtasks-dev.js?v=<?=$date_update_js?>"></script>
+<script src="/scripts/js/upcomingtasks-dev.js?v=<?=$date_update_js?>"></script>
 <? }else{ // Standard JS ?>
-<script src="/scripts/upcomingtasks.js?v=<?=$date_update_js?>"></script>
+<script src="/scripts/js/upcomingtasks.js?v=<?=$date_update_js?>"></script>
 <? } if($page!='authenticate'){// Google Analytics & Screen size fixes ?>
 <script type="text/javascript">
 var _gaq = _gaq || [];
