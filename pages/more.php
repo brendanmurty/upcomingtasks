@@ -1,6 +1,6 @@
 <?
 $root_path=dirname(dirname(__FILE__));
-include_once $root_path.'/common/layout-header.php';
+include_once $root_path.'/common/header.php';
 ?>
 <h2>About</h2>
 <p><?= $app_name ?> was created by <a tabindex="-1" href="http://brendan.murty.id.au">Brendan Murty</a> to allow for easy management of <a tabindex="-1" href="http://basecamp.com">Basecamp</a> tasks on a mobile device.</p>
@@ -14,5 +14,5 @@ include_once $root_path.'/common/layout-header.php';
 	<li><a href="https://twitter.com/share?text=Check out @UpcomingTasks, the simplified way to manage your Basecamp tasks when you're away from your computer -&amp;url=https://upcomingtasks.com">Share on Twitter</a></li>
 </ul>
 <?
-include_once $root_path.'/common/layout-footer.php';
+include_once $root_path.'/common/footer.php';
 ?>

@@ -25,8 +25,8 @@ if ($auth_code) {
 	$message = $error_authentication;
 }
 
-include_once $root_path . '/common/layout-header.php';
+include_once $root_path . '/common/header.php';
 print $message;
-include_once $root_path . '/common/layout-footer.php';
+include_once $root_path . '/common/footer.php';
 
 ?>

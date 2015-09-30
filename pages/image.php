@@ -1,7 +1,7 @@
 <?
 
 $root_path = dirname(dirname(__FILE__));
-include_once $root_path . '/common/layout-header.php';
+include_once $root_path . '/common/header.php';
 
 $image_path = form_get('path', 'none');
 
@@ -28,5 +28,5 @@ if ($image_path && (substr($image_path, 0, 8) == '/images/')) {
 	redirect('/pages/home.php');
 }
 
-include_once $root_path . '/common/layout-footer.php';
+include_once $root_path . '/common/footer.php';
 ?>

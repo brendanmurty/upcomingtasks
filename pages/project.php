@@ -10,7 +10,7 @@ if(form_get('id', 'numeric')){
 	if ($project_id == '') {
 		redirect('/pages/projects.php');
 	} else {
-		include_once $root_path.'/common/layout-header.php';
+		include_once $root_path.'/common/header.php';
 
 		if (pro_user() && form_get('action', 'alpha') == 'edit') {
 			// Edit a project form (Pro only)
@@ -44,7 +44,7 @@ if(form_get('id', 'numeric')){
 			echo bc_project($project_id);
 		}
 
-		include_once $root_path.'/common/layout-footer.php';
+		include_once $root_path.'/common/footer.php';
 	}
 }else{
 	redirect('/pages/projects.php');

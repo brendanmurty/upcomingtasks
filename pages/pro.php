@@ -1,6 +1,6 @@
 <?
 $root_path = dirname(dirname(__FILE__));
-include_once $root_path . '/common/layout-header.php';
+include_once $root_path . '/common/header.php';
 ?>
 
 <h2><?= $app_name ?> Pro</h2>
@@ -34,5 +34,5 @@ include_once $root_path . '/common/layout-header.php';
 <p><?= $app_name ?> Pro will be available for a small monthly cost as soon as some initial Pro features are built.</p>
 
 <?
-include_once $root_path . '/common/layout-footer.php';
+include_once $root_path . '/common/footer.php';
 ?>

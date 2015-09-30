@@ -12,7 +12,7 @@ $list_id = form_get('list', 'numeric');
 
 if (!$task_name) {
 	// Show the new task form
-	include_once $root_path . '/common/layout-header.php';
+	include_once $root_path . '/common/header.php';
 	$date_picker = form_date_picker('', 'newtask');
 
 	$people_list = '';
@@ -42,7 +42,7 @@ if (!$task_name) {
 		</p>
 	</form>
 <?
-	include_once $root_path . '/common/layout-footer.php';
+	include_once $root_path . '/common/footer.php';
 } else {
 	// Create a new task
 	$task_due = '';

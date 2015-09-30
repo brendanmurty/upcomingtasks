@@ -40,7 +40,7 @@ if($page_mode){
 		redirect('/pages/home.php');
 	} elseif ($page_mode == 'options') {
 		// Show all of the options
-		include_once $root_path . '/common/layout-header.php';
+		include_once $root_path . '/common/header.php';
 		echo '<h2>Select Account</h2>' . bc_account_select() . '<h2>Select Theme</h2>' . theme_list();
 
 		if (pro_user()) {
@@ -50,15 +50,15 @@ if($page_mode){
 
 		echo '<p><a class="button" href="/pages/home.php">Cancel</a></p>';
 
-		include_once $root_path . '/common/layout-footer.php';
+		include_once $root_path . '/common/footer.php';
 		exit;
 	}
 }
 
 // Show list of available accounts
-include_once $root_path . '/common/layout-header.php';
+include_once $root_path . '/common/header.php';
 $account_select = bc_account_select();
 print '<h2>Select Account</h2>' . $account_select;
-include_once $root_path . '/common/layout-footer.php';
+include_once $root_path . '/common/footer.php';
 
 ?>
