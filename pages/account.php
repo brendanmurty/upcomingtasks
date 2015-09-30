@@ -42,12 +42,12 @@ if($page_mode){
 		// Show all of the options
 		include_once $root_path . '/common/layout-header.php';
 		echo '<h2>Select Account</h2>' . bc_account_select() . '<h2>Select Theme</h2>' . theme_list() . '<p><a class="button" href="/pages/home.php">Cancel</a></p>';
-		
+
 		if (pro_user()) {
 		    // Pro feature: Time zone localisation support
 		    echo '<h2>Select Timezone</h2>' . timezone_list();
 		}
-		
+
 		include_once $root_path . '/common/layout-footer.php';
 		exit;
 	}
