@@ -110,7 +110,7 @@ function user_id(){
 function user_timezone_get() {
     if (user_id() != 0) {
 	    $db = db_connect();
-		$sql = 'SELECT timezone FROM users WHERE bc_id=' . db_clean($db, $user_id);
+		$sql = 'SELECT timezone FROM users WHERE bc_id=' . db_clean($db, user_id());
 		$result = db_query($db, $sql);
 		db_disconnect($db);
 
@@ -120,7 +120,7 @@ function user_timezone_get() {
 			}
 		}
 	}
-	
+
 	// Default to Sydney
 	return 'Australia/Sydney';
 }
@@ -129,11 +129,11 @@ function user_timezone_get() {
 function user_timezone_set($timezone = 'Australia/Sydney') {
     if (user_id() != 0) {
         $db = db_connect();
-    	$sql = 'UPDATE users SET timezone=\'' . db_clean($db, $timezone) . '\' WHERE bc_id=' . db_clean($db, user_id());
+    	$sql = 'UPDATE users SET timezone=' . db_clean($db, $timezone) . ' WHERE bc_id=' . db_clean($db, user_id());
     	db_query($db, $sql);
     	db_disconnect($db);
     }
-    
+
     setcookie("timezone", $timezone, time()+60*60*24*14);
     date_default_timezone_set($timezone);
 }
