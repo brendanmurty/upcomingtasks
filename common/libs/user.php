@@ -112,13 +112,13 @@ function user_timezone_get() {
 		return $_COOKIE['timezone'];
 	} else {
 		if (user_id() != 0) {
-		    $db = db_connect();
+			$db = db_connect();
 			$sql = 'SELECT timezone FROM users WHERE bc_id=' . db_clean($db, user_id());
 			$result = db_query($db, $sql);
 			db_disconnect($db);
 
-			if(is_array($result)) {
-				if($result['timezone']) {
+			if (is_array($result)) {
+				if ($result['timezone']) {
 					return $result['timezone'];
 				}
 			}
@@ -145,22 +145,21 @@ function user_timezone_set($timezone = 'Australia/Sydney') {
 // pro_user - Check if the current user or a specific user has subscribed to the Pro account
 function pro_user($bc_id = '') {
 	$user_id = '';
-	if($bc_id != ''){
+	if ($bc_id != '') {
 		$user_id = $bc_id;
-	}else{
-		if(user_exists()){
+	} else {
+		if (user_exists()) {
 			$user_id = user_id();
-		}else{
-			return false;
 		}
 	}
 	if ($user_id != '') {
-	    $db = db_connect();
+		$db = db_connect();
 		$sql = 'SELECT pro FROM users WHERE bc_id=' . db_clean($db, $user_id);
 		$result = db_query($db, $sql);
 		db_disconnect($db);
-		if(is_array($result)) {
-			if($result['pro'] == 1) {
+
+		if (is_array($result)) {
+			if ($result['pro'] == 1) {
 				return true;
 			}
 		}
