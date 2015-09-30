@@ -41,7 +41,7 @@ if($page_mode){
 	} elseif ($page_mode == 'options') {
 		// Show all of the options
 		include_once $root_path . '/common/header.php';
-		echo '<h2>Select Account</h2>' . bc_account_select() . '<h2>Select Theme</h2>' . theme_list();
+		echo '<h2>Select Account</h2>' . bc_account_select('list') . '<h2>Select Theme</h2>' . theme_list();
 
 		if (pro_user()) {
 		    // Pro feature: Time zone localisation support
@@ -57,7 +57,7 @@ if($page_mode){
 
 // Show list of available accounts
 include_once $root_path . '/common/header.php';
-$account_select = bc_account_select();
+$account_select = bc_account_select('initial');
 print '<h2>Select Account</h2>' . $account_select;
 include_once $root_path . '/common/footer.php';
 

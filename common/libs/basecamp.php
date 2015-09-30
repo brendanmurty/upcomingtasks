@@ -30,8 +30,8 @@ function bc_account($bc_token){
 	}
 }
 
-// bc_account_select - Produce a list of all accounts the user has access to
-function bc_account_select($mode='list'){
+// bc_account_select - Produce a list of all bcx accounts the user has access to
+function bc_account_select($mode = 'list') {
 	$result=bc_results('https://launchpad.37signals.com/authorization.json');
 	if($result!=''){
 		$s='';
@@ -45,20 +45,18 @@ function bc_account_select($mode='list'){
 					if($result['accounts'][$i]['product']=='bcx'){
 						$account_id=$result['accounts'][$i]['id'];
 						$account_name=$result['accounts'][$i]['name'];
-						if($mode=='select'){
-							$s.='<option label="'.$account_name.'" value="'.$account_id.'">'.$account_name.'</option>';
-						}else{
-							$s.='<li><a href="/pages/account.php?mode=select&id='.$account_id.'">'.$account_name.'</a></li>';
+						$s .= '<li';
+						
+						if ($mode == 'list' && user_account() == $account_id) {
+						    $s .= ' class="selected"';
 						}
+						
+						$s .= '><a href="/pages/account.php?mode=select&id=' . $account_id . '">' . $account_name . '</a></li>';
 					}
 				}
 			}
 			if($s!=''){
-				if($mode=='select'){
-					return '<form id="account-select"><select name="account-id" onchange="select_redirect(\'account-id\')">'.$s.'</select></form>';
-				}else{
-					return '<ul class="account-select">'.$s.'</ul>';
-				}
+				return '<ul class="account-select">'.$s.'</ul>';
 			}else{
 				return '<p class="error">Sorry, no eligible Basecamp accounts were found. Please <a href="https://basecamp.com/signup">create a Basecamp account</a> to use this app.</p>';
 			}
