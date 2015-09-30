@@ -10,7 +10,7 @@ include_once $root_path . '/common/layout-header.php';
     <li class="released">Editing project details</li>
     <li class="released">Assign tasks to other people</li>
     <li class="released">User profile images in comments</li>
-    <li class="planned">Time zone localisation support</li>
+    <li class="released">Time zone localisation support</li>
     <li class="planned">Add attachments to comments</li>
     <li class="planned">Show posted &amp; updated times for comments</li>
     <li class="planned">Push notifications</li>

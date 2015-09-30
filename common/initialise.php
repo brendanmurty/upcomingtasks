@@ -1,6 +1,6 @@
 <?
 set_error_handler('error_handle');
-date_default_timezone_set('Australia/Sydney');
+
 if (!isset($_SESSION)) {
 	session_start();
 }
@@ -11,6 +11,9 @@ include_once 'libs/general.php';
 include_once 'libs/user.php';
 include_once 'libs/basecamp.php';
 include_once 'libs/database.php';
+
+// Setup the timezone
+user_timezone_set(user_timezone_get());
 
 // Setup common variables
 $app_name = 'UpcomingTasks';

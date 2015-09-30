@@ -6,6 +6,7 @@ include_once $root_path . '/common/initialise.php';
 $page_mode = form_get('mode', 'alpha');
 $account_id = form_get('id', 'numeric');
 $selected_theme = form_get('theme', 'alpha');
+$selected_timezone = form_get('timezone', '');
 
 if($page_mode){
 	if($page_mode == 'select' && $account_id){
@@ -33,10 +34,20 @@ if($page_mode){
 		// Set this theme
 		theme_set($selected_theme);
 		redirect('/pages/home.php');
+	} elseif ($page_mode == 'settimezone' && pro_user()) {
+		// Pro feature: Time zone localisation support
+		user_timezone_set($selected_timezone);
+		redirect('/pages/home.php');
 	} elseif ($page_mode == 'options') {
 		// Show all of the options
 		include_once $root_path . '/common/layout-header.php';
-		print '<h2>Select Account</h2>' . bc_account_select() . '<h2>Select Theme</h2>' . theme_list() . '<p><a class="button" href="/pages/home.php">Cancel</a></p>';
+		echo '<h2>Select Account</h2>' . bc_account_select() . '<h2>Select Theme</h2>' . theme_list() . '<p><a class="button" href="/pages/home.php">Cancel</a></p>';
+		
+		if (pro_user()) {
+		    // Pro feature: Time zone localisation support
+		    echo '<h2>Select Timezone</h2>' . timezone_list();
+		}
+		
 		include_once $root_path . '/common/layout-footer.php';
 		exit;
 	}

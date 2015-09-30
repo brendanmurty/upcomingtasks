@@ -106,6 +106,38 @@ function user_id(){
 	}
 }
 
+// user_timezone_get - Get the user's selected timezone from the database
+function user_timezone_get() {
+    if (user_id() != 0) {
+	    $db = db_connect();
+		$sql = 'SELECT timezone FROM users WHERE bc_id=' . db_clean($db, $user_id);
+		$result = db_query($db, $sql);
+		db_disconnect($db);
+
+		if(is_array($result)) {
+			if($result['timezone']) {
+				return $result['timezone'];
+			}
+		}
+	}
+	
+	// Default to Sydney
+	return 'Australia/Sydney';
+}
+
+// user_timezone_set - Store the user's selected timezone to the database and as a browser cookie
+function user_timezone_set($timezone = 'Australia/Sydney') {
+    if (user_id() != 0) {
+        $db = db_connect();
+    	$sql = 'UPDATE users SET timezone=\'' . db_clean($db, $timezone) . '\' WHERE bc_id=' . db_clean($db, user_id());
+    	db_query($db, $sql);
+    	db_disconnect($db);
+    }
+    
+    setcookie("timezone", $timezone, time()+60*60*24*14);
+    date_default_timezone_set($timezone);
+}
+
 // pro_user - Check if the current user or a specific user has subscribed to the Pro account
 function pro_user($bc_id = '') {
 	$user_id = '';
@@ -145,6 +177,7 @@ function user_logout(){
 	}
 
 	setcookie("bc_id", "", time()-3600);
+	setcookie("timezone", "", time()-3600);
 	session_destroy();
 	redirect('/pages/home.php');
 }

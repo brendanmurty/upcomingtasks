@@ -323,6 +323,17 @@ function theme_list(){
 	if($return!=''){ return '<ul class="themes">'.$return.'</ul>'; }
 }
 
+// timezone_list - Create a list of current timezones
+function timezone_list() {
+    $list = '';
+
+    foreach (timezone_identifiers_list() as $timezone) {
+        $list .= '<li><a href="/pages/account.php?mode=settimezone&timezone=' . $timezone . '">' . $timezone . '</a></li>';
+    }
+    
+    return '<ul class="timezones">' . $list . '</ul>';
+}
+
 // theme_set - Update the theme in use
 function theme_set($theme){
 	if($theme!=''){

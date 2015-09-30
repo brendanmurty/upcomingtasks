@@ -1,5 +1,5 @@
 <?
-date_default_timezone_set('Australia/Sydney');
+
 $root_path = dirname(dirname(__FILE__));
 include_once $root_path.'/common/initialise.php';
 
