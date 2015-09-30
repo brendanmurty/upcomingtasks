@@ -108,15 +108,19 @@ function user_id(){
 
 // user_timezone_get - Get the user's selected timezone from the database
 function user_timezone_get() {
-    if (user_id() != 0) {
-	    $db = db_connect();
-		$sql = 'SELECT timezone FROM users WHERE bc_id=' . db_clean($db, user_id());
-		$result = db_query($db, $sql);
-		db_disconnect($db);
+	if (isset($_COOKIE['timezone'])) {
+		return $_COOKIE['timezone'];
+	} else {
+		if (user_id() != 0) {
+		    $db = db_connect();
+			$sql = 'SELECT timezone FROM users WHERE bc_id=' . db_clean($db, user_id());
+			$result = db_query($db, $sql);
+			db_disconnect($db);
 
-		if(is_array($result)) {
-			if($result['timezone']) {
-				return $result['timezone'];
+			if(is_array($result)) {
+				if($result['timezone']) {
+					return $result['timezone'];
+				}
 			}
 		}
 	}

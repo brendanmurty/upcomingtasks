@@ -84,8 +84,8 @@ body.loading #content{background-color:transparent;text-indent:-999em;height:100
 #loading-icon{display:none;font-size:50px;text-align:center;margin:50px 0 0;color:#333}
 body.loading header,body.loading #content div,body.loading #content ul,body.loading #content form,body.loading footer{display:none !important}
 p.message.empty{margin:20px 0}
-a.button,nav a,a#button_menu,.buttons a,ul.account-select li a,ul.themes li a{font-size:16px;text-decoration:none;padding:12px 20px 14px;position:relative;display:inline-block;border-radius:2px}
-a.button:hover,a.button:active,a.button:focus,nav a:hover,nav a:active,nav a:focus,.buttons a:hover,.buttons a:active,.buttons a:focus,ul.account-select li a:hover,ul.account-select li a:active,ul.account-select li a:focus,ul.themes li a:hover,ul.themes li a:focus,ul.themes li a:active{text-decoration:none}
+a.button,nav a,a#button_menu,.buttons a{font-size:16px;text-decoration:none;padding:12px 20px 14px;position:relative;display:inline-block;border-radius:2px}
+a.button:hover,a.button:active,a.button:focus,nav a:hover,nav a:active,nav a:focus,.buttons a:hover,.buttons a:active,.buttons a:focus{text-decoration:none}
 a.button.right{margin-right:0;margin-left:10px}
 a.button.login{margin:10px 0 15px;font-size:17px}
 div.share,div.donate{margin:15px 0 0;clear:both}
@@ -105,11 +105,12 @@ header a{text-decoration:none !important}
 .page_home.user_yes #content,.page_tasks.user_yes #content,.page_projects #content,.page_progress #content{padding-top:0}
 .page_account header nav{display:none}
 .page_account header h1{display:block}
-ul.account-select,ul.themes{margin:20px 0;padding:0}
-ul.account-select li,ul.themes li{margin:20px 0 0;padding:0;width:100%;list-style:none outside none}
-ul.account-select li:first-child,ul.themes li:first-child{margin-top:0}
-ul.account-select li a,ul.themes li a{width:92%;padding:5% 4%;border-radius:4px}
-ul.account-select li a:hover,ul.account-select li a:focus,ul.account-select li a:active,ul.themes li a:hover,ul.themes li a:focus,ul.themes li a:active{text-decoration:none}
+.page_account #content ul{margin:20px 0;padding:0}
+.page_account #content li{margin:20px 0 0;padding:0;width:100%;list-style:none outside none}
+.page_account #content li:first-child{margin-top:0}
+.page_account #content li a{width:92%;padding:5% 4%;border-radius:4px;display:inline-block}
+.page_account #content li a,.page_account #content li a:hover,.page_account #content li a:focus,.page_account li a:active{text-decoration:none}
+.page_account #content li.selected a{background-color:#e2e2d9}
 .task > li,.comments > li,.project > li{float:left;clear:both;list-style:none outside none;width:100%;margin:0 0 12px;padding:0 0 14px}
 .task-single > li{margin:0 0 10px}
 ul.task-multiple li:first-child,ul.project > li:first-child{border:none}
@@ -271,7 +272,7 @@ ul.features li.released::before{content:'released';border-color:#109f08;color:#1
 	nav ul{margin:0}
 	ul.task li a,ul.project > li a{padding:3% 0}
 	ul.comments > li{width:96%;padding:2%}
-	ul.account-select li a,ul.themes li a{padding:3% 4%;width:92%}
+	.page_account #content li a{padding:3% 4%;width:92%}
 	#form_task p.task_list,#form_task_edit p.task_list,#form_task p.due_toggle,#form_task p.date,#form_task_edit p.task-location,#form_task_edit p.date{clear:none;width:auto}
 	#form_task p.task_list,#form_task_edit p.task_list,#form_task_edit p.task-location,form p.people_list{width:40%}
 	form select#people_list,form select#task_list{width:100%}
@@ -295,7 +296,7 @@ ul.features li.released::before{content:'released';border-color:#109f08;color:#1
 	ul.task li .task-details p{width:520px}
 	ul.task li a,ul.project > li a{padding:3% 0}
 	ul.comments > li{width:96%;padding:2%}
-	ul.account-select li a,ul.themes li a{padding:3%;width:94%}
+	.page_account #content li a{padding:3%;width:94%}
 	#form_task p.task_list,#form_task_edit p.task_list,#form_task p.due_toggle,#form_task p.date,#form_task_edit p.task-location,#form_task_edit p.date{clear:none;width:auto}
 	#form_task p.task_list,#form_task_edit p.task_list,#form_task_edit p.task-location{width:40%}
 	form select#people_list,form select#task_list{width:100%}

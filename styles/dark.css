@@ -6,9 +6,9 @@ header a{color:#fff !important}
 #content{background-color:#1F1F1F;color:#fff}
 #loading-icon{color:#fff}
 footer{background-color:#252325}
-a.button,nav a,a#button_menu,.buttons a,ul.account-select li a{color:#fff}
-ul.account-select li a,ul.themes li a{background-color:#111;color:#fff;border-color:#000}
-ul.account-select li a:hover,ul.account-select li a:focus,ul.account-select li a:active,ul.themes li a:hover,ul.themes li a:focus,ul.themes li a:active{background-color:#000}
+a.button,nav a,a#button_menu,.buttons a{color:#fff}
+.page_account #content li a{background-color:#111;color:#fff;border-color:#000}
+.page_account #content li a:hover,.page_account #content li a:focus,.page_account #content li a:active{background-color:#000}
 ul.task-multiple li{border-top:1px solid #242424}
 ul.task li span.task-name,ul.project-multiple li span.project-name{color:#fff}
 ul.project-single ul.task li span.task-name{color:#ccc}

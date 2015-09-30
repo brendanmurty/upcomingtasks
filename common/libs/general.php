@@ -283,18 +283,19 @@ function test($string){
 
 // theme_get - Return the currently selected theme name
 function theme_get(){
-	$theme_selected='light';// Set the default theme
+	$theme_selected = 'light';
 
 	if (!isset($_SESSION)) {
 		session_start();
 	}
 
-	if(isset($_COOKIE['bc_theme']) && $_COOKIE['bc_theme']!=''){
-		$theme_requested=input_clean($_COOKIE['bc_theme'],'');
-		if(file_exists(dirname(dirname(dirname(__FILE__))).'/styles/'.$theme_requested.'.css')){
-			$theme_selected=$theme_requested;
+	if (isset($_COOKIE['bc_theme'])) {
+		$theme_requested = input_clean($_COOKIE['bc_theme'], '');
+		if (file_exists(dirname(dirname(dirname(__FILE__))) . '/styles/' . $theme_requested . '.css')) {
+			$theme_selected = $theme_requested;
 		}
 	}
+
 	return $theme_selected;
 }
 
@@ -310,17 +311,26 @@ function theme_list(){
 	closedir($dir);
 
 	// Create the theme selector list
-	$return='';
+	$list='';
 	foreach($files as $file){
 		$ext=pathinfo($file,PATHINFO_EXTENSION);
 		if($file!='.' && $file!='..' && $ext=='css' && $file!='common.css'){
 			$theme_name=str_replace('.'.$ext,'',$file);
 			$theme_title=str_replace("_"," ",str_replace("-"," ",$theme_name));
 			$theme_title=ucwords(strtolower($theme_title));
-			$return.='<li><a href="/pages/account.php?mode=settheme&theme='.$theme_name.'">'.$theme_title.'</a></li>';
+			$list.='<li';
+
+			if ($theme_name == theme_get()) {
+				$list .= ' class="selected"';
+			}
+
+			$list .= '><a href="/pages/account.php?mode=settheme&theme='.$theme_name.'">'.$theme_title.'</a></li>';
 		}
 	}
-	if($return!=''){ return '<ul class="themes">'.$return.'</ul>'; }
+
+	if ($list) {
+		return '<ul class="themes">' . $list . '</ul>';
+	}
 }
 
 // timezone_list - Create a list of current timezones
@@ -328,9 +338,15 @@ function timezone_list() {
     $list = '';
 
     foreach (timezone_identifiers_list() as $timezone) {
-        $list .= '<li><a href="/pages/account.php?mode=settimezone&timezone=' . $timezone . '">' . $timezone . '</a></li>';
+        $list .= '<li';
+
+		if ($timezone == user_timezone_get()) {
+			$list .= ' class="selected"';
+		}
+
+		$list .= '><a href="/pages/account.php?mode=settimezone&timezone=' . $timezone . '">' . $timezone . '</a></li>';
     }
-    
+
     return '<ul class="timezones">' . $list . '</ul>';
 }
 
