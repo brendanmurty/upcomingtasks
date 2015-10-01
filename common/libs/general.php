@@ -188,7 +188,11 @@ function navigation($current_page,$option=''){
 	if($current_page=='home'){
 		$current_page='UpcomingTasks';
 	}elseif($current_page=='account'){
-		$current_page='Settings';
+	    if (form_get('mode', 'alpha')) {
+	        $a = $hm.$def;
+	    }
+	    
+	    $current_page = 'Settings';
 	}elseif($current_page=='newtask'){
 		$current_page='New Task';
 	}elseif($current_page=='addtohome'){

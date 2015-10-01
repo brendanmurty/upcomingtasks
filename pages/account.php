@@ -48,8 +48,6 @@ if($page_mode){
 		    echo '<h2>Select Timezone</h2>' . timezone_list();
 		}
 
-		echo '<p><a class="button" href="/pages/home.php">Cancel</a></p>';
-
 		include_once $root_path . '/common/footer.php';
 		exit;
 	}
