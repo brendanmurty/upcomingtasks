@@ -308,7 +308,7 @@ function theme_get(){
 
 // theme_list - Return a list of the available themes
 function theme_list(){
-	$folder=dirname(dirname(dirname(__FILE__))).'/styles/';
+	$folder = dirname(dirname(__FILE__)) . '/styles/';
 
 	// Extract a list of files in the folder and sort them
 	$dir=opendir($folder);
