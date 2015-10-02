@@ -189,10 +189,13 @@ function navigation($current_page,$option=''){
 		$current_page='UpcomingTasks';
 	}elseif($current_page=='account'){
 	    if (form_get('mode', 'alpha')) {
+			// Logged in user's settings page
 	        $a = $hm.$def;
-	    }
-	    
-	    $current_page = 'Settings';
+			$current_page = 'Settings';
+	    } else {
+			// Authentication process select account page
+			$current_page = 'UpcomingTasks';
+		}
 	}elseif($current_page=='newtask'){
 		$current_page='New Task';
 	}elseif($current_page=='addtohome'){
