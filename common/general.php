@@ -129,7 +129,7 @@ function is_local() {
 // list_screenshots - List the app screenshots (thumbnails should be 150px square and stored in a "thumbnails" subfolder)
 function list_screenshots(){
 	$return = '';
-	$folder = dirname(dirname(dirname(__FILE__))).'/images/screenshots/';
+	$folder = dirname(dirname(__FILE__)) . '/images/screenshots/';
 	$files = array_diff(scandir($folder), array('.', '..', 'thumbnails'));
 	foreach($files as $num => $file){
 		$return .= '<li><a href="/pages/image.php?path=/images/screenshots/'.$file.'"><img src="/images/screenshots/thumbnails/'.$file.'" alt="'.$file.'" title="View image: '.$file.'" /></a></li>';
