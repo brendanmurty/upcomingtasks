@@ -6,11 +6,12 @@ if (!isset($_SESSION)) {
 }
 
 // Include the required libs files
-include_once 'libs/auth.php';
-include_once 'libs/general.php';
-include_once 'libs/user.php';
-include_once 'libs/basecamp.php';
-include_once 'libs/database.php';
+$common = dirname(__FILE__);
+include_once $common . '/auth.php';
+include_once $common . '/general.php';
+include_once $common . '/user.php';
+include_once $common . '/basecamp.php';
+include_once $common . '/database.php';
 
 // Setup the timezone
 user_timezone_set(user_timezone_get());
