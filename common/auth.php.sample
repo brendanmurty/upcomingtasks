@@ -1,0 +1,19 @@
+<?
+
+// Private API and database authentication values
+
+// Fill in the details below after configuring a Basecamp API app at https://integrate.37signals.com/
+
+$GLOBALS['auth_user_agent'] = 'Your App Name';
+$GLOBALS['auth_error_email_from'] = 'errors@appname.com';
+$GLOBALS['auth_error_email_to'] = 'you@yourdomain.com';
+
+$GLOBALS['auth_api_confirm_url'] = 'https://launchpad.37signals.com/authorization/token?type=web_server&client_id=APICLIENTID&redirect_uri=APIREDIRECTURI&client_secret=APICLIENTSECRET';
+$GLOBALS['auth_api_login_url'] = 'https://launchpad.37signals.com/authorization/new?client_id=APICLIENTID&redirect_uri=APIREDIRECTURI&type=web_server';
+
+$GLOBALS['auth_db_server'] = '10.1.1.1';
+$GLOBALS['auth_db_user'] = 'appname_web01';
+$GLOBALS['auth_db_password'] = 'abcd1234';
+$GLOBALS['auth_db_database'] = 'appname';
+
+?>
