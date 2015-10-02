@@ -1,4 +1,3 @@
-tmp/
 *.tmp
 *.bak
 *.swp
@@ -8,6 +7,4 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 .DS_Store
-web.config
 /common/auth.php
-_related
