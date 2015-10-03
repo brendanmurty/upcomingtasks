@@ -8,7 +8,7 @@ $screenshots=list_screenshots();
 	<p><?= $app_info ?></p>
 	<p><?= $app_welcome ?></p>
 	<?= $screenshots ?>
-	<a class="button login" href="/pages/login.php">Login via basecamp.com</a>
+	<a class="button login" href="/pages/login.php">Login with Basecamp</a>
 </div>
 <?
 }else{
