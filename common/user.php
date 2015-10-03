@@ -84,6 +84,29 @@ function user_email(){
 	}
 }
 
+// user_name - Get the full name of the logged in user
+function user_name(){
+	$name = '';
+
+	if (user_id() > 0) {
+	    $db = db_connect();
+		$sql = "SELECT first_name, last_name FROM users WHERE bc_id=" . db_clean($db, user_id());
+		$result = db_query($db, $sql);
+		db_disconnect($db);
+		if (is_array($result)) {
+			if (array_key_exists('first_name', $result)) {
+				$name = $result['first_name'];
+			}
+
+			if (array_key_exists('last_name', $result)) {
+				$name .= ' ' . $result['last_name'];
+			}
+		}
+	}
+
+	return $name;
+}
+
 // user_exists - Check if a user is logged in
 function user_exists(){
 	if(user_id() > 0){
@@ -120,7 +143,7 @@ function user_account() {
 			}
 		}
 	}
-	
+
 	return 0;
 }
 
@@ -184,6 +207,26 @@ function pro_user($bc_id = '') {
 	}
 
 	return false;
+}
+
+// pro_user_set - Upgrade the current user to a Pro account
+function pro_user_set() {
+    if (user_id() != 0) {
+        $db = db_connect();
+    	$sql = 'UPDATE users SET pro=1 WHERE bc_id=' . db_clean($db, user_id());
+    	db_query($db, $sql);
+    	db_disconnect($db);
+    }
+}
+
+// pro_user_remove - Downgrade the current user to a free account
+function pro_user_remove() {
+    if (user_id() != 0) {
+        $db = db_connect();
+    	$sql = 'UPDATE users SET pro=0 WHERE bc_id=' . db_clean($db, user_id());
+    	db_query($db, $sql);
+    	db_disconnect($db);
+    }
 }
 
 // user_login_url - Return the oAuth login URL
