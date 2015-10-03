@@ -20,12 +20,14 @@ function db_connect() {
 
 // db_disconnect - Close a database connection
 function db_disconnect($db_connect) {
-    $db_connect->close();
+    if ($db_connect) {
+        $db_connect->close();
+    }
 }
 
 // db_query - Run a database query
 function db_query($db_connect, $query) {
-	if ($query != '') {
+	if ($db_connect && $query) {
 		$result = $db_connect->query($query);
 
 		if (!$result) {
@@ -47,9 +49,9 @@ function db_query($db_connect, $query) {
 				}
 			}
 		}
-	} else {
-	    return false;
 	}
+
+    return false;
 }
 
 ?>
