@@ -16,9 +16,7 @@ if ($image_path && (substr($image_path, 0, 8) == '/images/')) {
 
 		$title = basename($image_path);
 		$title = explode(".", $title);
-		$title = ucfirst($title["0"]);
-		$title = str_replace("-", " ", $title);
-		$title = str_replace("_", " ", $title);
+		$title = ucwords(str_replace('-', ' ', $title["0"]));
 
 		echo '<h1>' . $title . '</h1><p class="image"><img src="' . $image_path . '" alt="Image: ' . $title . '" /></p><p class="buttons"><a href="' . $close_link . '">Close</a></p>';
 	}else{

@@ -126,16 +126,28 @@ function is_local() {
 	return false;
 }
 
-// list_screenshots - List the app screenshots (thumbnails should be 150px square and stored in a "thumbnails" subfolder)
+// list_screenshots - List the app screenshots (thumbnails should be 150px square)
 function list_screenshots(){
-	$return = '';
-	$folder = dirname(dirname(__FILE__)) . '/images/screenshots/';
-	$files = array_diff(scandir($folder), array('.', '..', 'thumbnails'));
-	foreach($files as $num => $file){
-		$return .= '<li><a href="/pages/image.php?path=/images/screenshots/'.$file.'"><img src="/images/screenshots/thumbnails/'.$file.'" alt="'.$file.'" title="View image: '.$file.'" /></a></li>';
+	$screenshots = array(
+		'list-tasks.png',
+		'menu-open.png',
+		'multiple-accounts.png',
+		'progress-list.png',
+		'project-view.png',
+		'task.png'
+	);
+
+	$list = '';
+
+	foreach ($screenshots as $name) {
+		$title = explode(".", $name);
+		$title = ucwords(str_replace('-', ' ', $title["0"]));
+
+		$list .= '<li><a href="/pages/image.php?path=/images/screenshots/' . $name . '"><img src="/images/screenshots/thumbnails/' . $name . '" alt="' . $title . '" title="View image: ' . $title . '" /></a></li>';
 	}
-	if($return){
-		return '<ul class="screenshots">'.$return.'</ul>';
+
+	if ($list) {
+		return '<ul class="screenshots">' . $list . '</ul>';
 	}
 }
 
