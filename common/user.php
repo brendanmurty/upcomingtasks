@@ -131,7 +131,7 @@ function user_id(){
 
 // user_account - Get the Basecamp account ID of the logged in user
 function user_account() {
-    if (user_id() != 0) {
+    if (user_exists()) {
 		$db = db_connect();
 		$sql = 'SELECT bc_account FROM users WHERE bc_id=' . db_clean($db, user_id());
 		$result = db_query($db, $sql);
@@ -152,7 +152,7 @@ function user_timezone_get() {
 	if (isset($_COOKIE['timezone'])) {
 		return $_COOKIE['timezone'];
 	} else {
-		if (user_id() != 0) {
+		if (user_exists()) {
 			$db = db_connect();
 			$sql = 'SELECT timezone FROM users WHERE bc_id=' . db_clean($db, user_id());
 			$result = db_query($db, $sql);
@@ -172,7 +172,7 @@ function user_timezone_get() {
 
 // user_timezone_set - Store the user's selected timezone to the database and as a browser cookie
 function user_timezone_set($timezone = 'Australia/Sydney') {
-    if (user_id() != 0) {
+    if (user_exists()) {
         $db = db_connect();
     	$sql = 'UPDATE users SET timezone=' . db_clean($db, $timezone) . ' WHERE bc_id=' . db_clean($db, user_id());
     	db_query($db, $sql);
@@ -211,7 +211,7 @@ function pro_user($bc_id = '') {
 
 // pro_user_set - Upgrade the current user to a Pro account
 function pro_user_set() {
-    if (user_id() != 0) {
+    if (user_exists()) {
         $db = db_connect();
     	$sql = 'UPDATE users SET pro=1 WHERE bc_id=' . db_clean($db, user_id());
     	db_query($db, $sql);
@@ -221,7 +221,7 @@ function pro_user_set() {
 
 // pro_user_remove - Downgrade the current user to a free account
 function pro_user_remove() {
-    if (user_id() != 0) {
+    if (user_exists()) {
         $db = db_connect();
     	$sql = 'UPDATE users SET pro=0 WHERE bc_id=' . db_clean($db, user_id());
     	db_query($db, $sql);
