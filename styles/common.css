@@ -88,8 +88,8 @@ a.button,nav a,a#button_menu,.buttons a{font-size:16px;text-decoration:none;padd
 a.button:hover,a.button:active,a.button:focus,nav a:hover,nav a:active,nav a:focus,.buttons a:hover,.buttons a:active,.buttons a:focus{text-decoration:none}
 a.button.right{margin-right:0;margin-left:10px}
 a.button.login{margin:10px 0 15px;font-size:17px}
-div.share,div.donate{margin:15px 0 0;clear:both}
-.page_home div.share,.page_home div.donate{font-size:15px}
+div.share{margin:15px 0 0;clear:both}
+.page_home div.share{font-size:15px}
 .page_extras div.share{margin:0;clear:none;display:inline}
 nav{padding:0;margin:0;float:left;width:100%}
 nav .icon{margin:0;text-align:center;width:auto}
@@ -176,7 +176,6 @@ form select{width:90px;display:block}
 form select#date_day{width:90px;clear:left}
 form select#people_list,form select#task_list{width:296px}
 form#form_comment{margin:15px 0 0}
-#form_donate{margin:15px 0 0}
 .page_newtask #form_task{margin:0}
 #form_task p.date #due_mode_select,#form_task_edit p.date #due_mode_select{clear:right;float:left;margin:5px 7px 0 0}
 #form_task p.date label,#form_task_edit p.date label{float:left;margin:0 15px 25px 0}

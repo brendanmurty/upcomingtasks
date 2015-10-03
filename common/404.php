@@ -29,12 +29,12 @@ if($req!=''){
 	if(isset($req_part['1'])){ $request_second=$req_part['1']; }
 	if(isset($req_part['2'])){ $request_third=$req_part['2']; }
 	if(isset($req_part['3'])){ $request_forth=$req_part['3']; }
-	
+
 	// Redirect for rename of extras page
 	//if($req='/pages/extras.php'){ exit(header('Location: /pages/more.php')); }
-	
+
 	if(file_exists($root_path.'/pages/'.$request_first.'.php')){// Attempt to find the requested page
-		if(user_exists() || $request_first=='login' || $request_first=='authenticate' || $request_first=='donated'){
+		if(user_exists() || $request_first=='login' || $request_first=='authenticate'){
 			// Set this as the current page
 			redirect('/pages/'.$request_first.'.php');
 		}elseif(!user_exists() && $request_second!='account.php'){
