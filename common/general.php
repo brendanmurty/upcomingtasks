@@ -298,7 +298,7 @@ function theme_get(){
 
 	if (isset($_COOKIE['bc_theme'])) {
 		$theme_requested = input_clean($_COOKIE['bc_theme'], '');
-		if (file_exists(dirname(dirname(dirname(__FILE__))) . '/styles/' . $theme_requested . '.css')) {
+		if (file_exists(dirname(dirname(__FILE__)) . '/styles/' . $theme_requested . '.css')) {
 			$theme_selected = $theme_requested;
 		}
 	}
@@ -354,16 +354,15 @@ function timezone_list() {
 }
 
 // theme_set - Update the theme in use
-function theme_set($theme){
-	if($theme!=''){
-		$theme=input_clean($theme,'');
-		$root_path=dirname(dirname(dirname(__FILE__)));
-		if(file_exists($root_path.'/styles/'.$theme.'.css')){
+function theme_set($theme) {
+	if ($theme) {
+		$theme = input_clean($theme, '');
+		if (file_exists(dirname(dirname(__FILE__)) . '/styles/' . $theme . '.css')) {
 		    if (!isset($_SESSION)) {
 			    session_start();
 		    }
 
-			setcookie("bc_theme",$theme,time()+60*60*24*14);
+			setcookie("bc_theme", $theme, time()+60*60*24*14);
 		}
 	}
 }
