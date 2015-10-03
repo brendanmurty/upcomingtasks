@@ -1,4 +1,5 @@
 <?
+
 // user_authenticate - Handle response from Basecamp authentication
 function user_authenticate($auth_code = ''){
 	if($auth_code != ''){
@@ -71,7 +72,7 @@ function user_authenticate($auth_code = ''){
 
 // user_email - Get the email of the logged in user
 function user_email(){
-	if(user_id() > 0){
+	if (user_exists()) {
 	    $db = db_connect();
 		$sql = "SELECT email FROM users WHERE bc_id=" . db_clean($db, user_id());
 		$result = db_query($db, $sql);
@@ -88,7 +89,7 @@ function user_email(){
 function user_name(){
 	$name = '';
 
-	if (user_id() > 0) {
+	if (user_exists()) {
 	    $db = db_connect();
 		$sql = "SELECT first_name, last_name FROM users WHERE bc_id=" . db_clean($db, user_id());
 		$result = db_query($db, $sql);
