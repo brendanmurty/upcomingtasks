@@ -21,8 +21,17 @@ $app_name = 'UpcomingTasks';
 $app_info = 'UpcomingTasks is the simplified way to manage your Basecamp tasks when you\'re away from your computer.';
 $app_welcome = 'Quickly manage your projects and tasks, view progress and select a theme that suits your mood. Free for all Basecamp and Basecamp Personal accounts.';
 
-// Get the path to the top level app folder
-$root_path = dirname(dirname(__FILE__));
+// Auto load classes stored in "/classes"
+function __autoload($className) {
+	$class_path = dirname(__DIR__) . '/classes/' . $className . '.php';
+
+	if (file_exists($class_path)) {
+		require_once $class_path;
+		return true;
+	}
+
+	return false;
+}
 
 // error_handle - Custom error handler
 function error_handle($errno, $errstr, $errfile, $errline) {
