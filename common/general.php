@@ -308,31 +308,27 @@ function theme_get(){
 
 // theme_list - Return a list of the available themes
 function theme_list(){
-	$folder = dirname(dirname(__FILE__)) . '/styles/';
+	// Themes array (Theme Title => CSS_file_name)
+	$themes = array(
+		'Blue' => 'blue',
+		'Dark' => 'dark',
+		'Light' => 'light',
+		'Minimal' => 'minimal',
+		'Red Dark' => 'red-dark',
+		'Red Light' => 'red',
+		'Teal' => 'teal'
+	);
 
-	// Extract a list of files in the folder and sort them
-	$dir=opendir($folder);
-	$files=array();
-	while($files[]=readdir($dir));
-	sort($files);
-	closedir($dir);
+	$list = '';
 
-	// Create the theme selector list
-	$list='';
-	foreach($files as $file){
-		$ext=pathinfo($file,PATHINFO_EXTENSION);
-		if($file!='.' && $file!='..' && $ext=='css' && $file!='common.css'){
-			$theme_name=str_replace('.'.$ext,'',$file);
-			$theme_title=str_replace("_"," ",str_replace("-"," ",$theme_name));
-			$theme_title=ucwords(strtolower($theme_title));
-			$list.='<li';
+	foreach ($themes as $title => $name) {
+		$list .= '<li';
 
-			if ($theme_name == theme_get()) {
-				$list .= ' class="selected"';
-			}
-
-			$list .= '><a href="/pages/account.php?mode=settheme&theme='.$theme_name.'">'.$theme_title.'</a></li>';
+		if ($name == theme_get()) {
+			$list .= ' class="selected"';
 		}
+
+		$list .= '><a href="/pages/account.php?mode=settheme&theme=' . $name . '">' . $title . '</a></li>';
 	}
 
 	if ($list) {
