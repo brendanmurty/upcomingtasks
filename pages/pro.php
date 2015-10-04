@@ -102,7 +102,7 @@ if (isset($message)) {
 
 <? if (!user_exists()) { ?>
 
-<p><a class="button login" href="/pages/login.php">Login with your Basecamp account</a> first to upgrade your account!</p>
+<p><a href="/pages/login.php">Login with your Basecamp account</a> first to upgrade your account!</p>
 
 <? } else { ?>
 
