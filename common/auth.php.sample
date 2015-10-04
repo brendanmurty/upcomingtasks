@@ -1,19 +1,33 @@
 <?
 
 // Private API and database authentication values
+//  - Add your relevant details below, then rename this file to "auth.php"
+//  - The "auth.php" file will be ignored by Git to improve the security of your private account details
 
-// Fill in the details below after configuring a Basecamp API app at https://integrate.37signals.com/
+// Error email configuration
 
-$GLOBALS['auth_user_agent'] = 'Your App Name';
 $GLOBALS['auth_error_email_from'] = 'errors@appname.com';
 $GLOBALS['auth_error_email_to'] = 'you@yourdomain.com';
 
-$GLOBALS['auth_api_confirm_url'] = 'https://launchpad.37signals.com/authorization/token?type=web_server&client_id=APICLIENTID&redirect_uri=APIREDIRECTURI&client_secret=APICLIENTSECRET';
-$GLOBALS['auth_api_login_url'] = 'https://launchpad.37signals.com/authorization/new?client_id=APICLIENTID&redirect_uri=APIREDIRECTURI&type=web_server';
+// Database connection details
 
 $GLOBALS['auth_db_server'] = '10.1.1.1';
 $GLOBALS['auth_db_user'] = 'appname_web01';
 $GLOBALS['auth_db_password'] = 'abcd1234';
 $GLOBALS['auth_db_database'] = 'appname';
+
+// Basecamp API details
+//  - Fill in the details below after configuring a Basecamp API app at https://integrate.37signals.com/
+
+$GLOBALS['auth_user_agent'] = 'Your App Name (you@yourdomain.com)';
+$GLOBALS['auth_api_confirm_url'] = 'https://launchpad.37signals.com/authorization/token?type=web_server&client_id=APICLIENTID&redirect_uri=APIREDIRECTURI&client_secret=APICLIENTSECRET';
+$GLOBALS['auth_api_login_url'] = 'https://launchpad.37signals.com/authorization/new?client_id=APICLIENTID&redirect_uri=APIREDIRECTURI&type=web_server';
+
+// Stripe API payment details
+//  - Fill in the details below after configuring your Stripe account and plan for your app
+
+$GLOBALS['stripe_plan_name'] = 'app-name-monthly-test';
+$GLOBALS['stripe_api_public'] = 'pk_test_EXAMPLE';
+$GLOBALS['stripe_api_secret'] = 'sk_test_EXAMPLE';
 
 ?>
