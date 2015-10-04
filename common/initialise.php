@@ -60,7 +60,7 @@ function error_handle($errno, $errstr, $errfile, $errline) {
 
 	if (is_local()) {
 		// Local
-		echo '<div class="error-message">' . nl2br($errtext) . '</div>';
+		echo '<div class="notification error">' . nl2br($errtext) . '</div>';
 	} else {
 		// Production
 		$headers = 'From: ' . $GLOBALS['auth_error_email_from'] . "\r\n" . 'X-Mailer: PHP/' . phpversion();

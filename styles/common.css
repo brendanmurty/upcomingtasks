@@ -53,8 +53,11 @@ textarea[contenteditable]{-webkit-appearance:none}
 html,body{height:100%;padding:0;margin:0;color:#000;background-color:#fff;overflow-x:hidden}
 #container{min-height:100%;height:auto !important;height:100%;margin:0 auto -80px;min-width:300px}
 header{width:92%;padding:2% 4%;float:left;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
-.error-message{background-color:#80001d;color:#fff;padding:2% 3%;float:left;width:94%}
-.error-message p{margin:0}
+.notification{padding:2% 3%;float:left;width:94%}
+.notification.error{background-color:#80001d;color:#fff}
+.notification.success{background-color:#109f08;color:#fff}
+.notification p{margin:0}
+.page_pro .notification{margin-bottom:20px}
 #content{width:92%;padding:18px 4% 0;height:100%;float:left}
 footer{width:52%;padding:0 0 40px;margin:0 auto;background-color:transparent !important}
 footer,#down{height:50px;clear:both}
@@ -169,6 +172,8 @@ form p.buttons input{padding:0 20px;margin-right:10px}
 form p.buttons input,a.button{font:700 20px/50px "Source Sans Pro","Segoe WP",Arial,sans-serif;height:50px;border-radius:4px;border:0 none !important;padding:0 20px}
 form p.buttons input:hover,form p.buttons input:active,form p.buttons input:focus{text-decoration:none}
 form p.buttons a.remove,form p.buttons a.cancel-edit{float:right;background:none;border:0 none}
+form.subscribe{margin:10px 0}
+p.buttons .unsubscribe{background-color:#109f08}
 form p.task-name{margin-top:1%}
 form .text{width:100%;padding:10px;margin:0;box-sizing:border-box}
 form textarea{width:100% !important;height:80px;min-height:80px}

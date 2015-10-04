@@ -4,7 +4,7 @@ $root_path = dirname(dirname(__FILE__));
 include_once $root_path.'/common/initialise.php';
 
 // Asset update dates
-$date_update_css = "20151003";
+$date_update_css = "20151004";
 $date_update_js  = "20130903";
 
 // Extract the current page's name
@@ -117,7 +117,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 			<? if($nav!=''){ print $nav; } ?>
 		</header>
 		<!--[if lt IE 9]>
-		<div class="error-message">
+		<div class="notification error">
 			<p>UpcomingTasks requires a modern browser, please upgrade your browser to enjoy the full experience.</p>
 		</div>
 		<![endif]-->
