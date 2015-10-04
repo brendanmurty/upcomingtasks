@@ -148,6 +148,44 @@ function user_account() {
 	return 0;
 }
 
+// user_stripe_get - Get the Stripe customer ID of the logged in user
+function user_stripe_get() {
+    if (user_exists()) {
+		$db = db_connect();
+		$sql = 'SELECT stripe_customer_id FROM users WHERE bc_id=' . db_clean($db, user_id());
+		$result = db_query($db, $sql);
+		db_disconnect($db);
+
+		if (is_array($result)) {
+			if ($result['stripe_customer_id']) {
+				return $result['stripe_customer_id'];
+			}
+		}
+	}
+
+	return false;
+}
+
+// user_stripe_set - Set the Stripe customer ID of the logged in user
+function user_stripe_set($stripe_customer_id) {
+    if (user_exists()) {
+		$db = db_connect();
+		$sql = 'UPDATE users SET stripe_customer_id = ' . db_clean($db, $stripe_customer_id) . ' WHERE bc_id=' . db_clean($db, user_id());
+		$result = db_query($db, $sql);
+		db_disconnect($db);
+	}
+}
+
+// user_stripe_remove - Remove the Stripe customer ID of the logged in user
+function user_stripe_remove() {
+	if (user_exists()) {
+		$db = db_connect();
+		$sql = 'UPDATE users SET stripe_customer_id = NULL WHERE bc_id=' . db_clean($db, user_id());
+		$result = db_query($db, $sql);
+		db_disconnect($db);
+	}
+}
+
 // user_timezone_get - Get the user's selected timezone from the database
 function user_timezone_get() {
 	if (isset($_COOKIE['timezone'])) {
