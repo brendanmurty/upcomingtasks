@@ -23,6 +23,6 @@ If you have an idea for an update or have found a bug, please [submit a new issu
 
 ## License
 
-All files in this repository are licensed under a modified version of the *CSS-Tricks License* which can be viewed here in [license.md](https://github.com/brendanmurty/upcomingtasks/blob/master/license.md).
+You can view the [License](https://github.com/brendanmurty/upcomingtasks/blob/master/license.md) file for rights and limitations when using the code here in your own projects.
 
-The original [CSS-Tricks License](https://css-tricks.com/license/) was created by [Chris Coyier](https://github.com/chriscoyier/) and his attitude on the open web is inspirational.
+The license is based on the [CSS-Tricks License](https://css-tricks.com/license/) which was created by [Chris Coyier](https://github.com/chriscoyier/).
