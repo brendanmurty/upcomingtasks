@@ -22,11 +22,11 @@ $app_info = 'UpcomingTasks is the simplified way to manage your Basecamp tasks w
 $app_welcome = 'Quickly manage your projects and tasks, view progress and select a theme that suits your mood. Free for all Basecamp and Basecamp Personal accounts.';
 
 // Auto load classes stored in "/classes"
-function __autoload($className) {
-	$class_path = dirname(__DIR__) . '/classes/' . $className . '.php';
+function __autoload($class_name) {
+	$class_path = dirname(__DIR__) . '/classes/' . str_replace('\\', '/', $class_name) . '.php';
 
 	if (file_exists($class_path)) {
-		require_once $class_path;
+		require_once($class_path);
 		return true;
 	}
 
