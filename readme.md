@@ -1,13 +1,15 @@
 UpcomingTasks
 =======
 
-## About ##
+## About
 
 [UpcomingTasks](https://upcomingtasks.com) is a free web-based [Basecamp](https://basecamp.com/) client I created to easily manage tasks on smaller devices.
 
+Users also have the option to upgrade to a Pro account which unlocks [additional features](https://upcomingtasks.com/pages/pro.php).
+
 It was created in [Atom](https://atom.io/) using the [Basecamp API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
 
-## Why ##
+## Why
 
 I was inspired by [Brad Frost](https://github.com/bradfrost)'s [TED talk](https://twitter.com/brad_frost/status/476515058738925568) about being open by default. If you haven't seen this talk yet, I'd recommend investing half an hour to [watch the video](https://www.youtube.com/watch?v=7rW9vTrN6OU) and read the [blog post](http://bradfrostweb.com/blog/post/creative-exhaust/).
 
@@ -15,10 +17,12 @@ As I'm self-taught, engaging with the [community](https://twitter.com/brendanmur
 
 I hope a budding web developer can learn something new from what I've done here and start their own career. Hopefully I can give back to the community that has taught me so much over the last few years.
 
-## Contribute ##
+## Contribute
 
-If you have an idea for an update or have found a bug, please [submit a new issue](https://github.com/brendanmurty/upcomingtasks/issues/new?assignee=brendanmurty). I'm also tracking my work on UpcomingTasks in the [issues section](https://github.com/brendanmurty/upcomingtasks/issues).
+If you have an idea for an update or have found a bug, please [submit a new issue](https://github.com/brendanmurty/upcomingtasks/issues/new?assignee=brendanmurty). I'm always open to discussion about how to make UpcomingTasks a better product for all users.
 
-## License ##
+## License
 
-All files in this repository are licensed under the [CSS-Tricks License](https://github.com/brendanmurty/upcomingtasks/blob/master/license.md). This was created by [Chris Coyier](https://github.com/chriscoyier/) and his attitude on the open web should be an inspiration for us all.
+All files in this repository are licensed under a modified version of the *CSS-Tricks License* which can be viewed here in [license.md](https://github.com/brendanmurty/upcomingtasks/blob/master/license.md).
+
+The original [CSS-Tricks License](https://css-tricks.com/license/) was created by [Chris Coyier](https://github.com/chriscoyier/) and his attitude on the open web is inspirational.

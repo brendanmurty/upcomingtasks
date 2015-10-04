@@ -1,0 +1,1 @@
+ALTER TABLE users ADD stripe_customer_id VARCHAR(50) NULL DEFAULT NULL;
