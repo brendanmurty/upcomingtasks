@@ -19,10 +19,10 @@ I hope a budding web developer can learn something new from what I've done here 
 
 ## Contribute
 
-If you have an idea for an update or have found a bug, please [submit a new issue](https://github.com/brendanmurty/upcomingtasks/issues/new?assignee=brendanmurty). I'm always open to discussion about how to make UpcomingTasks a better product for all users.
+If you have an idea for an update or have found a bug, please [submit a new issue](https://github.com/upcomingtasks/website/issues/new?assignee=brendanmurty). I'm always open to discussion about how to make UpcomingTasks a better product for all users.
 
 ## License
 
-You can view the [License](https://github.com/brendanmurty/upcomingtasks/blob/master/license.md) file for rights and limitations when using the code here in your own projects.
+You can view the [License](https://github.com/upcomingtasks/website/blob/master/license.md) file for rights and limitations when using the code here in your own projects.
 
 The license is based on the [CSS-Tricks License](https://css-tricks.com/license/) which was created by [Chris Coyier](https://github.com/chriscoyier/).

@@ -7,8 +7,8 @@ RewriteCond %{HTTP_HOST} ^www.upcomingtasks.com$ [NC]
 RewriteRule ^(.*)$ https://upcomingtasks.com/$1 [R=301,L]
 
 # Redirects
-RewriteRule ^readme.md https://github.com/brendanmurty/upcomingtasks/blob/master/readme.md [R=301,L]
-RewriteRule ^license.md https://github.com/brendanmurty/upcomingtasks/blob/master/license.md [R=301,L]
+RewriteRule ^readme.md https://github.com/upcomingtasks/website/blob/master/readme.md [R=301,L]
+RewriteRule ^license.md https://github.com/upcomingtasks/website/blob/master/license.md [R=301,L]
 
 # Error pages
 ErrorDocument 403 /common/403.php
