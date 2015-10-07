@@ -139,7 +139,7 @@ ul.task.task-single > li span.task-name,ul.project-single li span.project-name{f
 ul.project-multiple li a{padding:20px 0}
 ul.project-single li span.list-name{font:400 22px/25px "Source Sans Pro","Segoe WP",Arial,sans-serif;margin:0 0 2px;max-width:85%;word-wrap:break-word}
 ul.project-single li span.task-name{font-size:16px;line-height:20px;margin:0}
-ul.project-single li span.project-description{margin:8px 0 30px}
+ul.project-single li span.project-description{margin:8px 0 30px;max-width:90%}
 ul.project-single ul{margin:20px 0 0 0;padding:0}
 ul.project-single ul li{margin:0;padding:0}
 ul.project-single ul li a{padding:0}
