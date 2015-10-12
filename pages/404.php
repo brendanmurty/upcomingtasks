@@ -12,7 +12,7 @@ if (array_key_exists('1', $path)) {
 }
 
 if (file_exists($root_path . '/pages/' . $section['0'] . '.php')) {
-    // A related page was found, redirect to it
+	// A related page was found, redirect to it
 	if ($section['0'] == 'project' && array_key_exists('1', $section) && is_numeric($section['1'])) {
 		if (array_key_exists('3', $section) && is_numeric($section['3'])) {
 			// Redirect to selected task (e.g. /project/123/task/123)
@@ -26,7 +26,7 @@ if (file_exists($root_path . '/pages/' . $section['0'] . '.php')) {
 		redirect('/pages/' . $section['0'] . '.php');
 	}
 } else {
-    // 404 - page not found
+	// 404 - page not found
 	error_handle($_SERVER["REQUEST_URI"], '404 - Page not found', '', '');
 }
 
