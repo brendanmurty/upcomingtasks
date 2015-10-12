@@ -3,7 +3,7 @@
 $root_path = dirname(dirname(__FILE__));
 include_once $root_path . '/libs/initialise.php';
 
-// Format the requested URL and extract page (e.g. /project/123) and query string (e.g. ?something=1&sample=yes)
+// Format the requested URL (e.g. /project/123?something=1&sample=yes) and extract the page section (e.g. /project/123) and query string (e.g. ?something=1&sample=yes)
 $path = explode('?', ltrim($_SERVER["REQUEST_URI"], '/'));
 $section = explode('/', $path['0']);
 $query = false;
