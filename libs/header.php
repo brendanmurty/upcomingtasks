@@ -80,7 +80,7 @@ if(!isset($app_info)){
 <link rel="shortcut icon" href="/images/logo-16-clear.png">
 <link rel="apple-touch-icon-precomposed" href="/images/logo-114.png">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro">
-<link rel="stylesheet" href="/styles/libs.css?v=<?=$date_update_css?>">
+<link rel="stylesheet" href="/styles/common.css?v=<?=$date_update_css?>">
 <link rel="stylesheet" href="/styles/<?=$theme_selected?>.css?v=<?=$date_update_css?>">
 <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
 <? if($is_dev){// Dev JS ?>
