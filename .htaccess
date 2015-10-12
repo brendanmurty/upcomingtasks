@@ -11,9 +11,9 @@ RewriteRule ^readme.md https://github.com/upcomingtasks/website/blob/master/read
 RewriteRule ^license.md https://github.com/upcomingtasks/website/blob/master/license.md [R=301,L]
 
 # Error pages
-ErrorDocument 403 /common/403.php
-ErrorDocument 404 /common/404.php
-ErrorDocument 500 /common/500.php
+ErrorDocument 403 /pages/403.php
+ErrorDocument 404 /pages/404.php
+ErrorDocument 500 /pages/500.php
 
 # Block mySQL injects
 RewriteCond %{QUERY_STRING}    ^.*(;|<|>|ê|”|\)|%0A|%0D|%22|%27|%3C|%3E|%00).*(/\*|union|select|insert|cast|set|declare|drop|update|md5|benchmark).* [NC,OR]
