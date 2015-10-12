@@ -1,7 +1,7 @@
 <?
 
 $root_path = dirname(dirname(__FILE__));
-include_once $root_path . '/common/initialise.php';
+include_once $root_path . '/libs/initialise.php';
 
 $project_id = form_get('project', 'numeric');
 $task_id = form_get('task', 'numeric');

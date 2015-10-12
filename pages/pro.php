@@ -1,7 +1,7 @@
 <?
 
 $root_path = dirname(dirname(__FILE__));
-include_once $root_path . '/common/header.php';
+include_once $root_path . '/libs/header.php';
 
 $action = form_get('action', 'alpha');
 $stripe_token = form_post('stripeToken', '');
@@ -129,5 +129,5 @@ if (isset($message)) {
 }
 }
 
-include_once $root_path . '/common/footer.php';
+include_once $root_path . '/libs/footer.php';
 ?>

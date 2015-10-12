@@ -6,17 +6,17 @@ if (!isset($_SESSION)) {
 }
 
 // Include the required libs files
-$common = dirname(__FILE__);
-include_once $common . '/auth.php';
-include_once $common . '/general.php';
-include_once $common . '/user.php';
-include_once $common . '/basecamp.php';
-include_once $common . '/database.php';
+$libs = dirname(__FILE__);
+include_once $libs . '/auth.php';
+include_once $libs . '/general.php';
+include_once $libs . '/user.php';
+include_once $libs . '/basecamp.php';
+include_once $libs . '/database.php';
 
 // Setup the timezone
 user_timezone_set(user_timezone_get());
 
-// Setup common variables
+// Setup libs variables
 $app_name = 'UpcomingTasks';
 $app_info = 'UpcomingTasks is the simplified way to manage your Basecamp tasks when you\'re away from your computer.';
 $app_welcome = 'Quickly manage your projects and tasks, view progress and select a theme that suits your mood. Free for all Basecamp and Basecamp Personal accounts.';

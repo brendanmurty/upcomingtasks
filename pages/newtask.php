@@ -1,6 +1,6 @@
 <?
 $root_path=dirname(dirname(__FILE__));
-include_once $root_path.'/common/initialise.php';
+include_once $root_path.'/libs/initialise.php';
 
 if (!user_exists()) {
 	redirect('/pages/home.php');
@@ -12,7 +12,7 @@ $list_id = form_get('list', 'numeric');
 
 if (!$task_name) {
 	// Show the new task form
-	include_once $root_path . '/common/header.php';
+	include_once $root_path . '/libs/header.php';
 	$date_picker = form_date_picker('', 'newtask');
 
 	$people_list = '';
@@ -42,7 +42,7 @@ if (!$task_name) {
 		</p>
 	</form>
 <?
-	include_once $root_path . '/common/footer.php';
+	include_once $root_path . '/libs/footer.php';
 } else {
 	// Create a new task
 	$task_due = '';

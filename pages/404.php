@@ -1,7 +1,7 @@
 <?
 
 $root_path = dirname(dirname(__FILE__));
-include_once $root_path . '/common/initialise.php';
+include_once $root_path . '/libs/initialise.php';
 
 // Get the requested url, correct the format, split into sections
 $req=ltrim($_SERVER["REQUEST_URI"],'/');

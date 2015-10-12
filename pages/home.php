@@ -1,6 +1,6 @@
 <?
 $root_path=dirname(dirname(__FILE__));
-include_once $root_path.'/common/header.php';
+include_once $root_path.'/libs/header.php';
 if(!user_exists()){
 $screenshots=list_screenshots();
 ?>
@@ -15,5 +15,5 @@ $screenshots=list_screenshots();
 	loading_temp();
 	print bc_tasks_all();
 }
-include_once $root_path.'/common/footer.php';
+include_once $root_path.'/libs/footer.php';
 ?>

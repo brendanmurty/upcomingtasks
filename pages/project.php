@@ -1,6 +1,6 @@
 <?
 $root_path=dirname(dirname(__FILE__));
-include_once $root_path.'/common/initialise.php';
+include_once $root_path.'/libs/initialise.php';
 
 if(form_get('id', 'numeric')){
 	if (!isset($project_id)) {
@@ -10,7 +10,7 @@ if(form_get('id', 'numeric')){
 	if ($project_id == '') {
 		redirect('/pages/projects.php');
 	} else {
-		include_once $root_path.'/common/header.php';
+		include_once $root_path.'/libs/header.php';
 
 		if (pro_user() && form_get('action', 'alpha') == 'edit') {
 			// Edit a project form (Pro only)
@@ -44,7 +44,7 @@ if(form_get('id', 'numeric')){
 			echo bc_project($project_id);
 		}
 
-		include_once $root_path.'/common/footer.php';
+		include_once $root_path.'/libs/footer.php';
 	}
 }else{
 	redirect('/pages/projects.php');
