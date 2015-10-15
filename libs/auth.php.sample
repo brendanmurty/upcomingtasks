@@ -26,7 +26,7 @@ $GLOBALS['auth_api_login_url'] = 'https://launchpad.37signals.com/authorization/
 // Stripe API payment details
 //  - Fill in the details below after configuring your Stripe account and plan for your app
 
-$GLOBALS['stripe_plan_name'] = 'app-name-monthly-test';
+$GLOBALS['stripe_plan_name'] = 'app-name-test';
 $GLOBALS['stripe_api_public'] = 'pk_test_EXAMPLE';
 $GLOBALS['stripe_api_secret'] = 'sk_test_EXAMPLE';
 

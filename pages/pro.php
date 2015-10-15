@@ -60,7 +60,7 @@ if (isset($message)) {
 ?>
 
 <? if (!pro_user()) { ?>
-<p>For a small monthly cost, an <?= $app_name ?> Pro account gives access to additional features, including:</p>
+<p>An <?= $app_name ?> Pro account gives access to additional features, including:</p>
 <? } ?>
 
 <ul class="features">
@@ -98,6 +98,9 @@ if (isset($message)) {
 <h3>What if I want to cancel or pause my subscription?</h3>
 <p>You're free to downgrade to a free account at any time. There is no cancellation fee. You can re-subscribe again whenever you like.</p>
 
+<h3>How much does a Pro account cost?</h3>
+<p>An <?= $app_name ?> Pro account costs only <strong>AU$15 per year</strong>!</p>
+
 <h3>How do I subscribe?</h3>
 
 <? if (!user_exists()) { ?>
@@ -114,9 +117,9 @@ if (isset($message)) {
     data-key="<?= $GLOBALS['stripe_api_public'] ?>"
     data-image="https://s3.amazonaws.com/stripe-uploads/acct_157vK6HN1f5gMCcJmerchant-icon-1440476766712-upcomingtasks-336.png"
     data-name="UpcomingTasks Pro"
-    data-description="Subscription (AU$6 per month)"
+    data-description="Subscription (AU$15 per year)"
     data-currency="aud"
-    data-amount="600"
+    data-amount="1500"
     data-locale="auto"
     data-email="<?= user_email() ?>"
     data-panel-label="Subscribe"
