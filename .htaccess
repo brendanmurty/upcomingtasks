@@ -7,8 +7,8 @@ RewriteCond %{HTTP_HOST} ^www.upcomingtasks.com$ [NC]
 RewriteRule ^(.*)$ https://upcomingtasks.com/$1 [R=301,L]
 
 # Redirects
-Redirect 301 /readme.md https://github.com/upcomingtasks/website/blob/master/readme.md
-Redirect 301 /license.md https://github.com/upcomingtasks/website/blob/master/license.md
+Redirect 301 /readme.md https://github.com/brendanmurty/upcomingtasks/blob/master/readme.md
+Redirect 301 /license.md https://github.com/brendanmurty/upcomingtasks/blob/master/license.md
 Redirect 301 /pages/donate.php /pages/pro.php
 
 # Error pages
