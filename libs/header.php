@@ -67,7 +67,7 @@ if(!isset($app_info)){
 <meta name="robots" content="<?= $meta_robots ?>">
 <meta name="handheldfriendly" content="true">
 <meta name="mobileoptimized" content="480">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <meta name="application-name" content="UpcomingTasks"/>
 <meta name="theme-color" content="#0D7F07">
 <meta name="apple-mobile-web-app-capable" content="yes">
