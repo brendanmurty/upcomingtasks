@@ -1,33 +1,37 @@
 <?
 
 // bc_account - Select the first bcx account found in the users account list
-function bc_account($bc_token){
-	if($bc_token){
-		$url='https://launchpad.37signals.com/authorization.json';
-		$ch=curl_init();
-		$options=array(
+function bc_account($bc_token) {
+	if ($bc_token) {
+		$url = 'https://launchpad.37signals.com/authorization.json';
+		$ch = curl_init();
+
+		$options = array(
 			CURLOPT_URL => $url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HTTPHEADER => array('Content-type: application/json','Authorization: Bearer '.$bc_token),
 			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent'],
 			CURLOPT_SSL_VERIFYPEER => false
 		);
-		curl_setopt_array($ch,$options);
-		$result=json_decode(curl_exec($ch),'true');
-		if($result!=''){
-			if(isset($result['accounts'])){
-				$count=count($result['accounts']);
-				for($i=0;$i<$count;$i++){
-					if($result['accounts'][$i]['product']=='bcx'){
+
+		curl_setopt_array($ch, $options);
+		$result = json_decode(curl_exec($ch), true);
+
+		if ($result) {
+			if (isset($result['accounts'])) {
+				$count = count($result['accounts']);
+				for ($i=0; $i<$count; $i++) {
+					if ($result['accounts'][$i]['product'] == 'bcx') {
 						return $result['accounts'][$i]['id'];
 						break;
 					}
 				}
 			}
-		}else{
-			return '';
 		}
 	}
+	
+	
+	return '';
 }
 
 // bc_account_select - Produce a list of all bcx accounts the user has access to
@@ -200,7 +204,7 @@ function bc_post($api_url,$data_array,$method='new'){
 			$options[CURLOPT_POSTFIELDS]=$data;
 		}
 		curl_setopt_array($ch,$options);
-		return json_decode(curl_exec($ch),'true');
+		return json_decode(curl_exec($ch), true);
 	}
 }
 
