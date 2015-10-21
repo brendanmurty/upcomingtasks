@@ -39,39 +39,50 @@ function user_authenticate($auth_code = ''){
 			$bc_id = bc_user_id($bc_token, $bc_account);
 
 			if (!$bc_id) {
-				// Authentication issue
-				error_handle('auth', 'Could not determine Basecamp user ID for account ' . $bc_account . ' - ' . print_r($result, true), $_SERVER['SCRIPT_FILENAME'], '8');
-				redirect('/pages/home.php');
-			} else {
-				// Setup the user session
-				if (!isset($_SESSION)) {
-					session_start();
-				}
-
-				// Add a cookie to store the current Basecamp ID with a 14 day expiry
-				setcookie("bc_id", $bc_id, time()+60*60*24*14);
-
-				// Get extra user details
-				$bc_email = '';
-				$bc_name = '';
-				$result2 = bc_results_main('https://launchpad.37signals.com/authorization.json',$bc_token,$bc_account);
-				if ($result2) {
-					$bc_email = $result2['identity']['email_address'];
-					$bc_name_first = $result2['identity']['first_name'];
-					$bc_name_last = $result2['identity']['last_name'];
-				}
-
-				// Save the details to the database
+				// Can't extract the user's Basecamp ID, attempt to find a relevant database entry
 				$db = db_connect();
-				$sql_values = "bc_account=" . db_clean($db, $bc_account). ", first_name=" . db_clean($db, $bc_name_first) . ", last_name=" . db_clean($db, $bc_name_last) . ", ";
-				$sql_values .= "email=" . db_clean($db, $bc_email) . ", bc_token=" . db_clean($db, $bc_token);
-				$sql = "INSERT INTO users SET bc_id = " . db_clean($db, $bc_id) . ", $sql_values ON DUPLICATE KEY UPDATE $sql_values";
-				db_query($db, $sql);
+				$sql = "SELECT bc_id FROM users WHERE bc_account = " . db_clean($db, $bc_account) . " AND bc_id <> 0 LIMIT 1";
+				$result = db_query($db, $sql);
 				db_disconnect($db);
-
-				// Redirect to account selection page
-				redirect('/pages/account.php');
+				
+				if (is_array($result) && array_key_exists('bc_id', $result)) {
+					// Relevant database entry found, use this Basecamp ID
+					$bc_id = $result['bc_id'];
+				} else {
+					// No relevant database entry found, log the error and redirect to the home page
+					error_handle('auth', 'Could not determine Basecamp user ID for account ' . $bc_account . ' - ' . print_r($result, true), $_SERVER['SCRIPT_FILENAME'], '8');
+					redirect('/pages/home.php');
+				}
 			}
+
+			// Setup the user session
+			if (!isset($_SESSION)) {
+				session_start();
+			}
+
+			// Add a cookie to store the current Basecamp ID with a 14 day expiry
+			setcookie("bc_id", $bc_id, time()+60*60*24*14);
+
+			// Get extra user details
+			$bc_email = '';
+			$bc_name = '';
+			$result2 = bc_results_main('https://launchpad.37signals.com/authorization.json',$bc_token,$bc_account);
+			if ($result2) {
+				$bc_email = $result2['identity']['email_address'];
+				$bc_name_first = $result2['identity']['first_name'];
+				$bc_name_last = $result2['identity']['last_name'];
+			}
+
+			// Save the details to the database
+			$db = db_connect();
+			$sql_values = "bc_account=" . db_clean($db, $bc_account). ", first_name=" . db_clean($db, $bc_name_first) . ", last_name=" . db_clean($db, $bc_name_last) . ", ";
+			$sql_values .= "email=" . db_clean($db, $bc_email) . ", bc_token=" . db_clean($db, $bc_token);
+			$sql = "INSERT INTO users SET bc_id = " . db_clean($db, $bc_id) . ", $sql_values ON DUPLICATE KEY UPDATE $sql_values";
+			db_query($db, $sql);
+			db_disconnect($db);
+
+			// Redirect to account selection page
+			redirect('/pages/account.php');
 		}
 	}
 }
