@@ -21,20 +21,20 @@ function user_authenticate($auth_code = ''){
 			$bc_token = $result['access_token'];
 			$bc_account = bc_account($bc_token);
 
-			if($bc_account == ''){
+			if (!$bc_account) {
 				// Can't find a suitable Basecamp account
-				$root_path=dirname(dirname(dirname(__FILE__)));
-				include_once $root_path.'/libs/header.php';
+				$root_path = dirname(dirname(dirname(__FILE__)));
+				include_once $root_path . '/libs/header.php';
 				print '<p class="error">Sorry, no eligible Basecamp accounts were found. Please <a href="https://basecamp.com/signup">create a Basecamp account</a> to use this app.</p>';
-				include_once $root_path.'/libs/footer.php';
+				include_once $root_path . '/libs/footer.php';
 				exit();
 			}
 
 			$bc_id = bc_user_id($bc_token, $bc_account);
 
-			if ($bc_id == '0') {
-				// Authentication issue, redirect to home page
-				error_handle('auth', 'bc_id is 0', $_SERVER['SCRIPT_FILENAME'], '8');
+			if (!$bc_id) {
+				// Authentication issue
+				error_handle('auth', 'Could not determine Basecamp user ID for account ' . $bc_account . ' - ' . print_r($result, true), $_SERVER['SCRIPT_FILENAME'], '8');
 				redirect('/pages/home.php');
 			} else {
 				// Setup the user session
