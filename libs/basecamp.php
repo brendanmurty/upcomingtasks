@@ -833,22 +833,28 @@ function bc_tasklist($selected_project = '', $selected_list = '') {
 }
 
 // bc_get_id - Get the Basecamp ID of a user
-function bc_user_id($bc_token,$bc_account){
-	if($bc_token && $bc_account){
-		$url='https://basecamp.com/'.$bc_account.'/api/v1/people/me.json';
-		$ch=curl_init();
-		$options=array(
+function bc_user_id($bc_token, $bc_account) {
+	if ($bc_token && $bc_account) {
+		$url = 'https://basecamp.com/'.$bc_account.'/api/v1/people/me.json';
+		$ch = curl_init();
+
+		$options = array(
 			CURLOPT_URL => $url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_HTTPHEADER => array('Content-type: application/json','Authorization: Bearer '.$bc_token),
 			CURLOPT_USERAGENT => $GLOBALS['auth_user_agent'],
 			CURLOPT_SSL_VERIFYPEER => false
 		);
-		curl_setopt_array($ch,$options);
-		$result=json_decode(curl_exec($ch),'true');
-		$user_id=$result['id'];
-		return $user_id;
+
+		curl_setopt_array($ch, $options);
+		$result = json_decode(curl_exec($ch), 'true');
+		
+		if (array_key_exists('id', $result)) {
+			return $result['id'];
+		}
 	}
+	
+	return false;
 }
 
 // bc_user_status - Return information about the authenticated user
