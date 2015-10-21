@@ -14,7 +14,13 @@ function user_authenticate($auth_code = ''){
 		);
 		curl_setopt_array($cu, $options);
 
-		$result = json_decode(curl_exec($cu), 'true') or exit("Authentication issue");
+		$result = json_decode(curl_exec($cu), true);
+		
+		if (!$result) {
+			// Authentication issue
+			error_handle('auth', 'Could not extract Basecamp authentication information', $_SERVER['SCRIPT_FILENAME'], '8');
+			redirect('/pages/home.php');
+		}
 
 		// Extract the relevant details from the Basecamp response
 		if (isset($result['access_token'])) {
