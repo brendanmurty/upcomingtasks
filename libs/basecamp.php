@@ -853,8 +853,12 @@ function bc_user_id($bc_token, $bc_account) {
 		curl_setopt_array($ch, $options);
 		$result = json_decode(curl_exec($ch), 'true');
 		
-		if (array_key_exists('id', $result)) {
-			return $result['id'];
+		if (!$result) {
+			error_handle('auth', 'Error extracting Basecamp ID from user details', $_SERVER['SCRIPT_FILENAME'], '8');
+		} else {
+			if (array_key_exists('id', $result)) {
+				return $result['id'];
+			}
 		}
 	}
 	
