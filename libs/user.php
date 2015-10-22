@@ -18,7 +18,7 @@ function user_authenticate($auth_code = ''){
 		
 		if (!$result) {
 			// Authentication issue
-			error_handle('auth', 'Could not extract Basecamp authentication information', $_SERVER['SCRIPT_FILENAME'], '8');
+			error_handle('auth', 'Could not extract Basecamp authentication information', $_SERVER['SCRIPT_FILENAME'], '');
 			redirect('/pages/home.php');
 		}
 
@@ -50,7 +50,7 @@ function user_authenticate($auth_code = ''){
 					$bc_id = $result['bc_id'];
 				} else {
 					// No relevant database entry found, log the error and redirect to the home page
-					error_handle('auth', 'Could not determine Basecamp user ID for account ' . $bc_account . ' - ' . print_r($result, true), $_SERVER['SCRIPT_FILENAME'], '8');
+					error_handle('auth', 'Could not determine Basecamp user ID for account ' . $bc_account . ' - ' . print_r($result, true), $_SERVER['SCRIPT_FILENAME'], '');
 					redirect('/pages/home.php');
 				}
 			}
