@@ -854,7 +854,7 @@ function bc_user_id($bc_token, $bc_account) {
 		$result = json_decode(curl_exec($ch), 'true');
 		
 		if (!$result) {
-			error_handle('auth', 'Error extracting Basecamp ID from user details', $_SERVER['SCRIPT_FILENAME'], '8');
+			error_handle('auth', 'Error extracting Basecamp ID from user details', $_SERVER['SCRIPT_FILENAME'], '');
 		} else {
 			if (array_key_exists('id', $result)) {
 				return $result['id'];
