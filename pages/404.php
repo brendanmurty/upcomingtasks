@@ -27,7 +27,7 @@ if (file_exists($root_path . '/pages/' . $section['0'] . '.php')) {
 	}
 } else {
 	// 404 - page not found
-	error_handle($_SERVER["REQUEST_URI"], '404 - Page not found', '', '');
+	error_handle('404', 'Page not found - ' . $_SERVER["REQUEST_URI"], '', '');
 }
 
 // Default to redirecting to the home page
