@@ -26,5 +26,4 @@ form p.buttons input,a.button{color:#fff;background-color:#009a98;border-color:#
 form p.buttons input:hover,form p.buttons input:active,form p.buttons input:focus,a.button:focus,a.button:hover{text-decoration:none;background-color:#007877}
 form p.buttons a.remove{color:#00aba9}
 form .text{color:#333;border:1px solid #999}
-.stats-value{color:#00aba9}
 footer a,footer a:visited{color:#000}

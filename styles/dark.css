@@ -25,6 +25,5 @@ form p.buttons input,a.button{color:#fff;background-color:#0d7f07;border-color:#
 form p.buttons input:hover,form p.buttons input:active,form p.buttons input:focus,a.button:focus,a.button:hover{text-decoration:none;background-color:#0a5e05}
 form p.buttons a.remove{color:#0F8F07}
 form .text,form select{color:#fff;border:1px solid #636363;background-color:#383838}
-.stats-value{color:#0D7F07}
 footer a,footer a:visited{color:#fff}
 @media only screen and (max-width:1201px){ html,body{background-color:#1f1f1f !important} }

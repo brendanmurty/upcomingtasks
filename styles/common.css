@@ -199,10 +199,6 @@ form#form_comment{margin:15px 0 0}
 .user-status span{margin-right:10px}
 .user-status span.status{margin-right:4px}
 .user-status a.logout{float:right}
-.page_stats h2{margin-top:0}
-.stats{padding:20px 0 30px;clear:both}
-.stats-value{font-size:60px;display:block;clear:both;margin:0 0 20px -5px}
-.stats-title{font-size:18px;display:block;clear:both;text-transform:lowercase}
 .tools li{margin:0 0 13px}
 footer,footer nav{width:100%}
 footer nav ul{width:120px;margin:0 auto;float:none}

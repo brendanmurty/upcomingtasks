@@ -1,7 +1,6 @@
 	<div id="down"></div>
 	</div>
 </div>
-<? if($page!='stats' && $page!='extras'){// Show footer ?>
 <footer>
 	<nav>
 		<ul>
@@ -10,6 +9,5 @@
 		</ul>
 	</nav>
 </footer>
-<? } ?>
 </body>
 </html>

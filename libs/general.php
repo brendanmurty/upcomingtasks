@@ -193,7 +193,7 @@ function navigation($current_page,$option=''){
 			}
 		}
 	}else{
-		if($current_page!='home'&&$current_page!='stats'){
+		if ($current_page != 'home') {
 			$a=$hm;
 		}
 	}
@@ -237,62 +237,6 @@ function redirect($url){
 	}
 
 	exit;
-}
-
-// stat_global_users - Count the number of users
-function stat_global_users(){
-    $db = db_connect();
-	$result = db_query($db, "SELECT COUNT(*) as count_users FROM users WHERE (number_projects>0) AND (number_tasks>0)");
-	db_disconnect($db);
-	return '<div class="stats stats-users"><span class="stats-value">'.vague_count($result['count_users']).'</span><span class="stats-title">Active Users</span></div>';
-}
-
-// stat_global_projects - Count the number of global projects
-function stat_global_projects(){
-    $db = db_connect();
-	$result = db_query($db, "SELECT SUM(number_projects) as count_projects FROM users");
-	db_disconnect($db);
-	return '<div class="stats stats-global stats-projects"><span class="stats-value">'.vague_count($result['count_projects']).'</span><span class="stats-title">Projects</span></div>';
-}
-
-// stat_global_tasks - Count the number of global tasks
-function stat_global_tasks() {
-    $db = db_connect();
-	$result = db_query($db, "SELECT SUM(number_tasks) as count_tasks FROM users");
-	db_disconnect($db);
-	return '<div class="stats stats-global stats-tasks"><span class="stats-value">'.vague_count($result['count_tasks']).'</span><span class="stats-title">Tasks</span></div>';
-}
-
-// stat_projects - Count the number of projects for the current user
-function stat_projects(){
-	if (!isset($_SESSION)) {
-		session_start();
-	}
-
-	$db = db_connect();
-	$sql = "SELECT number_projects FROM users WHERE bc_id=" . db_clean($db, user_id()) . " LIMIT 1";
-	$result = db_query($db, $sql);
-	db_disconnect($db);
-	$p='';
-	if($result['number_projects']>1){ $p='s'; }
-	return '<div class="stats stats-this stats-projects"><span class="stats-value">'.vague_count($result['number_projects']).'</span><span class="stats-title">Project'.$p.'</span></div>';
-}
-
-// stat_tasks - Count the number of tasks for the current user
-function stat_tasks(){
-	if (!isset($_SESSION)) {
-		session_start();
-	}
-
-	$db = db_connect();
-	$sql = "SELECT number_tasks FROM users WHERE bc_id=" . db_clean($db, user_id()). " LIMIT 1";
-	$result = db_query($db, $sql);
-	db_disconnect($db);
-	$plural = '';
-	if ($result['number_tasks'] > 1) {
-	    $plural = 's';
-	}
-	return '<div class="stats stats-this stats-tasks"><span class="stats-value">'.vague_count($result['number_tasks']).'</span><span class="stats-title">Task'.$plural.'</span></div>';
 }
 
 // test - Print a test string

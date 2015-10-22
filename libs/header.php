@@ -4,7 +4,7 @@ $root_path = dirname(dirname(__FILE__));
 include_once $root_path.'/libs/initialise.php';
 
 // Asset update dates
-$date_update_css = "20151007b";
+$date_update_css = "20151022";
 $date_update_js  = "20130903";
 
 // Extract the current page's name
@@ -36,11 +36,9 @@ if ($theme_requested) {
 $page_class.=' theme_'.$theme_selected;
 
 // Create the robots meta content
-$meta_robots='index,follow';
-if(user_exists() && $page!='extras' && $page!='stats'){
-	$meta_robots='noindex,nofollow';
-}else if($page=='stats'){
-	$meta_robots='noindex,follow';
+$meta_robots = 'index,follow';
+if (user_exists()) {
+	$meta_robots = 'noindex,nofollow';
 }
 
 // Check for dev mode
