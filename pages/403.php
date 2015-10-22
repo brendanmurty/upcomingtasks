@@ -1,6 +1,5 @@
 <?
 include_once dirname(dirname(__FILE__)) . '/libs/initialise.php';
-if(!isset($page)){ $page=''; }
-error_handle($page,'403 - Forbidden','','');
+error_handle('403', 'Forbidden - ' . $_SERVER["REQUEST_URI"], '', '');
 header('Location: /pages/home.php');
 ?>
