@@ -64,7 +64,7 @@ function error_handle($errno, $errstr, $errfile, $errline) {
 	} else {
 		// Production
 		$headers = 'From: ' . $GLOBALS['auth_error_email_from'] . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-		$mail = @mail($GLOBALS['auth_error_email_to'], 'UpcomingTasks Error', $errtext, $headers);
+		$mail = @mail($GLOBALS['auth_error_email_to'], 'UpcomingTasks Error: ' . $errno, $errtext, $headers);
 	}
 }
 ?>
