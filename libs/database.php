@@ -10,9 +10,9 @@ function db_clean($db_connect, $dirty) {
 function db_connect() {
     $connect = new mysqli($GLOBALS['auth_db_server'], $GLOBALS['auth_db_user'], $GLOBALS['auth_db_password'], $GLOBALS['auth_db_database']);
     if ($connect->connect_errno) {
-		// Couldn't connect to the database
-		error_handle('database', 'Connection failed:' . "\r\n" . $connect->connect_error . 'Query:' . "\r\n" . $query, $_SERVER['SCRIPT_FILENAME'], '8');
-		return false;
+	// Couldn't connect to the database
+	error_handle('database', 'Connection failed:' . "\r\n" . $connect->connect_error . 'Query:' . "\r\n" . $query, $_SERVER['SCRIPT_FILENAME'], '');
+	return false;
     } else {
         return $connect;
     }
@@ -32,7 +32,7 @@ function db_query($db_connect, $query) {
 
 		if (!$result) {
 			// Query has caused an error
-			error_handle('database', 'Query error:' . "\r\n" . $db_connect->error . 'Query:' . "\r\n" . $query, $_SERVER['SCRIPT_FILENAME'], '8');
+			error_handle('database', 'Query error:' . "\r\n" . $db_connect->error . 'Query:' . "\r\n" . $query, $_SERVER['SCRIPT_FILENAME'], '');
 			return false;
 		} else {
 			// Query success, return the result if required
