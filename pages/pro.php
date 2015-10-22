@@ -28,7 +28,7 @@ if ($action == 'subscribe' && $stripe_token && user_exists()) {
 
         $message = '<p class="notification success">Thanks for your support, your account has been upgraded!</p>';
     } catch (Exception $e) {
-        error_handle('subscribe', $e->getMessage(), $_SERVER['SCRIPT_FILENAME'], '8');
+        error_handle('subscribe', $e->getMessage(), $_SERVER['SCRIPT_FILENAME'], '');
     }
 } elseif ($action == 'unsubscribe' && user_exists() && user_stripe_get()) {
     // Unsubscribe the current user from the UpcomingTasks Pro subscription plan
@@ -46,7 +46,7 @@ if ($action == 'subscribe' && $stripe_token && user_exists()) {
 
         $message = '<p class="notification success">Your account was successfully downgraded to the free account.</p>';
     } catch (Exception $e) {
-        error_handle('unsubscribe', $e->getMessage(), $_SERVER['SCRIPT_FILENAME'], '8');
+        error_handle('unsubscribe', $e->getMessage(), $_SERVER['SCRIPT_FILENAME'], '');
     }
 }
 ?>
