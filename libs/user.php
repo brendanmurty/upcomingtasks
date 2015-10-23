@@ -15,7 +15,7 @@ function user_authenticate($auth_code = ''){
 		curl_setopt_array($cu, $options);
 
 		$result = json_decode(curl_exec($cu), true);
-		
+
 		if (!$result) {
 			// Authentication issue
 			error_handle('auth', 'Could not extract Basecamp authentication information', $_SERVER['SCRIPT_FILENAME'], '');
@@ -41,10 +41,10 @@ function user_authenticate($auth_code = ''){
 			if (!$bc_id) {
 				// Can't extract the user's Basecamp ID, attempt to find a relevant database entry
 				$db = db_connect();
-				$sql = "SELECT bc_id FROM users WHERE bc_account = " . db_clean($db, $bc_account) . " AND bc_id <> 0 LIMIT 1";
+				$sql = "SELECT bc_id FROM users WHERE bc_account = " . db_clean($db, $bc_account) . " AND bc_token = '' AND bc_id <> 0 LIMIT 1";
 				$result = db_query($db, $sql);
 				db_disconnect($db);
-				
+
 				if (is_array($result) && array_key_exists('bc_id', $result)) {
 					// Relevant database entry found, use this Basecamp ID
 					$bc_id = $result['bc_id'];
