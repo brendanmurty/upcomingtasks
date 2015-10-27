@@ -38,7 +38,7 @@ fieldset{border:0;margin:0;padding:0}
 label{cursor:pointer}
 legend{border:0;*margin-left:-7px;padding:0}
 button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}
-button,input{line-height:normal;*overflow:visible}
+button,input{-webkit-appearance:none;border-radius:0;line-height:normal;*overflow:visible}
 table button,table input{*overflow:auto}
 button,input[type="button"],input[type="reset"],input[type="submit"],[role="button"]{cursor:pointer}
 input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
