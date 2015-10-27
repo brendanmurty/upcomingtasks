@@ -5,7 +5,7 @@ include_once $root_path . '/libs/initialise.php';
 
 // Asset update dates
 $date_update_css = "20151027";
-$date_update_js  = "20151027";
+$date_update_js  = "20151027b";
 
 // Extract the current page's name
 $req = ltrim($_SERVER["REQUEST_URI"], '/');
