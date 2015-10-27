@@ -1,29 +1,3 @@
-// Normalized hide address bar for iOS & Android - https://gist.github.com/1183357
-(function( win ){
-	var doc = win.document;
-	if( !location.hash && win.addEventListener ){
-		window.scrollTo( 0, 1 );
-		var scrollTop = 1,
-			getScrollTop = function(){
-				return win.pageYOffset || doc.compatMode === "CSS1Compat" && doc.documentElement.scrollTop || doc.body.scrollTop || 0;
-			},
-			bodycheck = setInterval(function(){
-				if( doc.body ){
-					clearInterval( bodycheck );
-					scrollTop = getScrollTop();
-					win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
-				}	
-			}, 15 );
-		win.addEventListener( "load", function(){
-			setTimeout(function(){
-				if( getScrollTop() < 20 ){
-					win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
-				}
-			}, 0);
-		} );
-	}
-})(this);
-
 // Sort HTML elements - http://james.padolsey.com/javascript/sorting-elements-with-jquery/
 $.fn.sortElements = (function(){
     var sort = [].sort;
@@ -75,7 +49,7 @@ function valid_date(s){
         // Remove leading zeros
         s = s.replace(/0*(\d*)/gi,"$1");
         var dateArray = s.split(/[\.|\/|-]/);
-      
+
         // Month
         dateArray[1] = dateArray[1]-1;
 
@@ -96,12 +70,12 @@ function valid_date(s){
 }
 
 $(document).ready(function() {
-	
+
 	// Sort tasks by due date
 	$(".page_home ul.task-multiple:not(.task-completed) li").sortElements(function(a, b){
 	    return $(a).attr('data-due') > $(b).attr('data-due') ? 1 : -1;
 	});
-	
+
 	// Remove task due date
 	$("#button_remove_date,a#button_task_dateremove").click(function(){
 		var confirm = window.confirm("Remove this task's due date?");
@@ -110,7 +84,7 @@ $(document).ready(function() {
 		}
 		return false;
 	});
-	
+
 	// Delete task
 	$("#action-delete a,a#button_task_delete").click(function(){
 		var confirm = window.confirm("Are you sure you want to delete this task?");
@@ -119,7 +93,7 @@ $(document).ready(function() {
 		}
 		return false;
 	});
-	
+
 	// Setup for unsaved content
 	var content_changed = false;
 	$("#form_task select,#form_task .select input,#form_task .text,#form_task_edit select,#form_task_edit .select input,#form_task_edit .text,#form_comment textarea").change(function(){
@@ -132,7 +106,7 @@ $(document).ready(function() {
 		content_changed = false;
 		return false;
 	});
-	
+
 	// Logout
 	$("#button_logout").click(function(){
 		var confirm = window.confirm("Would you like to logout now?");
@@ -163,7 +137,7 @@ $(document).ready(function() {
 		}
 		return false;
 	});
-	
+
 	// Update task details
 	$("#button_update_task").click(function(){
 		var date_string=$("#date_day").find(":selected").attr("value")+'/'+$("#date_month").find(":selected").attr("value")+'/'+$("#date_year").find(":selected").attr("value");
@@ -175,7 +149,7 @@ $(document).ready(function() {
 		}
 		return false;
 	});
-	
+
 	// New task - toggle due date
 	$("input#due_mode_select").click(function(){
 		if($(this).is(":checked")){

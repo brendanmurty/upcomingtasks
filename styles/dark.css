@@ -1,14 +1,13 @@
 a,a:visited{color:#12AF09}
 h1,h2,h3,h4{color:#fff}
-html,body{background-color:#111 !important;color:#fff}
+html,body{background-color:#1F1F1F;color:#fff}
 header{background-color:#109f08;color:#fff}
-header a{color:#fff !important}
+header a{color:#fff}
 #content{background-color:#1F1F1F;color:#fff}
 #loading-icon{color:#fff}
-footer{background-color:#252325}
 a.button,nav a,a#button_menu,.buttons a{color:#fff}
-.page_account #content li a{background-color:#111;color:#fff;border-color:#000}
-.page_account #content li a:hover,.page_account #content li a:focus,.page_account #content li a:active{background-color:#000}
+.page_account #content li a{background-color:#333;color:#fff;border-color:#000}
+.page_account #content li a:hover,.page_account #content li a:focus,.page_account #content li a:active,.page_account #content li.selected a{background-color:#555}
 ul.task-multiple li{border-top:1px solid #242424}
 ul.task li span.task-name,ul.project-multiple li span.project-name{color:#fff}
 ul.project-single ul.task li span.task-name{color:#ccc}
@@ -26,4 +25,3 @@ form p.buttons input:hover,form p.buttons input:active,form p.buttons input:focu
 form p.buttons a.remove{color:#0F8F07}
 form .text,form select{color:#fff;border:1px solid #636363;background-color:#383838}
 footer a,footer a:visited{color:#fff}
-@media only screen and (max-width:1201px){ html,body{background-color:#1f1f1f !important} }

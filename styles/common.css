@@ -51,7 +51,7 @@ td{vertical-align:top}
 textarea[contenteditable]{-webkit-appearance:none}
 *{margin:0}
 html,body{height:100%;padding:0;margin:0;color:#000;background-color:#fff;overflow-x:hidden}
-#container{min-height:100%;height:auto !important;height:100%;margin:0 auto -80px;min-width:300px}
+#container{height:auto;margin:0 auto;min-width:300px}
 header{width:92%;padding:2% 4%;float:left;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
 .notification{padding:2% 3%;float:left;width:94%}
 .notification.error{background-color:#80001d;color:#fff}
@@ -59,7 +59,7 @@ header{width:92%;padding:2% 4%;float:left;-webkit-user-select:none;-moz-user-sel
 .notification p{margin:0}
 .page_pro .notification{margin-bottom:20px}
 #content{width:92%;padding:18px 4% 0;height:100%;float:left}
-footer{width:52%;padding:0 0 40px;margin:0 auto;background-color:transparent !important}
+footer{width:52%;padding:0 0 40px;margin:0 auto;background-color:transparent}
 footer,#down{height:50px;clear:both}
 body,p,li,nav a,textarea,select{font:400 18px/22px "Source Sans Pro","Segoe UI",Arial,sans-serif}
 p{margin:0 0 10px}
@@ -75,7 +75,7 @@ h2{font-size:22px;line-height:30px}
 h3{font-size:18px;line-height:25px}
 h4{font-size:16px;line-height:20px}
 header h1{margin:8px 0 12px}
-header a{color:#fff !important}
+header a{color:#fff}
 header a:hover{text-decoration:none}
 .nospacing{margin:0;padding:0;clear:both}
 .icon{margin-right:6px;border:0}
@@ -85,7 +85,7 @@ header a:hover{text-decoration:none}
 .noselect,ul.task-multiple li{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 body.loading #content{background-color:transparent;text-indent:-999em;height:100px}
 #loading-icon{display:none;font-size:50px;text-align:center;margin:50px 0 0;color:#333}
-body.loading header,body.loading #content div,body.loading #content ul,body.loading #content form,body.loading footer{display:none !important}
+body.loading header,body.loading #content div,body.loading #content ul,body.loading #content form,body.loading footer{display:none}
 p.message.empty{margin:20px 0}
 a.button,nav a,a#button_menu,.buttons a{font-size:16px;text-decoration:none;padding:12px 20px 14px;position:relative;display:inline-block;border-radius:2px}
 a.button:hover,a.button:active,a.button:focus,nav a:hover,nav a:active,nav a:focus,.buttons a:hover,.buttons a:active,.buttons a:focus{text-decoration:none}
@@ -102,9 +102,6 @@ nav ul li:last-child{margin-right:0}
 nav ul li a{text-align:center;padding:12px 7px 13px;float:left}
 nav ul li:first-child a{padding-left:0}
 .page_home header nav li#action-home,.page_projects header nav li#action-projects,.page_newtask header nav li#action-newtask,.page_home header nav li#action-home,.page_progress header nav li#action-progress,.page_account header nav li#action-account,.page_more header nav li#action-more{display:none}
-header nav ul li a{color:#fff !important;font-size:40px}
-header nav ul li a:hover{color:#ddd !important}
-header a{text-decoration:none !important}
 .page_home.user_yes #content,.page_tasks.user_yes #content,.page_projects #content,.page_progress #content{padding-top:0}
 .page_account header nav{display:none}
 .page_account header h1{display:block}
@@ -169,14 +166,14 @@ form p.date select{float:left;margin-right:11px}
 form p.date select#date_month{width:91px}
 form p.date select#date_year{margin-right:0}
 form p.buttons input{padding:0 20px;margin-right:10px}
-form p.buttons input,a.button{font:700 20px/50px "Source Sans Pro","Segoe WP",Arial,sans-serif;height:50px;border-radius:4px;border:0 none !important;padding:0 20px}
+form p.buttons input,a.button{font:700 20px/50px "Source Sans Pro","Segoe WP",Arial,sans-serif;height:50px;border-radius:4px;border:0 none;padding:0 20px}
 form p.buttons input:hover,form p.buttons input:active,form p.buttons input:focus{text-decoration:none}
 form p.buttons a.remove,form p.buttons a.cancel-edit{float:right;background:none;border:0 none}
 form.subscribe{margin:10px 0}
 p.buttons .unsubscribe{background-color:#109f08}
 form p.task-name{margin-top:1%}
 form .text{width:100%;padding:10px;margin:0;box-sizing:border-box}
-form textarea{width:100% !important;height:80px;min-height:80px}
+form textarea{height:80px;min-height:80px}
 form select{width:90px;display:block}
 form select#date_day{width:90px;clear:left}
 form select#people_list,form select#task_list{width:296px}
@@ -202,16 +199,16 @@ form#form_comment{margin:15px 0 0}
 .tools li{margin:0 0 13px}
 footer,footer nav{width:100%}
 footer nav ul{width:120px;margin:0 auto;float:none}
-footer nav ul li{margin:15px 0 0 20px;width:auto}
+footer nav li{margin:0 0 0 20px;width:auto}
 footer nav li:first-child{margin-left:0}
 footer p,footer li,footer a{font-size:15px;margin:0}
 footer nav li a,footer nav li a:visited{text-decoration:none;text-align:center;color:#777;float:left;display:block;margin:0;padding:0;font-size:25px;width:50px;height:50px;line-height:44px}
 footer a:hover,footer a:active,footer a:focus{text-decoration:none;color:#999}
 footer a span{display:none}
 a#button_all{margin-top:25px}
-body.page_image{background-color:#1f1f1f !important}
-body.page_image h1{color:#fff !important}
-body.page_image a{text-decoration:underline !important}
+body.page_image{background-color:#1f1f1f}
+body.page_image h1{color:#fff}
+body.page_image a{text-decoration:underline}
 ul.screenshots{margin:20px 0 5px;padding:0;float:left;clear:both;width:100%}
 ul.screenshots li{list-style:none outside none;float:left;margin:0 5px 5px 0;padding:0;width:100px;height:100px;overflow:hidden;border:2px solid #fff;box-shadow:0 0 5px #999;-moz-box-shadow:0 0 5px #999;-webkit-box-shadow:0 0 5px #999;-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')"}
 ul.screenshots li:hover,ul.screenshots li:focus{border-color:#ccc}
@@ -224,8 +221,8 @@ ul.screenshots li a{border:none}
 #container header nav.empty h1{height:50px;line-height:50px}
 #container header nav.empty .icon{line-height:50px;margin-right:10px}
 #container header nav a{color:#eee}
-#container header nav h1{color:#fff !important;margin:0;line-height:30px}
-#container header nav h1 a{color:#fff !important;margin:0;padding:0 4% 5px;line-height:60px}
+#container header nav h1{color:#fff;margin:0;line-height:30px}
+#container header nav h1 a{color:#fff;margin:0;padding:0 4% 5px;line-height:60px}
 #container header nav a .icon{float:left;display:block;width:21px;height:30px;line-height:30px;margin-right:15px;text-align:center}
 #container header nav h1 a .icon{height:60px;line-height:60px}
 #container header nav ul{display:block;float:left;margin:-2% 0 2%;padding:0}
@@ -240,9 +237,9 @@ ul.screenshots li a{border:none}
 #container header nav #button_logout{margin-right:0}
 .page_task #container nav.task_actions{display:block}
 .page_task #container nav.task_actions li{clear:both;float:none}
-.page_task #container nav.task_actions a,form p.buttons a.cancel-edit{font-size:20px;color:#999 !important;padding:15px 0;margin:0}
+.page_task #container nav.task_actions a,form p.buttons a.cancel-edit{font-size:20px;color:#999;padding:15px 0;margin:0}
 .page_task #container nav.task_actions a{width:60%}
-.page_task #container nav.task_actions a:active,.page_task #container nav.task_actions a:focus,.page_task #container nav.task_actions a:hover,form p.buttons a.cancel-edit:active,form p.buttons a.cancel-edit:focus,form p.buttons a.cancel-edit:hover{color:#777 !important}
+.page_task #container nav.task_actions a:active,.page_task #container nav.task_actions a:focus,.page_task #container nav.task_actions a:hover,form p.buttons a.cancel-edit:active,form p.buttons a.cancel-edit:focus,form p.buttons a.cancel-edit:hover{color:#777}
 .page_task #container nav.task_actions a .icon,form p.buttons a.cancel-edit .icon{float:left;display:block;font-size:25px;line-height:25px;width:25px;margin-right:10px}
 .page_task #container nav.task_actions a .icon-text-label,form p.buttons a.cancel-edit .icon-text-label{float:left;display:block;font:20px/24px "Source Sans Pro","Segoe WP",Arial,sans-serif}
 body.page_addtohome_wp{margin:0;position:relative;background-color:#12af09;color:#fff;height:100%;width:100%;padding:0}
@@ -290,7 +287,6 @@ ul.features li.released::before{content:'released';border-color:#109f08;color:#1
 
 @media only screen and (min-width:1367px){
 	#container,header,#content{max-width:750px}
-	body{background-color:#fff !important}
 	#content{padding:3% 3% 0;width:94%}
 	nav ul{margin:0}
 	ul.task li .task-details p{width:520px}

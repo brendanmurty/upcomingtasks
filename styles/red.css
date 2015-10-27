@@ -1,12 +1,10 @@
 a,a:visited{color:#a20025}
 h1,h2,h3,h4{color:#000}
-header a{color:#fff !important}
 html,body{background-color:#F1F1EC}
 body{color:#fff}
 header{background-color:#a20025;color:#fff}
-header a{color:#fff !important}
+header a{color:#fff}
 #content{background-color:#f1f1ec;color:#000}
-footer{background-color:#e2e2d9}
 a.button,nav a,a#button_menu,.buttons a{color:#fff}
 .page_account #content li a{background-color:#ccccbc;color:#000;border-color:#bdbda9}
 .page_account #content li a:hover,.page_account #content li a:focus,.page_account #content li a:active{background-color:#bdbda9}

@@ -24,8 +24,8 @@ form p.buttons input:hover,form p.buttons input:active,form p.buttons input:focu
 form p.buttons a.remove{color:#0F8F07}
 form .text{color:#333;border:1px solid #999}
 footer a,footer a:visited{color:#000}
-form p.buttons input,a.button{border:1px solid #0d7f07 !important;color:#109f08;background-color:transparent}
-#container header nav h1 a,#container header nav ul li a,#container header nav.empty h1{color:#109f08 !important}
-#container header h1 a:active,#container header h1 a:focus,#container header h1 a:hover,#container header nav ul li a:active,#container header nav ul li a:focus,#container header nav ul li a:hover,form p.buttons input:active,form p.buttons input:hover,form p.buttons input:focus,a.button:active,a.button:focus,a.button:hover{background-color:transparent !important;color:#0b6e06 !important}
+form p.buttons input,a.button{border:1px solid #0d7f07;color:#109f08;background-color:transparent}
+#container header nav h1 a,#container header nav ul li a,#container header nav.empty h1{color:#109f08}
+#container header h1 a:active,#container header h1 a:focus,#container header h1 a:hover,#container header nav ul li a:active,#container header nav ul li a:focus,#container header nav ul li a:hover,form p.buttons input:active,form p.buttons input:hover,form p.buttons input:focus,a.button:active,a.button:focus,a.button:hover{background-color:transparent;color:#0b6e06}
 ul.task-multiple li,form .text,form select{border-color:#dbdbcf}
 ul.comments > li{background-color:transparent;border:1px solid #dbdbcf}

@@ -270,8 +270,7 @@ function theme_list(){
 		'Dark' => 'dark',
 		'Light' => 'light',
 		'Minimal' => 'minimal',
-		'Red Dark' => 'red-dark',
-		'Red Light' => 'red',
+		'Red' => 'red',
 		'Teal' => 'teal'
 	);
 

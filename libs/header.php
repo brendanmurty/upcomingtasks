@@ -1,26 +1,26 @@
 <?
 
 $root_path = dirname(dirname(__FILE__));
-include_once $root_path.'/libs/initialise.php';
+include_once $root_path . '/libs/initialise.php';
 
 // Asset update dates
-$date_update_css = "20151022";
-$date_update_js  = "20130903";
+$date_update_css = "20151027";
+$date_update_js  = "20151027";
 
 // Extract the current page's name
-$req=ltrim($_SERVER["REQUEST_URI"],'/');
-if(!isset($page)){
-	$req_parts=explode('?',$req);
-	$page_parts=pathinfo($req_parts[0]);
-	$page=$page_parts['filename'];
+$req = ltrim($_SERVER["REQUEST_URI"], '/');
+if (!isset($page)) {
+	$req_parts = explode('?', $req);
+	$page_parts = pathinfo($req_parts[0]);
+	$page = $page_parts['filename'];
 }
 
 // Setup the page class
-$page_class='page_'.$page;
-$page_class.=(user_exists() ? ' user_yes':' user_no');
+$page_class = 'page_' . $page;
+$page_class .= (user_exists() ? ' user_yes' : ' user_no');
 
 // Create the navigation
-$nav=navigation($page,'');
+$nav = navigation($page, '');
 
 // Extract the current theme
 $theme_selected = theme_get();
@@ -33,7 +33,7 @@ if ($theme_requested) {
 	}
 }
 
-$page_class.=' theme_'.$theme_selected;
+$page_class .= ' theme_' . $theme_selected;
 
 // Create the robots meta content
 $meta_robots = 'index,follow';
@@ -94,15 +94,6 @@ _gaq.push(['_trackPageview']);
 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-(function(){
-	if("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)){
-		var msViewportStyle = document.createElement("style");
-		msViewportStyle.appendChild(
-			document.createTextNode("@-ms-viewport{width:auto !important;height:auto !important}")
-		);
-		document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
-	}
 })();
 </script>
 <? } ?>
