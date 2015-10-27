@@ -15,7 +15,7 @@ I was inspired by [Brad Frost](https://github.com/bradfrost)'s [TED talk](https:
 
 As I'm self-taught, engaging with the [community](https://twitter.com/brendanmurty/lists/web-design/members), [listening to inspirational people](http://boagworld.com/show) and [reading about new techniques](https://signalvnoise.com/programming) helped me turn my passion in to my career.
 
-I hope a budding web developer can learn something new from what I've done here and start their own career. Hopefully I can give back to the community that has taught me so much over the last few years.
+I hope an aspiring web developer can learn something new from what I've done here and start their own career. Hopefully I can give back to the community that has taught me so much over the last few years.
 
 ## Contribute
 
