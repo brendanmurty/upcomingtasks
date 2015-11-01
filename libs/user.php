@@ -29,7 +29,7 @@ function user_authenticate($auth_code = ''){
 
 			if (!$bc_account) {
 				// Can't find a suitable Basecamp account
-				$root_path = dirname(dirname(dirname(__FILE__)));
+				$root_path = dirname(dirname(__FILE__));
 				include_once $root_path . '/libs/header.php';
 				print '<p class="error">Sorry, no eligible Basecamp accounts were found. Please <a href="https://basecamp.com/signup">create a Basecamp account</a> to use this app.</p>';
 				include_once $root_path . '/libs/footer.php';
