@@ -18,8 +18,8 @@ user_timezone_set(user_timezone_get());
 
 // Setup libs variables
 $app_name = 'UpcomingTasks';
-$app_info = 'UpcomingTasks is the simplified way to manage your Basecamp tasks when you\'re away from your computer.';
-$app_welcome = 'Quickly manage your projects and tasks, view progress and select a theme that suits your mood. Free for all Basecamp and Basecamp Personal accounts.';
+$app_info = 'UpcomingTasks is the simplified way to manage your Basecamp 2 tasks when you\'re away from your computer.';
+$app_welcome = 'Quickly manage your projects and tasks, view progress and select a theme that suits your mood. Free for all Basecamp 2 and Basecamp 2 Personal accounts.';
 
 // Auto load classes stored in "/classes"
 function __autoload($class_name) {
