@@ -3,7 +3,7 @@
 $root_path = dirname(dirname(__FILE__));
 include_once $root_path . '/libs/initialise.php';
 
-$error_denied = '<p class="error denied">A Basecamp account is required to login.</p>';
+$error_denied = '<p class="error denied">A Basecamp 2 account is required to login.</p>';
 $error_authentication = '<p class="error">There was an error authenticating, please <a href="/pages/login.php">try again</a>.</p>';
 
 $message = $error_authentication;
