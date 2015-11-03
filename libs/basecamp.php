@@ -1,6 +1,6 @@
 <?
 
-// bc_account - Select the first bcx account found in the users account list
+// bc_account - Select the first Basecamp 2 account found in the users account list
 function bc_account($bc_token) {
 	if ($bc_token) {
 		$url = 'https://launchpad.37signals.com/authorization.json';
