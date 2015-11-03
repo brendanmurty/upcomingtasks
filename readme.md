@@ -3,11 +3,11 @@ UpcomingTasks
 
 ## About
 
-[UpcomingTasks](https://upcomingtasks.com) is a free web-based [Basecamp](https://basecamp.com/) client I created to easily manage tasks on smaller devices.
+[UpcomingTasks](https://upcomingtasks.com) is a free web-based [Basecamp 2](https://basecamp.com/) client I created to easily manage tasks on smaller devices.
 
 Users also have the option to upgrade to a Pro account which unlocks [additional features](https://upcomingtasks.com/pages/pro.php).
 
-It was created in [Atom](https://atom.io/) using the [Basecamp API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
+It was created in [Atom](https://atom.io/) and [Sublime Text](http://www.sublimetext.com/) using the [Basecamp API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
 
 ## Why
 
