@@ -7,7 +7,7 @@ UpcomingTasks
 
 Users also have the option to upgrade to a Pro account which unlocks [additional features](https://upcomingtasks.com/pages/pro.php).
 
-It was created in [Atom](https://atom.io/) and [Sublime Text](http://www.sublimetext.com/) using the [Basecamp API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
+It was created in [Sublime Text](http://www.sublimetext.com/) using the [Basecamp API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
 
 ## Why
 
@@ -19,10 +19,10 @@ I hope an aspiring web developer can learn something new from what I've done her
 
 ## Contribute
 
-If you have an idea for an update or have found a bug, please [submit a new issue](https://github.com/brendanmurty/upcomingtasks/issues/new?assignee=brendanmurty). I'm always open to discussion about how to make UpcomingTasks a better product for all users.
+If you have an idea for an update or have found a bug, please [submit a new issue](http://git.murty.id.au/brendan/upcomingtasks.com/issues/new?issue%5Bassignee_id%5D=2). I'm always open to discussion about how to make UpcomingTasks a better product for all users.
 
 ## License
 
-You can view the [License](https://github.com/brendanmurty/upcomingtasks/blob/master/license.md) file for rights and limitations when using the code here in your own projects.
+You can view the [License](http://git.murty.id.au/brendan/upcomingtasks.com/blob/master/license.md) file for rights and limitations when using the code here in your own projects.
 
 The license is based on the [CSS-Tricks License](https://css-tricks.com/license/) which was created by [Chris Coyier](https://github.com/chriscoyier/).
