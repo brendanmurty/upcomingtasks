@@ -37,20 +37,20 @@ function __autoload($class_name) {
 function error_handle($errno, $errstr, $errfile, $errline) {
 	$errtext = date('Y-m-d g:i:sa') . "\r\n" . 'Error ' . $errno;
 
-	if($errfile != '') {
+	if ($errfile != '') {
 		$errfile = str_replace('/var/www/html/upcomingtasks.com', '', $errfile);
 	    $errtext .= ' in '.$errfile;
 	}
 
-	if($errline != '') {
+	if ($errline != '') {
 	    $errtext .= ' (line '.$errline.')';
 	}
 
 	$errtext .= ': ' . $errstr . "\r\n";
 
-	if(isset($_SERVER['HTTPS'])) {
+	if (isset($_SERVER['HTTPS'])) {
 		$current_url = 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-	}else{
+	} else {
 		$current_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 	}
 
@@ -59,12 +59,14 @@ function error_handle($errno, $errstr, $errfile, $errline) {
 	$errtext .= 'IP: ' . $_SERVER['REMOTE_ADDR'] . "\r\n";
 
 	if (is_local()) {
-		// Local
+		// Local - Show the details of the error on the page
 		echo '<div class="notification error">' . nl2br($errtext) . '</div>';
 	} else {
-		// Production
-		$headers = 'From: ' . $GLOBALS['auth_error_email_from'] . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-		$mail = @mail($GLOBALS['auth_error_email_to'], 'UpcomingTasks Error: ' . $errno, $errtext, $headers);
+		// Production - Send an email to the administrator about this error
+		if ($errno != '404') {
+			$headers = 'From: ' . $GLOBALS['auth_error_email_from'] . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+			$mail = @mail($GLOBALS['auth_error_email_to'], 'UpcomingTasks Error: ' . $errno, $errtext, $headers);
+		}
 	}
 }
 ?>
