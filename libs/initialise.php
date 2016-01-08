@@ -35,6 +35,7 @@ function __autoload($class_name) {
 
 // error_handle - Custom error handler
 function error_handle($errno, $errstr, $errfile, $errline) {
+	// Construct the error description content
 	$errtext = date('Y-m-d g:i:sa') . "\r\n" . 'Error ' . $errno;
 
 	if ($errfile != '') {
@@ -48,12 +49,10 @@ function error_handle($errno, $errstr, $errfile, $errline) {
 
 	$errtext .= ': ' . $errstr . "\r\n";
 
-	if (isset($_SERVER['HTTPS'])) {
-		$current_url = 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-	} else {
-		$current_url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-	}
+	// Construct the URL to the requested page
+	$current_url = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
+	// Add user and request details
 	$errtext .= 'URL: ' . $current_url . "\r\n";
 	$errtext .= 'Basecamp ID: ' . user_id() . "\r\n";
 	$errtext .= 'IP: ' . $_SERVER['REMOTE_ADDR'] . "\r\n";
