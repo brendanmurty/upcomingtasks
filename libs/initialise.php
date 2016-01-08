@@ -5,7 +5,7 @@ if (!isset($_SESSION)) {
 	session_start();
 }
 
-// Include the required libs files
+// Include the required library files
 $libs = dirname(__FILE__);
 include_once $libs . '/auth.php';
 include_once $libs . '/general.php';
@@ -13,15 +13,15 @@ include_once $libs . '/user.php';
 include_once $libs . '/basecamp.php';
 include_once $libs . '/database.php';
 
-// Setup the timezone
+// Setup the timezone to match the current user's preferences
 user_timezone_set(user_timezone_get());
 
-// Setup libs variables
+// Setup application information variables
 $app_name = 'UpcomingTasks';
 $app_info = 'UpcomingTasks is the simplified way to manage your Basecamp 2 tasks when you\'re away from your computer.';
 $app_welcome = 'Quickly manage your projects and tasks, view progress and select a theme that suits your mood. Free for all Basecamp 2 and Basecamp 2 Personal accounts.';
 
-// Auto load classes stored in "/classes"
+// Automatically load code classes stored in "/classes"
 function __autoload($class_name) {
 	$class_path = dirname(__DIR__) . '/classes/' . str_replace('\\', '/', $class_name) . '.php';
 
