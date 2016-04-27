@@ -3,7 +3,7 @@ UpcomingTasks
 
 ## About
 
-[UpcomingTasks](https://upcomingtasks.com) is a free web-based [Basecamp 2](https://basecamp.com/) client I created to easily manage tasks on smaller devices.
+[UpcomingTasks](https://upcomingtasks.com) is a free web-based [Basecamp 2](https://basecamp.com/2) client I created to easily manage tasks on smaller devices.
 
 Users also have the option to upgrade to a Pro account which unlocks [additional features](https://upcomingtasks.com/pages/pro.php).
 
