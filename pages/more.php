@@ -3,7 +3,7 @@ $root_path=dirname(dirname(__FILE__));
 include_once $root_path.'/libs/header.php';
 ?>
 <h2>About</h2>
-<p><?= $app_name ?> was created by <a tabindex="-1" href="http://brendan.murty.id.au">Brendan Murty</a> to allow for easy management of <a tabindex="-1" href="http://basecamp.com">Basecamp</a> tasks on a mobile device.</p>
+<p><?= $app_name ?> was created by <a tabindex="-1" href="http://b.murty.io">Brendan Murty</a> to allow for easy management of <a tabindex="-1" href="http://basecamp.com">Basecamp</a> tasks on a mobile device.</p>
 <p>Follow <a href="https://twitter.com/upcomingtasks">UpcomingTasks on Twitter</a> for feature and status updates.</p>
 <h2>Tools</h2>
 <ul class="tools">
