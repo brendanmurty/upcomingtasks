@@ -29,8 +29,8 @@ function bc_account($bc_token) {
 			}
 		}
 	}
-	
-	
+
+
 	return '';
 }
 
@@ -50,11 +50,11 @@ function bc_account_select($mode = 'list') {
 						$account_id=$result['accounts'][$i]['id'];
 						$account_name=$result['accounts'][$i]['name'];
 						$s .= '<li';
-						
+
 						if ($mode == 'list' && user_account() == $account_id) {
 						    $s .= ' class="selected"';
 						}
-						
+
 						$s .= '><a href="/pages/account.php?mode=select&id=' . $account_id . '">' . $account_name . '</a></li>';
 					}
 				}
@@ -62,7 +62,7 @@ function bc_account_select($mode = 'list') {
 			if($s!=''){
 				return '<ul class="account-select">'.$s.'</ul>';
 			}else{
-				return '<p class="error">Sorry, no eligible Basecamp accounts were found. Please <a href="https://basecamp.com/signup">create a Basecamp account</a> to use this app.</p>';
+				return '<p class="error">Sorry, no eligible Basecamp accounts were found. Please <a href="https://basecamp.com/2">create a Basecamp 2 account</a> to use this app.</p>';
 			}
 		}else{
 			return '<p class="error">Sorry, UpcomingTasks couldn\'t connect to your Basecamp account.</p>';
@@ -852,7 +852,7 @@ function bc_user_id($bc_token, $bc_account) {
 
 		curl_setopt_array($ch, $options);
 		$result = json_decode(curl_exec($ch), 'true');
-		
+
 		if (!$result) {
 			error_handle('auth', 'Error extracting Basecamp ID from user details', $_SERVER['SCRIPT_FILENAME'], '');
 		} else {
@@ -861,7 +861,7 @@ function bc_user_id($bc_token, $bc_account) {
 			}
 		}
 	}
-	
+
 	return false;
 }
 
