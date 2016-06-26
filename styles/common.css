@@ -78,7 +78,7 @@ header h1{margin:8px 0 12px}
 header a{color:#fff}
 header a:hover{text-decoration:none}
 .nospacing{margin:0;padding:0;clear:both}
-.icon{margin-right:6px;border:0}
+.icon, .fa{margin-right:6px;border:0}
 .hidden{display:none !important}
 .left{float:left !important;margin-right:4px}
 .right{float:right !important;margin-left:4px}
@@ -95,7 +95,7 @@ div.share{margin:15px 0 0;clear:both}
 .page_home div.share{font-size:15px}
 .page_extras div.share{margin:0;clear:none;display:inline}
 nav{padding:0;margin:0;float:left;width:100%}
-nav .icon{margin:0;text-align:center;width:auto}
+nav .icon, nav .fa{margin:0;text-align:center;width:auto}
 nav ul{width:100%;margin:0 0 0 5px;padding:0;clear:both;float:left}
 nav ul li{list-style:none outside none;margin:0 30px 0 0;padding:0;clear:none;float:left}
 nav ul li:last-child{margin-right:0}
@@ -143,7 +143,7 @@ ul.project-single ul li a{padding:0}
 ul.project-single ul li .list-description{margin:0 0 15px}
 ul.project-single .action{float:right;width:auto;font-size:25px;line-height:25px;padding:0;margin:0}
 ul.project-single .action .icon-text-label{display:none}
-ul.project-single .action .icon{margin:0;padding:0}
+ul.project-single .action .icon, ul.project-single .action .fa{margin:0;padding:0}
 ul.project-single ul.list li{margin:0 0 20px;border:0 none;float:left;clear:both;width:100%}
 ul.project-single ul.list li ul{margin:0 0 20px}
 ul.project-single ul.list li ul li{margin:0 0 25px;padding:0}
@@ -219,12 +219,12 @@ ul.screenshots li a{border:none}
 #container header nav ul,#container header nav li,#container header nav a{width:100%}
 #container header nav a,#container header nav.empty h1,#container header nav .user{width:92%;padding:2.5% 4%;text-align:left;font:400 25px/30px "Source Sans Pro","Segoe WP",Arial,sans-serif}
 #container header nav.empty h1{height:50px;line-height:50px}
-#container header nav.empty .icon{line-height:50px;margin-right:10px}
+#container header nav.empty .icon, #container header nav.empty .fa{line-height:50px;margin-right:10px}
 #container header nav a{color:#eee}
 #container header nav h1{color:#fff;margin:0;line-height:30px}
 #container header nav h1 a{color:#fff;margin:0;padding:0 4% 5px;line-height:60px}
-#container header nav a .icon{float:left;display:block;width:21px;height:30px;line-height:30px;margin-right:15px;text-align:center}
-#container header nav h1 a .icon{height:60px;line-height:60px}
+#container header nav a .icon, #container header nav a .fa{float:left;display:block;width:21px;height:30px;line-height:30px;margin-right:15px;text-align:center}
+#container header nav h1 a .icon, #container header nav h1 a .icon{height:60px;line-height:60px}
 #container header nav ul{display:block;float:left;margin:-2% 0 2%;padding:0}
 #container header nav.closed ul{display:none}
 #container header nav ul li{float:none;clear:both}
@@ -240,7 +240,7 @@ ul.screenshots li a{border:none}
 .page_task #container nav.task_actions a,form p.buttons a.cancel-edit{font-size:20px;color:#999;padding:15px 0;margin:0}
 .page_task #container nav.task_actions a{width:60%}
 .page_task #container nav.task_actions a:active,.page_task #container nav.task_actions a:focus,.page_task #container nav.task_actions a:hover,form p.buttons a.cancel-edit:active,form p.buttons a.cancel-edit:focus,form p.buttons a.cancel-edit:hover{color:#777}
-.page_task #container nav.task_actions a .icon,form p.buttons a.cancel-edit .icon{float:left;display:block;font-size:25px;line-height:25px;width:25px;margin-right:10px}
+.page_task #container nav.task_actions a .icon,form p.buttons a.cancel-edit .icon,.page_task #container nav.task_actions a .fa,form p.buttons a.cancel-edit .fa{float:left;display:block;font-size:25px;line-height:25px;width:25px;margin-right:10px}
 .page_task #container nav.task_actions a .icon-text-label,form p.buttons a.cancel-edit .icon-text-label{float:left;display:block;font:20px/24px "Source Sans Pro","Segoe WP",Arial,sans-serif}
 body.page_addtohome_wp{margin:0;position:relative;background-color:#12af09;color:#fff;height:100%;width:100%;padding:0}
 body.page_addtohome_wp #icon{font-size:160px;line-height:320px;text-align:center}

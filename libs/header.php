@@ -4,8 +4,8 @@ $root_path = dirname(dirname(__FILE__));
 include_once $root_path . '/libs/initialise.php';
 
 // Asset update dates
-$date_update_css = "20151027b";
-$date_update_js  = "20151027b";
+$date_update_css = "20160626";
+$date_update_js  = "20160626";
 
 // Extract the current page's name
 $req = ltrim($_SERVER["REQUEST_URI"], '/');
@@ -102,7 +102,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <?php } ?>
 </head>
 <body class="<?php echo $page_class ?>">
-	<div id="loading-icon" style="display:none"><span class="icon icon-spinner icon-spin"></span></div>
+	<div id="loading-icon" style="display:none"><span class="fa fa-spinner fa-spin"></span></div>
 	<div id="container">
 		<a id="top"></a>
 		<header>

@@ -192,10 +192,10 @@ $(document).ready(function() {
 		var p=$(this).parent().parent();
 		if(p.hasClass('closed')){// Open the menu
 			p.removeClass('closed');
-			$(this).find('i').attr('class','icon icon-chevron-up');
+			$(this).find('i').attr('class','fa fa-chevron-up');
 		}else{// Close the menu
 			p.addClass('closed');
-			$(this).find('i').attr('class','icon icon-chevron-down');
+			$(this).find('i').attr('class','fa fa-chevron-down');
 		}
 		return false;
 	});
