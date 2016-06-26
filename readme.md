@@ -33,6 +33,7 @@ Here's the steps that I go through to configure a new UpcomingTasks server on a 
     sudo apt-get -y install mysql-server libapache2-mod-auth-mysql php5-mysql
     sudo apt-get -y install php5 libapache2-mod-php5 php5-mcrypt
     sudo apt-get -y install php5-cgi php5-curl
+    sudo apt-get -y install sendmail
 
 ### Initialise a Git clone of the code
 
@@ -72,12 +73,12 @@ Update the domain references in this file.
 
 ### Setup the SSL certificate (optional)
 
-If you've setup your Basecamp Integration app to use a HTTPS URL then you'll need to purchase and [configure an SSL certificate](https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority) on your server.
+If you've setup your Basecamp Integration app to use a HTTPS URL then you'll first need to purchase and [configure an SSL certificate](https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority) on your server.
 
     sudo cp scripts/server/ssl.conf /etc/apache2/sites-available/default-ssl.conf
     vim /etc/apache2/sites-available/default-ssl.conf
 
-Update the domain, admin, and SSL path values to suit your needs.
+Update the domain, admin, and SSL path values to suit your information and locations of SSL files.
 
     sudo service apache2 restart
 
