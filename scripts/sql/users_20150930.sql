@@ -1,1 +1,0 @@
-ALTER TABLE users ADD timezone VARCHAR(100) NOT NULL DEFAULT 'Australia/Sydney';
