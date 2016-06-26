@@ -85,7 +85,7 @@ function form_post($post_section, $clean_type = 'alpha') {
 
 // icon - Create an element for a Font Awesome icon
 function icon($icon_name,$icon_title=''){
-	$h='<span class="fa fa-'.$icon_name.'"></span>';
+	$h='<span class="icon fa fa-'.$icon_name.'"></span>';
 	if($icon_title!=''){ $h.='<span class="icon-text-label">'.$icon_title.'</span>'; }
 	return $h;
 }
