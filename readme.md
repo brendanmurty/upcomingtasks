@@ -21,6 +21,66 @@ I hope an aspiring web developer can learn something new from what I've done her
 
 If you have an idea for an update or have found a bug, please [submit a new issue](https://github.com/brendanmurty/upcomingtasks/issues/new?assignee=brendanmurty). I'm always open to discussion about how to make UpcomingTasks a better product for all users.
 
+## Installation
+
+Here's the steps that I go through to configure a new UpcomingTasks server on a [Digital Ocean](https://www.digitalocean.com) Ubuntu 14.04 VPS.
+
+### Install required packages
+
+    sudo apt-get update
+    sudo apt-get -y install git
+    sudo apt-get -y install apache2
+    sudo apt-get -y install mysql-server libapache2-mod-auth-mysql php5-mysql
+    sudo apt-get -y install php5 libapache2-mod-php5 php5-mcrypt
+    sudo apt-get -y install php5-cgi php5-curl
+
+### Initialise a Git clone of the code
+
+You'll now need to [configure a SSH key for GitHub access](https://help.github.com/articles/generating-an-ssh-key/).
+
+    cd /var/www/html/
+    rm index.html
+    git clone git@github.com:brendanmurty/upcomingtasks.git .
+
+### Configure application authentication information
+
+    cp libs/auth.php.sample libs/auth.php
+    vim libs/auth.php
+
+Update the authentication tokens and login information in this private file.
+
+### Setup the database and create the "users" table
+
+    mysql -u root -p
+    [enter password]
+    create database upcomingtasks;
+    exit
+    mysql -u root -p upcomingtasks < scripts/sql/users.sql
+
+### Configure the server to use the customised ".htaccess" file
+
+    sudo cp scripts/server/web-server.conf /etc/apache2/sites-available/000-default.conf
+    vim /etc/apache2/sites-available/000-default.conf
+
+Update the *ServerName* and *ServerAdmin* values to suit your server and email address.
+
+    vim .htaccess
+
+Update the domain references in this file.
+
+    sudo service apache2 restart
+
+### Setup the SSL certificate (optional)
+
+If you've setup your Basecamp Integration app to use a HTTPS URL then you'll need to purchase and [configure an SSL certificate](https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority) on your server.
+
+    sudo cp scripts/server/ssl.conf /etc/apache2/sites-available/default-ssl.conf
+    vim /etc/apache2/sites-available/default-ssl.conf
+
+Update the domain, admin, and SSL path values to suit your needs.
+
+    sudo service apache2 restart
+
 ## License
 
 You can view the [License](https://github.com/brendanmurty/upcomingtasks/blob/master/license.md) file for rights and limitations when using the code here in your own projects.
