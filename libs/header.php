@@ -49,12 +49,14 @@ if(is_dev() || is_local()){
 }
 
 // Apply default app values if not set
-if(!isset($app_name)){
-	$app_name='UpcomingTasks';
+if (!isset($app_name)) {
+	$app_name = 'UpcomingTasks';
 }
-if(!isset($app_info)){
-	$app_info='The simplified way to manage your Basecamp tasks when you\'re away from your computer.';
+
+if (!isset($app_info)) {
+	$app_info = 'The simplified way to manage your Basecamp tasks when you\'re away from your computer.';
 }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -78,14 +80,14 @@ if(!isset($app_info)){
 <link rel="shortcut icon" href="/images/logo-16-clear.png">
 <link rel="apple-touch-icon-precomposed" href="/images/logo-114.png">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro">
-<link rel="stylesheet" href="/styles/common.css?v=<?php echo$date_update_css?>">
-<link rel="stylesheet" href="/styles/<?php echo$theme_selected?>.css?v=<?php echo$date_update_css?>">
+<link rel="stylesheet" href="/styles/common.css?v=<?php echo $date_update_css?>">
+<link rel="stylesheet" href="/styles/<?php echo $theme_selected?>.css?v=<?php echo $date_update_css?>">
 <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
-<? if($is_dev){// Dev JS ?>
-<script src="/scripts/js/upcomingtasks-dev.js?v=<?php echo$date_update_js?>"></script>
-<? }else{ // Standard JS ?>
-<script src="/scripts/js/upcomingtasks.js?v=<?php echo$date_update_js?>"></script>
-<? } if($page!='authenticate'){// Google Analytics & Screen size fixes ?>
+<?php if ($is_dev) {// Dev JS ?>
+<script src="/scripts/js/upcomingtasks-dev.js?v=<?php echo $date_update_js?>"></script>
+<?php }else{ // Standard JS ?>
+<script src="/scripts/js/upcomingtasks.js?v=<?php echo $date_update_js?>"></script>
+<?php } if ($page!='authenticate') {// Google Analytics & Screen size fixes ?>
 <script type="text/javascript">
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-710527-10']);
@@ -96,14 +98,14 @@ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 </script>
-<? } ?>
+<?php } ?>
 </head>
 <body class="<?php echo $page_class ?>">
 	<div id="loading-icon" style="display:none"><span class="icon icon-spinner icon-spin"></span></div>
 	<div id="container">
 		<a id="top"></a>
 		<header>
-			<? if($nav!=''){ print $nav; } ?>
+			<?php if ($nav != '') { print $nav; } ?>
 		</header>
 		<!--[if lt IE 9]>
 		<div class="notification error">
