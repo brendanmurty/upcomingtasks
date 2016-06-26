@@ -1,6 +1,8 @@
-<?
+<?php
+
 $root_path=dirname(dirname(__FILE__));
 include_once $root_path.'/libs/header.php';
+
 ?>
 
 <h3>iPhone and iPad</h3>
@@ -34,6 +36,8 @@ include_once $root_path.'/libs/header.php';
 <li>Press the <em>Pin to Start</em> button</li>
 </ol>
 
-<?
+<?php
+
 include_once $root_path.'/libs/footer.php';
+
 ?>

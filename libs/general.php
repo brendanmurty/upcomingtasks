@@ -1,4 +1,4 @@
-<?
+<?php
 
 // form_date_picker - Create a date picker
 function form_date_picker($custom_date='',$mode=''){

@@ -1,4 +1,5 @@
-<?
+<?php
+
 set_error_handler('error_handle');
 
 if (!isset($_SESSION)) {

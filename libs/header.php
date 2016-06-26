@@ -1,4 +1,4 @@
-<?
+<?php
 
 $root_path = dirname(dirname(__FILE__));
 include_once $root_path . '/libs/initialise.php';
@@ -60,9 +60,9 @@ if(!isset($app_info)){
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title><?= $app_name ?></title>
-<meta name="description" content="<?= $app_info ?>">
-<meta name="robots" content="<?= $meta_robots ?>">
+<title><?php echo $app_name ?></title>
+<meta name="description" content="<?php echo $app_info ?>">
+<meta name="robots" content="<?php echo $meta_robots ?>">
 <meta name="handheldfriendly" content="true">
 <meta name="mobileoptimized" content="480">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -78,13 +78,13 @@ if(!isset($app_info)){
 <link rel="shortcut icon" href="/images/logo-16-clear.png">
 <link rel="apple-touch-icon-precomposed" href="/images/logo-114.png">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro">
-<link rel="stylesheet" href="/styles/common.css?v=<?=$date_update_css?>">
-<link rel="stylesheet" href="/styles/<?=$theme_selected?>.css?v=<?=$date_update_css?>">
+<link rel="stylesheet" href="/styles/common.css?v=<?php echo$date_update_css?>">
+<link rel="stylesheet" href="/styles/<?php echo$theme_selected?>.css?v=<?php echo$date_update_css?>">
 <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
 <? if($is_dev){// Dev JS ?>
-<script src="/scripts/js/upcomingtasks-dev.js?v=<?=$date_update_js?>"></script>
+<script src="/scripts/js/upcomingtasks-dev.js?v=<?php echo$date_update_js?>"></script>
 <? }else{ // Standard JS ?>
-<script src="/scripts/js/upcomingtasks.js?v=<?=$date_update_js?>"></script>
+<script src="/scripts/js/upcomingtasks.js?v=<?php echo$date_update_js?>"></script>
 <? } if($page!='authenticate'){// Google Analytics & Screen size fixes ?>
 <script type="text/javascript">
 var _gaq = _gaq || [];
@@ -98,7 +98,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </script>
 <? } ?>
 </head>
-<body class="<?= $page_class ?>">
+<body class="<?php echo $page_class ?>">
 	<div id="loading-icon" style="display:none"><span class="icon icon-spinner icon-spin"></span></div>
 	<div id="container">
 		<a id="top"></a>

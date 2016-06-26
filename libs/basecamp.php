@@ -1,4 +1,4 @@
-<?
+<?php
 
 // bc_account - Select the first Basecamp 2 account found in the users account list
 function bc_account($bc_token) {

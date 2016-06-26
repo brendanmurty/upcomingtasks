@@ -1,4 +1,5 @@
-<?
+<?php
+
 $root_path=dirname(dirname(__FILE__));
 include_once $root_path.'/libs/initialise.php';
 
@@ -17,20 +18,22 @@ if(form_get('id', 'numeric')){
 			$project_description = bc_project_description($project_id);
 			$project_name = bc_project_name($project_id);
 			$cancel_icon = icon('times', 'Cancel');
+
 ?>
-		<form id="form_project_edit" name="form_project_edit" method="post" action="/pages/project.php?id=<?= $project_id ?>&amp;action=save">
+		<form id="form_project_edit" name="form_project_edit" method="post" action="/pages/project.php?id=<?php echo $project_id ?>&amp;action=save">
 			<p>
-				<input type="text" class="text" name="project-name" value="<?= $project_name ?>" />
+				<input type="text" class="text" name="project-name" value="<?php echo $project_name ?>" />
 			</p>
 			<p>
-				<input type="text" class="text" name="project-description" value="<?= $project_description ?>" />
+				<input type="text" class="text" name="project-description" value="<?php echo $project_description ?>" />
 			</p>
 			<p class="buttons">
 				<input type="submit" value="Save" name="submit" class="submit" />
-				<a class="cancel-edit" href="/pages/project.php?id=<?= $project_id ?>"><?= $cancel_icon ?></a>
+				<a class="cancel-edit" href="/pages/project.php?id=<?php echo $project_id ?>"><?php echo $cancel_icon ?></a>
 			</p>
 		</form>
-<?
+<?php
+
 		} elseif (pro_user() && form_get('action', 'alpha') == 'save') {
 			// Save project details (Pro only)
 			bc_project_edit(
@@ -49,4 +52,5 @@ if(form_get('id', 'numeric')){
 }else{
 	redirect('/pages/projects.php');
 }
+
 ?>

@@ -1,4 +1,5 @@
-<?
+<?php
+
 $root_path=dirname(dirname(__FILE__));
 include_once $root_path.'/libs/initialise.php';
 
@@ -33,15 +34,16 @@ if (!$task_name) {
 		<p>
 			<textarea class="text" name="task_name" id="task_name" autofocus="autofocus"></textarea>
 		</p>
-		<?= $task_list ?>
-		<?= $date_picker ?>
-		<?= $people_list ?>
+		<?php echo $task_list ?>
+		<?php echo $date_picker ?>
+		<?php echo $people_list ?>
 		<p class="buttons">
 			<input type="hidden" name="due_mode" id="due_mode" value="date" />
 			<input type="submit" class="submit" value="Add task" />
 		</p>
 	</form>
-<?
+<?php
+
 	include_once $root_path . '/libs/footer.php';
 } else {
 	// Create a new task
@@ -74,4 +76,5 @@ if (!$task_name) {
 
 	bc_task_new($task_name, $task_due, $project_id, $list_id, $person_id);
 }
+
 ?>

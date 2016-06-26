@@ -1,4 +1,4 @@
-<?
+<?php
 
 // user_authenticate - Handle response from Basecamp authentication
 function user_authenticate($auth_code = ''){

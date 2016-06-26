@@ -1,4 +1,4 @@
-<?
+<?php
 
 // Private API and database authentication values
 //  - Add your relevant details below, then rename this file to "auth.php"
@@ -30,4 +30,3 @@ $GLOBALS['stripe_plan_name'] = 'app-name-test';
 $GLOBALS['stripe_api_public'] = 'pk_test_EXAMPLE';
 $GLOBALS['stripe_api_secret'] = 'sk_test_EXAMPLE';
 
-?>

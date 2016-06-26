@@ -1,1 +1,5 @@
-<? header('Location: /pages/more.php') ?>
+<?php
+
+header('Location: /pages/more.php')
+
+?>

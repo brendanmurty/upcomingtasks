@@ -1,4 +1,4 @@
-<?
+<?php
 
 // db_clean - Clean content for use in a database query
 function db_clean($db_connect, $dirty) {
