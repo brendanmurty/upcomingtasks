@@ -123,13 +123,7 @@ function bc_user_box(){
 
 	if (is_array($result)) {
 		if (array_key_exists('avatar_url', $result) && array_key_exists('name', $result)) {
-			if (is_local()) {
-				$avatar_url =  $result['avatar_url'];
-			} else {
-				$avatar_url = str_replace('http://', 'https://', $result['avatar_url']);
-			}
-
-			$u = '<img src="' . $avatar_url . '" /></span>';
+			$u  = '<img src="' . $result['avatar_url'] . '" /></span>';
 			$u .= '<strong>' . $result['name'] . '</strong>';
 			$u .= '<a id="button_logout" href="#">Logout</a>';
 

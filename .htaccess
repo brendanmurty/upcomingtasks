@@ -4,7 +4,7 @@ RewriteEngine on
 
 # Remove "www."
 RewriteCond %{HTTP_HOST} ^www.upcomingtasks.com$ [NC]
-RewriteRule ^(.*)$ https://upcomingtasks.com/$1 [R=301,L]
+RewriteRule ^(.*)$ http://upcomingtasks.com/$1 [R=301,L]
 
 # Redirects
 Redirect 301 /pages/donate.php /pages/pro.php
