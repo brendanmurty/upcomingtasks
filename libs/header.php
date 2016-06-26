@@ -83,6 +83,7 @@ if (!isset($app_info)) {
 <link rel="stylesheet" href="/styles/common.css?v=<?php echo $date_update_css?>">
 <link rel="stylesheet" href="/styles/<?php echo $theme_selected?>.css?v=<?php echo $date_update_css?>">
 <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="https://use.fontawesome.com/c4caff9ff7.js"></script>
 <?php if ($is_dev) {// Dev JS ?>
 <script src="/scripts/js/upcomingtasks-dev.js?v=<?php echo $date_update_js?>"></script>
 <?php }else{ // Standard JS ?>
