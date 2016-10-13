@@ -105,12 +105,21 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	<div id="loading-icon" style="display:none"><span class="fa fa-spinner fa-spin"></span></div>
 	<div id="container">
 		<a id="top"></a>
+
 		<header>
 			<?php if ($nav != '') { print $nav; } ?>
 		</header>
+
 		<!--[if lt IE 9]>
 		<div class="notification error">
 			<p>UpcomingTasks requires a modern browser, please upgrade your browser to enjoy the full experience.</p>
 		</div>
 		<![endif]-->
+
+		<?php if (isset($page_notification)) { ?>
+		<div class="notification error">
+			<p><?php print $page_notification; ?></p>
+		</div>
+		<?php } ?>
+
 		<div id="content">
