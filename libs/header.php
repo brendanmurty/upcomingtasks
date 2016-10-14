@@ -4,7 +4,7 @@ $root_path = dirname(dirname(__FILE__));
 include_once $root_path . '/libs/initialise.php';
 
 // Asset update dates
-$date_update_css = "20160626";
+$date_update_css = "20161014";
 $date_update_js  = "20160626";
 
 // Extract the current page's name
