@@ -57,6 +57,8 @@ if (!isset($app_info)) {
 	$app_info = 'The simplified way to manage your Basecamp tasks when you\'re away from your computer.';
 }
 
+$page_notification = 'This service will be retired on November 15, 2016. <a href="http://b.murty.io/post/farewell-upcomingtasks">Learn more</a>.';
+
 ?>
 <!doctype html>
 <html lang="en">
