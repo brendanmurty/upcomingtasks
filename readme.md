@@ -3,13 +3,13 @@ UpcomingTasks
 
 ## About
 
-[UpcomingTasks](http://upcomingtasks.com) was a free web-based [Basecamp 2](https://basecamp.com/2) client I created to easily manage tasks on smaller devices.
+[UpcomingTasks](http://upcomingtasks.com) was a free web-based [Basecamp 2](https://basecamp.com/2) client that I developed to easily manage tasks on smaller devices.
 
-Users also have the option to upgrade to a Pro account which unlocks [additional features](http://upcomingtasks.com/pages/pro.php).
+Users had the option to upgrade to a Pro account which unlocks [additional features](http://b.murty.io/post/announcing-upcomingtasks-pro).
 
 It was created in [Sublime Text](http://www.sublimetext.com/) using the [Basecamp API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
 
-The service was [retired on 15 November, 2016](http://b.murty.io/post/farewell-upcomingtasks).
+The service was online from September 2012 and then [retired on 15 November, 2016](http://b.murty.io/post/farewell-upcomingtasks).
 
 ## Why
 
@@ -55,10 +55,11 @@ Update the authentication tokens and login information in this private file.
 ### Setup the database and create the "users" table
 
     mysql -u root -p
-    [enter password]
+    [enter root user password]
     create database upcomingtasks;
     exit
     mysql -u root -p upcomingtasks < scripts/sql/users.sql
+    [enter root user password]
 
 ### Configure the server to use the customised ".htaccess" file
 
