@@ -3,11 +3,13 @@ UpcomingTasks
 
 ## About
 
-[UpcomingTasks](http://upcomingtasks.com) is a free web-based [Basecamp 2](https://basecamp.com/2) client I created to easily manage tasks on smaller devices.
+[UpcomingTasks](http://upcomingtasks.com) was a free web-based [Basecamp 2](https://basecamp.com/2) client I created to easily manage tasks on smaller devices.
 
 Users also have the option to upgrade to a Pro account which unlocks [additional features](http://upcomingtasks.com/pages/pro.php).
 
 It was created in [Sublime Text](http://www.sublimetext.com/) using the [Basecamp API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
+
+The service was [retired on 15 November, 2016](http://b.murty.io/post/farewell-upcomingtasks).
 
 ## Why
 
