@@ -26,19 +26,14 @@ Here's the steps that I go through to configure a new UpcomingTasks server on a 
 ### Install required packages
 
     sudo apt-get update
-    sudo apt-get -y install git
-    sudo apt-get -y install apache2
-    sudo apt-get -y install mysql-server libapache2-mod-auth-mysql php5-mysql
-    sudo apt-get -y install php5 libapache2-mod-php5 php5-mcrypt
-    sudo apt-get -y install php5-cgi php5-curl
-    sudo apt-get -y install sendmail
+    sudo apt-get -y install git apache2 mysql-server libapache2-mod-auth-mysql php5 php5-mysql libapache2-mod-php5 php5-mcrypt php5-cgi php5-curl sendmail
 
 ### Initialise a Git clone of the code
 
-You'll now need to [configure a SSH key for GitHub access](https://help.github.com/articles/generating-an-ssh-key/).
+First you'll need to [configure a SSH key for GitHub access](https://help.github.com/articles/generating-an-ssh-key/).
 
-    cd /var/www/html/
-    rm index.html
+Then you can make a copy of the repository in a suitable directory, such as `/var/www/html`:
+
     git clone git@github.com:brendanmurty/upcomingtasks.git .
 
 ### Configure application authentication information
@@ -77,7 +72,7 @@ If you've setup your Basecamp Integration app to use a HTTPS URL then you'll fir
     sudo cp scripts/server/ssl.conf /etc/apache2/sites-available/default-ssl.conf
     vim /etc/apache2/sites-available/default-ssl.conf
 
-Update the domain, admin, and SSL path values to suit your information and locations of SSL files.
+Update the domain, admin and SSL path values to suit your information and the locations of your certificate files.
 
     sudo service apache2 restart
 
