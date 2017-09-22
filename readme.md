@@ -11,6 +11,8 @@ It was created in [Sublime Text](http://www.sublimetext.com/) using the [Basecam
 
 The service was online from September 2012 and then [retired on 15 November, 2016](http://murty.io/brendan/post/20161014_farewell-upcomingtasks).
 
+![List tasks example](images/screenshots/list-tasks.png) ![User menu example](images/screenshots/menu-open.png) ![Progress page example](images/screenshots/progress-list.png)
+
 ## Why Open Source?
 
 I was inspired by [Brad Frost](https://github.com/bradfrost)'s [TED talk](https://twitter.com/brad_frost/status/476515058738925568) about being open by default. If you haven't seen this talk yet, I'd recommend investing half an hour to [watch the video](https://www.youtube.com/watch?v=7rW9vTrN6OU) and read the [blog post](http://bradfrostweb.com/blog/post/creative-exhaust/).
