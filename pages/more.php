@@ -11,7 +11,7 @@ include_once $root_path.'/libs/header.php';
 <ul class="tools">
 	<li><a href="/pages/addtohome.php">Add to home screen</a></li>
 	<li><a href="mailto:support@upcomingtasks.com">Email support@upcomingtasks.com</a></li>
-	<li><a href="https://github.com/brendanmurty/upcomingtasks">View source code</a></li>
+	<li><a href="https://bitbucket.org/brendanmurty/upcomingtasks">View source code</a></li>
 	<li><a href="https://twitter.com/upcomingtasks">Follow UpcomingTasks on Twitter</a></li>
 	<li><a href="https://twitter.com/share?text=Check out @UpcomingTasks, the simplified way to manage your Basecamp tasks when you're away from your computer -&amp;url=http://upcomingtasks.com">Share on Twitter</a></li>
 </ul>

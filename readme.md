@@ -32,11 +32,11 @@ Here's the steps that I go through to configure a new UpcomingTasks server on a 
 
 ### Initialise a Git clone of the code
 
-First you'll need to [configure a SSH key for GitHub access](https://help.github.com/articles/generating-an-ssh-key/).
+First you'll need to [configure a SSH key](https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html).
 
 Then you can make a copy of the repository in a suitable directory, such as `/var/www/html`:
 
-    git clone git@github.com:brendanmurty/upcomingtasks.git .
+    git clone git@bitbucket.org:brendanmurty/upcomingtasks.git .
 
 ### Configure application authentication information
 
@@ -80,6 +80,6 @@ Update the domain, admin and SSL path values to suit your information and the lo
 
 ## License
 
-You can view the [License](https://github.com/brendanmurty/upcomingtasks/blob/master/license.md) file for rights and limitations when using the code here in your own projects.
+You can view the [License](https://bitbucket.org/brendanmurty/upcomingtasks/src/master/license.md) file for rights and limitations when using the code here in your own projects.
 
 The license is based on the [CSS-Tricks License](https://css-tricks.com/license/) which was created by [Chris Coyier](https://github.com/chriscoyier/).
