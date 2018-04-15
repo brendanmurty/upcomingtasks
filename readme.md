@@ -11,7 +11,7 @@ It was created in [Sublime Text](http://www.sublimetext.com/) using the [Basecam
 
 The service was online from September 2012 and then [retired on 15 November, 2016](http://murty.io/brendan/post/20161014_farewell-upcomingtasks).
 
-[![List tasks example](images/screenshots/thumbnails/list-tasks.png)](images/screenshots/list-tasks.png) [![Progress page example](images/screenshots/thumbnails/progress-list.png)](images/screenshots/progress-list.png) [![User menu example](images/screenshots/thumbnails/menu-open.png)](images/screenshots/menu-open.png)
+[![List tasks example](https://bitbucket.org/brendanmurty/upcomingtasks/raw/master/images/screenshots/list-tasks.png)](images/screenshots/list-tasks.png) [![Progress page example](https://bitbucket.org/brendanmurty/upcomingtasks/raw/master/images/screenshots/progress-list.png)](images/screenshots/progress-list.png) [![User menu example](https://bitbucket.org/brendanmurty/upcomingtasks/raw/master/images/screenshots/menu-open.png)](images/screenshots/menu-open.png)
 
 ## Why Open Source?
 
