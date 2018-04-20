@@ -11,7 +11,7 @@ It was created in [Sublime Text](http://www.sublimetext.com/) using the [Basecam
 
 The service was online from September 2012 and then [retired on 15 November, 2016](http://murty.io/brendan/post/20161014_farewell-upcomingtasks).
 
-[![List tasks example](https://bitbucket.org/brendanmurty/upcomingtasks/raw/master/images/screenshots/list-tasks.png)](images/screenshots/list-tasks.png) [![Progress page example](https://bitbucket.org/brendanmurty/upcomingtasks/raw/master/images/screenshots/progress-list.png)](images/screenshots/progress-list.png) [![User menu example](https://bitbucket.org/brendanmurty/upcomingtasks/raw/master/images/screenshots/menu-open.png)](images/screenshots/menu-open.png)
+[![List tasks example](https://git.murty.io/brendan/upcomingtasks/raw/master/images/screenshots/list-tasks.png)](images/screenshots/list-tasks.png) [![Progress page example](https://git.murty.io/brendan/upcomingtasks/raw/master/images/screenshots/progress-list.png)](images/screenshots/progress-list.png) [![User menu example](https://git.murty.io/brendan/upcomingtasks/raw/master/images/screenshots/menu-open.png)](images/screenshots/menu-open.png)
 
 ## Why Open Source?
 
@@ -36,7 +36,7 @@ First you'll need to [configure a SSH key](https://confluence.atlassian.com/bitb
 
 Then you can make a copy of the repository in a suitable directory, such as `/var/www/html`:
 
-    git clone git@bitbucket.org:brendanmurty/upcomingtasks.git .
+    git clone git@git.murty.io:brendan/upcomingtasks.git .
 
 ### Configure application authentication information
 
@@ -80,6 +80,6 @@ Update the domain, admin and SSL path values to suit your information and the lo
 
 ## License
 
-You can view the [License](https://bitbucket.org/brendanmurty/upcomingtasks/src/master/license.md) file for rights and limitations when using the code here in your own projects.
+You can view the [License](https://git.murty.io/brendan/upcomingtasks/src/master/license.md) file for rights and limitations when using the code here in your own projects.
 
 The license is based on the [CSS-Tricks License](https://css-tricks.com/license/) which was created by [Chris Coyier](https://github.com/chriscoyier/).
