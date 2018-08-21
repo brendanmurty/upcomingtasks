@@ -7,9 +7,9 @@ UpcomingTasks
 
 Users had the option to upgrade to a Pro account which unlocks [additional features](http://murty.io/brendan/post/20151007_announcing-upcomingtasks-pro).
 
-It was created in [Sublime Text](http://www.sublimetext.com/) using the [Basecamp API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
+It was created in [Sublime Text](http://www.sublimetext.com/) using the [Basecamp 2 API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
 
-The service was online from September 2012 and then [retired on 15 November, 2016](https://murty.io/brendan/post/20161014_farewell-upcomingtasks).
+The service was online from September 2012 and [retired on 15 November, 2016](https://murty.io/brendan/post/20161014_farewell-upcomingtasks).
 
 [![List tasks example](https://github.com/brendanmurty/upcomingtasks/blob/master/images/screenshots/list-tasks.png)](images/screenshots/list-tasks.png) [![Progress page example](https://github.com/brendanmurty/upcomingtasks/blob/master/images/screenshots/progress-list.png)](images/screenshots/progress-list.png) [![User menu example](https://github.com/brendanmurty/upcomingtasks/blob/master/images/screenshots/menu-open.png)](images/screenshots/menu-open.png)
 
@@ -20,6 +20,12 @@ I was inspired by [Brad Frost](https://github.com/bradfrost)'s [TED talk](https:
 As I'm self-taught, engaging with the [community](https://twitter.com/brendanmurty/lists/web-design/members), [listening to inspirational people](http://boagworld.com/show) and [reading about new techniques](https://signalvnoise.com/programming) helped me turn my passion in to my career.
 
 I hope an aspiring web developer can learn something new from what I've done here and start their own career. Hopefully I can give back to the community that has taught me so much over the last few years.
+
+## License
+
+You can view the [License](https://github.com/brendanmurty/upcomingtasks/blob/master/license.md) file for rights and limitations when using the code here in your own projects.
+
+The license is based on the [CSS-Tricks License](https://css-tricks.com/license/) which was created by [Chris Coyier](https://github.com/chriscoyier/).
 
 ## Installation
 
@@ -77,9 +83,3 @@ If you've setup your Basecamp Integration app to use a HTTPS URL then you'll fir
 Update the domain, admin and SSL path values to suit your information and the locations of your certificate files.
 
     sudo service apache2 restart
-
-## License
-
-You can view the [License](https://github.com/brendanmurty/upcomingtasks/blob/master/license.md) file for rights and limitations when using the code here in your own projects.
-
-The license is based on the [CSS-Tricks License](https://css-tricks.com/license/) which was created by [Chris Coyier](https://github.com/chriscoyier/).
