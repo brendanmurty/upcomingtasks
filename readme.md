@@ -5,7 +5,7 @@ UpcomingTasks
 
 [UpcomingTasks](http://murty.io/brendan/post/20161014_farewell-upcomingtasks) was a free web-based [Basecamp 2](https://basecamp.com/2) client that I developed to easily manage tasks on smaller devices.
 
-Users had the option to upgrade to a Pro account which unlocks [additional features](http://murty.io/brendan/post/20151007_announcing-upcomingtasks-pro).
+Users had the option to upgrade to a Pro account which unlocks [additional features](https://github.com/brendanmurty/upcomingtasks/blob/master/pages/pro.php#L68).
 
 It was created in [Sublime Text](http://www.sublimetext.com/) using the [Basecamp 2 API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
 
