@@ -3,7 +3,7 @@ UpcomingTasks
 
 ## About
 
-[UpcomingTasks](http://murty.io/brendan/post/20161014_farewell-upcomingtasks) was a free web-based [Basecamp 2](https://basecamp.com/2) client that I developed to easily manage tasks on smaller devices.
+[UpcomingTasks](https://murty.au/brendan/posts/farewell-upcomingtasks) was a free web-based [Basecamp 2](https://basecamp.com/2) client that I developed to easily manage tasks on smaller devices.
 
 Users had the option to upgrade to a Pro account which unlocks [additional features](https://github.com/brendanmurty/upcomingtasks/blob/master/pages/pro.php#L68).
 
