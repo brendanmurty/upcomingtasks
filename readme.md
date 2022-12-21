@@ -9,7 +9,7 @@ Users had the option to upgrade to a Pro account which unlocks [additional featu
 
 It was created in [Sublime Text](http://www.sublimetext.com/) using the [Basecamp 2 API](https://github.com/basecamp/bcx-api) and hosted by [Digital Ocean](http://digitalocean.com).
 
-The service was online from September 2012 and [retired on 15 November, 2016](https://murty.io/brendan/post/20161014_farewell-upcomingtasks).
+The service was online from September 2012 and [retired on 15 November, 2016](https://murty.au/brendan/posts/farewell-upcomingtasks/).
 
 [![List tasks example](https://github.com/brendanmurty/upcomingtasks/blob/master/images/screenshots/list-tasks.png)](images/screenshots/list-tasks.png) [![Progress page example](https://github.com/brendanmurty/upcomingtasks/blob/master/images/screenshots/progress-list.png)](images/screenshots/progress-list.png) [![User menu example](https://github.com/brendanmurty/upcomingtasks/blob/master/images/screenshots/menu-open.png)](images/screenshots/menu-open.png)
 
