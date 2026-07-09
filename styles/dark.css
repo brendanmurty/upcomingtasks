@@ -1,0 +1,27 @@
+a,a:visited{color:#12AF09}
+h1,h2,h3,h4{color:#fff}
+html,body{background-color:#1F1F1F;color:#fff}
+header{background-color:#109f08;color:#fff}
+header a{color:#fff}
+#content{background-color:#1F1F1F;color:#fff}
+#loading-icon{color:#fff}
+a.button,nav a,a#button_menu,.buttons a{color:#fff}
+.page_account #content li a{background-color:#333;color:#fff;border-color:#000}
+.page_account #content li a:hover,.page_account #content li a:focus,.page_account #content li a:active,.page_account #content li.selected a{background-color:#555}
+ul.task-multiple li{border-top:1px solid #242424}
+ul.task li span.task-name,ul.project-multiple li span.project-name{color:#fff}
+ul.project-single ul.task li span.task-name{color:#ccc}
+ul.task li span.task-due{color:#bbb}
+ul.task li span.task-location{color:#999}
+ul.task li.overdue .task-due{color:#f5130d}
+ul.task li.today .task-due{color:#fe5d20}
+ul.task li.tomorrow .task-due{color:#fae02b}
+ul.task li.thisweek .task-due{color:#fdf19f}
+ul.comments > li{background-color:#1C1B1C}
+ul.comments li .comment-author{color:#999}
+ul.comments li .comment-content,ul.comments li .comment-content div,ul.comments li .comment-content p,ul.comments li .comment-content li{color:#eee}
+form p.buttons input,a.button{color:#fff;background-color:#0d7f07;border-color:#0a5f05}
+form p.buttons input:hover,form p.buttons input:active,form p.buttons input:focus,a.button:focus,a.button:hover{text-decoration:none;background-color:#0a5e05}
+form p.buttons a.remove{color:#0F8F07}
+form .text,form select{color:#fff;border:1px solid #636363;background-color:#383838}
+footer a,footer a:visited{color:#fff}

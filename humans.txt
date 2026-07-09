@@ -1,0 +1,12 @@
+Design & Development
+----
+Brendan Murty - brendanmurty.com
+
+Tools
+----
+0 to 255 - 0to255.com
+Basecamp API - github.com/37signals/bcx-api
+Digital Ocean - digitalocean.com
+Font Awesome - github.com/fortawesome/font-awesome
+Paint.net - getpaint.net
+Sublime Text - sublimetext.com
